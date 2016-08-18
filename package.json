@@ -1,0 +1,21 @@
+{
+  "name": "autoguide",
+  "version": "0.1.0",
+  "description": "Automatically generates developer guide from comments in code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "guide",
+    "styleguide",
+    "documentation"
+  ],
+  "author": "Glenn Martin <glenn@glenn-martin.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
