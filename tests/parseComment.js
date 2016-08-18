@@ -29,7 +29,6 @@ var testData =
 
 describe('parseComment', function () {
   var parsed = parseComment(testData);
-  console.log(parsed);
   it ('should return a js object', function () {
     expect(parsed).to.exist;
     expect(typeof parsed).to.equal('object');
