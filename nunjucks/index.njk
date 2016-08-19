@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title | default('Styleguide') }}</title>
+</head>
+<body>
+  <div class="ag-global-container">
+
+    {% for element in elements %}
+      <h1>{{ element.title }}</h1>
+    {% endfor %}
+
+  </div>
+</body>
+</html>
