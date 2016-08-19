@@ -1,0 +1,36 @@
+{# sections for showing vars #}
+
+{% import './sectionComponents.njk' as components %}
+
+{% macro colors (el) %}
+  <section id="/colors" class="ag-section ag-section--var ag-section--colors">
+    {{ components.header (el) }}
+    {% for var, val in el.vars %}
+      <div class="ag-swatch ag-swatch--{{ var }}" style="background-color: {{ val }}">
+        <span class="ag-swatch__var-name">{{ var }}</span>
+        <span class="ag-swatch__value">{{ val }}</span>
+      </div>
+    {% endfor %}
+  </section>
+{% endmacro %}
+{# alias #}
+{% macro color (el) %}{{ colors (el) }}{% endmacro %}
+
+{% macro fonts (el) %}
+  <section id="/fonts" class="ag-section ag-section--var ag-section--fonts">
+    {{ components.header (el) }}
+    {% for var, val in el.vars %}
+      {% set stack = val | split(',') %}
+      <div class="ag-font ag-font--{{ var }}">
+        <span class="ag-font__var-name">{{ var }}</span>
+        {% for font in stack %}
+          <span class="ag-font__value" style="font-family: {{ font }};">
+            {{ font | replace('"','') }}
+          </span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </section>
+{% endmacro %}
+{# alias #}
+{% macro font (el) %}{{ fonts (el) }}{% endmacro %}

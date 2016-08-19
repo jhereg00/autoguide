@@ -1,0 +1,42 @@
+{# builds the styleguide's navigation #}
+{# vars are special and built in to the template for now #}
+{% set foundColors = false %}
+{% set foundFonts = false %}
+{% for var in vars %}
+  {% if var.title == 'color' or var.title == 'colors' %}
+    {% set foundColors = true %}
+  {% elif var.title == 'font' or var.title == 'fonts' %}
+    {% set foundFonts = true %}
+  {% endif %}
+{% endfor %}
+
+{% macro elementLink (element, linkPrepend) %}
+  <li class="ag-nav-main__item">
+    <a href="{{ linkPrepend }}/{{ element.title|lower|replace(' ','-') }}" class="ag-nav-main__link">
+      {{ element.title | title }}
+    </a>
+    {% if element.subElements and element.subElements | length %}
+      <ul class="ag-nav-main__subnav">
+        {% for subEl in element.subElements %}
+          {{ elementLink (subEl, linkPrepend ~ '/' ~ element.title|lower|replace(' ','-')) }}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+{% endmacro %}
+
+<nav class="ag-nav-main">
+  <ul class="ag-nav-main__list">
+    {% if foundColors %}
+      <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/colors">Colors</a></li>
+    {% endif %}
+    {% if foundFonts %}
+      <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/fonts">Fonts</a></li>
+    {% endif %}
+
+    {# elements #}
+    {% for element in elements %}
+      {{ elementLink (element, '#') }}
+    {% endfor %}
+  </ul>
+</nav>

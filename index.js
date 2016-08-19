@@ -3,6 +3,6 @@
  */
 
 // temp
-require('./lib/buildGuide')();
+//require('./lib/buildGuide')();
 
 module.exports = require('./lib/buildGuide');

@@ -1,0 +1,8 @@
+{% macro header (el) %}
+  <header class="ag-section__header">
+    {% if el.filePath %}
+      <p class="ag-section__file-path">{{ el.filePath | join('/') }}</p>
+    {% endif %}
+    <h1>{{ el.title | title }}</h1>
+  </header>
+{% endmacro %}

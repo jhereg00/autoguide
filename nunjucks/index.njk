@@ -1,3 +1,6 @@
+{% import './_partials/varSections.njk' as varSections %}
+{% import './_partials/elementSections.njk' as elementSections %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +10,16 @@
 <body>
   <div class="ag-global-container">
 
+    {% include './_partials/nav.njk' %}
+
+    {% for var in vars %}
+      {% if varSections[var.title | lower] %}
+        {{ varSections[var.title | lower](var) }}
+      {% endif %}
+    {% endfor %}
+
     {% for element in elements %}
-      <h1>{{ element.title }}</h1>
+      {{ elementSections.section(element) }}
     {% endfor %}
 
   </div>

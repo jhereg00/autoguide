@@ -1,0 +1,18 @@
+{# sections for showing elements #}
+{# TODO: support a type value #}
+
+{% import './sectionComponents.njk' as components %}
+
+{% macro section (el, parentId) %}
+  <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}" class="ag-section ag-section--element">
+    {{ components.header (el) }}
+
+    {% if el.subElements %}
+      <div class="ag-section__sub-elements">
+        {% for subEl in el.subElements %}
+          {{ section (subEl, parentId ~ '/' ~ (el.title | lower | replace(' ','-'))) }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+{% endmacro %}
