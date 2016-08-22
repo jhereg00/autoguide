@@ -12,8 +12,7 @@ gulp.task('autoguide',function (done) {
   autoguide({
     src: [global.devPath + "/scss",global.devPath + "/js","./lib"],
     vars: [global.devPath + "/scss/settings"],
-    dest: "./sample",
-    assetDest: "assets"
+    dest: "./sample"
   }, function (err, success) {
     done();
   });
@@ -27,7 +26,7 @@ gulp.task('watch',['build'], function () {
   global.devMode = true;
   gulp.watch([global.devPath + '/scss/**/*'],['sass','autoguide']);
   gulp.watch([global.devPath + '/js/**/*'],['scripts','autoguide']);
-  gulp.watch([global.devPath + '/nunjucks/**/*'],['autoguide']);
+  gulp.watch(['./nunjucks/**/*'],['autoguide']);
 });
 // watch alias
 gulp.task('dev',['watch','server']);

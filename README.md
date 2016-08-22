@@ -27,6 +27,14 @@ Note the 3 \*'s to start the comment block, which tells Autoguide to include the
  */
 ```
 
+### Builtin Components
+
+These components will output to the styleguide when using the default template.
+
+* `code` - outputs a code block
+* `html` - outputs an iframe with the html in it, as well as a collapsible code block
+* `wrap` - wraps contents of `html` in an element of a given class (or several classes)
+
 ## Use
 
 Once included in your file, you can simply call it as a function. You may pass it a few parameters:
@@ -38,7 +46,8 @@ Once included in your file, you can simply call it as a function. You may pass i
   * `dest` - directory to place a new `index.html` file into. Default: `'./dist/styleguide'`
   * `templateVars` - an object of extra variables to pass to the template
   * `order` - array with the order to sort elements into. Default works for my [startup-library](https://github.com/jhereg00/startup-library)
-  * `assetDest` - directory for autoguide specific assets (will contain `css`, `js`, and `images` folders), with the path relative to the value of `dest`. Default: `assets`
+  * `assetPath` - server path to autoguide specific assets, with the path relative to the value of `dest`. Default: `assets`
+  * `assetDest` - file path to autoguide specific assets (will contain `css`, `js`, and `images` folders). Default: assetPath from dest
 * `callback` - callback function. Passed `error` and `true`
 
 #### Example Usage:

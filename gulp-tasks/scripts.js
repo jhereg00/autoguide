@@ -4,13 +4,8 @@
 
 var gulp = require('gulp'),
     browserify = require('browserify'),
-    sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    rename = require('gulp-rename'),
-    gutil = require('gulp-util'),
-    stripDebug = require('gulp-strip-debug'),
     fs = require('fs')
     ;
 
@@ -30,15 +25,6 @@ function browserifyScript (fileName) {
     })
     .pipe(source(fileName))
     .pipe(buffer())
-    .pipe(gulp.dest(global.distPath + '/js/'))
-    .pipe(sourcemaps.init({loadMaps: true}))
-    // Add transformation tasks to the pipeline here.
-    .pipe(rename({
-      extname: '.min.js'
-    }))
-    .pipe(stripDebug())
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(global.distPath + '/js/'));
 
   return bStream;

@@ -7,8 +7,12 @@
   <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}" class="ag-section ag-section--element">
     {{ components.header (el) }}
 
-    {% if components.description %}
-      <div class="ag-section__description">{{ components.description }}</div>
+    {% if el.description %}
+      <div class="ag-section__description">{{ el.description }}</div>
+    {% endif %}
+
+    {% if el.code %}
+      {{ components.code(el.code) }}
     {% endif %}
 
     {% if el.subElements %}

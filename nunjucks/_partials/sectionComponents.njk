@@ -6,3 +6,12 @@
     <h1>{{ el.title | title }}</h1>
   </header>
 {% endmacro %}
+
+{% macro code (content) %}
+  <h4 class="ag-section__component-header">Code</h4>
+  <pre class="ag-section__code"><code>
+{%- raw -%}
+{{ content }}
+{%- raw -%}
+  </code></pre>
+{% endmacro %}
