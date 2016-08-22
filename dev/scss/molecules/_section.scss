@@ -1,0 +1,16 @@
+/***
+ *  Section
+ *
+ *  The main sections of the guide.  Modifiers would define variations.
+ *
+ *  html:
+ *    <section class="ag-section {{ modifier }}">
+ *      <header class="ag-section__header">
+ *        <h4>This is a Section</h4>
+ *      </header>
+ *      <div class="ag-section__description"><p>The info here is <em>super</em> important!</p></div>
+ *    </section>
+ */
+.ag-section {
+  @include clear-fix();
+}

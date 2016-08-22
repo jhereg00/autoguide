@@ -3,7 +3,12 @@
     {% if el.filePath %}
       <p class="ag-section__file-path">{{ el.filePath | join('/') }}</p>
     {% endif %}
-    <h1>{{ el.title | title }}</h1>
+
+    {% if el.depth %}
+      <h{{ el.depth }}>{{ el.title | title }}</h{{ el.depth }}>
+    {% else %}
+      <h1>{{ el.title | title }}</h1>
+    {% endif %}
   </header>
 {% endmacro %}
 

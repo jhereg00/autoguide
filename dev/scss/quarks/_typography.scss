@@ -16,17 +16,14 @@
 h1,.h1 {
   @include h1;
   margin: $vr * 4 auto $vr * 3;
-  color: $brand-primary;
 }
 h2,.h2 {
   @include h2;
   margin: $vr * 3 auto $vr * 2;
-  color: $brand-primary;
 }
 h3,.h3 {
   @include h3;
   margin: $vr * 2 auto $vr;
-  color: $brand-primary;
 }
 h4,.h4 {
   @include h4;

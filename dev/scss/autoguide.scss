@@ -79,3 +79,18 @@
  * >
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
  */
+@import
+  'atoms/swatch'
+  ;
+
+/***
+ * Molecules
+ *
+ * Structures which combine multiple elements to create a coherent piece. A masthead with an image and headline, or a nav dropdown containing numerous links, for example.
+ * > This is where we can combine multiple quarks and atoms, without interfering with any of our global styles.
+ * >
+ * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
+ */
+@import
+  'molecules/section'
+  ;
