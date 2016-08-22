@@ -38,6 +38,7 @@ Once included in your file, you can simply call it as a function. You may pass i
   * `dest` - directory to place a new `index.html` file into. Default: `'./dist/styleguide'`
   * `templateVars` - an object of extra variables to pass to the template
   * `order` - array with the order to sort elements into. Default works for my [startup-library](https://github.com/jhereg00/startup-library)
+  * `assetDest` - directory for autoguide specific assets (will contain `css`, `js`, and `images` folders), with the path relative to the value of `dest`. Default: `assets`
 * `callback` - callback function. Passed `error` and `true`
 
 #### Example Usage:
