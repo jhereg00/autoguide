@@ -6,7 +6,7 @@
   <section id="/colors" class="ag-section ag-section--var ag-section--colors ag-section--depth-1">
     {{ components.header (el) }}
     {% for var, val in el.vars %}
-      <div class="ag-swatch ag-swatch--{{ var }} ag-swatch--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}" style="background-color: {{ val }}">
+      <div class="ag-swatch ag-swatch--{{ var | replace('$','') }} ag-swatch--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}" style="background-color: {{ val }}">
         <span class="ag-swatch__var-name">{{ var }}</span>
         <span class="ag-swatch__value">{{ val }}</span>
       </div>
@@ -21,7 +21,7 @@
     {{ components.header (el) }}
     {% for var, val in el.vars %}
       {% set stack = val | split(',') %}
-      <div class="ag-font ag-font--{{ var }}">
+      <div class="ag-font ag-font--{{ var | replace('$','') }}">
         <span class="ag-font__var-name">{{ var }}</span>
         {% for font in stack %}
           <span class="ag-font__value" style="font-family: {{ font }};">
