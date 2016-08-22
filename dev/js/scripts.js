@@ -1,4 +1,4 @@
-/***
+/**
  *  whole damn script
  *
  *  This should include objects, which in turn include the lib files they need.

@@ -1,0 +1,18 @@
+// Horizontal Rule
+//
+// Markup:
+//   <hr>
+//
+// Styleguide 2.3
+hr {
+  display: block;
+  width: auto;
+  margin: $vr * 3 $wr * 3;
+  border: none;
+  height: 1px;
+  background: $white;
+
+  @include mq ($bp-medium) {
+    margin: $vr * 3 $wr * 6;
+  }
+}

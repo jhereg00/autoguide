@@ -1,4 +1,81 @@
 // guide styles
-.foo {
-  color: red;
-}
+@charset 'UTF-8';
+
+/***
+ * Utilities
+ *
+ * Reusable functions, mixins, and helper classes.  Things like colors, vertical rhythm, and the .clear-fix helper are in this group.
+ * > This directory of partials is also important because we’ll need to define global classes, mixins and styles that can be used anywhere and at any time.
+ * >
+ * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
+ */
+@import
+// Sass Functions
+//
+// Functions you can call in Sass that will help with various things.
+//
+// Styleguide I.1
+  'utilities/icons',
+  'utilities/stripUnits',
+  'utilities/pxToRem',
+  'utilities/pxToEm',
+  'utilities/sqrt',
+  'utilities/pow',
+  'utilities/aspect-ratio',
+
+// Sass Mixins
+//
+// Helpful mixins for complex queries and properties.
+//
+// Styleguide I.2
+  'utilities/quantity-query',
+  'utilities/media-queries',
+
+// global styles
+  'utilities/clear-fix',
+  'utilities/grid',
+  'utilities/visuallyhidden',
+  'utilities/resets'
+  ;
+
+/**
+ * Settings
+ *
+ * Global settings and variables. This defines global site wide things like
+ * colors and fonts.
+ */
+@import
+  'settings/spacing',
+  'settings/colors',
+  'settings/fonts',
+  'settings/transitions',
+  'settings/type-scale'
+  ;
+
+/***
+ * Quarks
+ *
+ * Element level styles meant to apply globally.  These define what elements look like if no class is applied to them.  Effectively our site specific _normalize.css_.
+ * > Note that these files contain only the default styles for these elements, not modified elements. For example, if we have a table that looks and works entirely differently from the default tables used throughout the website, it would not be a quark.
+ * >
+ * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
+ */
+@import
+  'quarks/html',
+  'quarks/body',
+  'quarks/typography',
+  'quarks/links',
+  'quarks/img',
+  'quarks/svg',
+  'quarks/hr',
+  'quarks/list'
+  ;
+
+/***
+ * Atoms
+ *
+ * These are the smallest level of styles that merit a class.  Examples are buttons, icons, and text variations like disclaimers.
+ * > The styles in an atom should almost never be attached to an HTML element itself; we might not be able to guarantee what the markup will look like in the future. Specifying a class instead is always safer.
+ * >
+ * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
+ */
