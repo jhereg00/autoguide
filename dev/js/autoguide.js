@@ -5,3 +5,4 @@
  *  This keeps us using a modular approach to dev while also only including the
  *  parts of the library we need.
  */
+require('app/makeHtmlSamples')();

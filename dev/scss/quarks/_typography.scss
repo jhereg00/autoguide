@@ -15,19 +15,23 @@
 // Styleguide 2.1
 h1,.h1 {
   @include h1;
-  margin: $vr * 4 auto $vr * 3;
+  @include font-header;
+  margin: 0;
 }
 h2,.h2 {
   @include h2;
-  margin: $vr * 3 auto $vr * 2;
+  @include font-header;
+  margin: 0;
 }
 h3,.h3 {
   @include h3;
-  margin: $vr * 2 auto $vr;
+  @include font-header;
+  margin: 0;
 }
 h4,.h4 {
   @include h4;
-  margin: $vr auto;
+  @include font-header;
+  margin: 0;
 }
 p {
   margin: $vr auto;

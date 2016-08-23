@@ -10,7 +10,7 @@ hr {
   margin: $vr * 3 $wr * 3;
   border: none;
   height: 1px;
-  background: $white;
+  background: $bg-body;
 
   @include mq ($bp-medium) {
     margin: $vr * 3 $wr * 6;

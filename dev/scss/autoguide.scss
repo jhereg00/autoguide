@@ -80,7 +80,10 @@
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
  */
 @import
-  'atoms/swatch'
+  'atoms/file-path',
+  'atoms/swatch',
+  'atoms/font',
+  'atoms/description'
   ;
 
 /***
@@ -91,6 +94,18 @@
  * >
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
  */
+ @import
+   'molecules/component'
+   ;
+
+/***
+ * Organisms
+ *
+ * These are big things that combine everything smaller.  An entire form containing molecules of labels with inputs, or the global site header, for example.
+ * > Organisms are groups of molecules joined together to form a relatively complex, distinct section of an interface.
+ * >
+ * >\- http://bradfrost.com/blog/post/atomic-web-design/#organisms
+ */
 @import
-  'molecules/section'
+  'organisms/section'
   ;

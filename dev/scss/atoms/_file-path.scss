@@ -1,0 +1,13 @@
+/***
+ *  File Path
+ *
+ *  Light text showing where to find the element being described.
+ *
+ *  html:
+ *    <p class="file-path">./dev/scss/super/_awesome-file.scss</p>
+ */
+.file-path {
+  @include small;
+  margin: 0;
+  color: $text-subtle;
+}

@@ -1,7 +1,7 @@
 {% macro header (el) %}
   <header class="ag-section__header">
     {% if el.filePath %}
-      <p class="ag-section__file-path">{{ el.filePath | join('/') }}</p>
+      <p class="file-path">{{ el.filePath | join('/') }}</p>
     {% endif %}
 
     {% if el.depth %}
@@ -13,10 +13,32 @@
 {% endmacro %}
 
 {% macro code (content) %}
-  <h4 class="ag-section__component-header">Code</h4>
-  <pre class="ag-section__code"><code>
+  <h4 class="ag-component-header">Code</h4>
+  <pre class="ag-component ag-component--code"><code>
 {%- raw -%}
 {{ content }}
 {%- raw -%}
   </code></pre>
+{% endmacro %}
+
+
+{% macro html (el, fullWidth) %}
+  {% if not fullWidth %}
+    <div class="ag-section__inner">
+      <h4 class="ag-component-header">Sample</h4>
+      <make-iframe class="ag-component ag-component--html">
+        {{ el.html | safe }}
+      </make-iframe>
+    </div>
+  {% else %}
+    <div class="ag-section__inner">
+      <h4 class="ag-component-header">Sample</h4>
+    </div>
+    <make-iframe class="ag-component ag-component--html">
+      {{ el.html | safe }}
+    </make-iframe>
+  {% endif %}
+  <div class="ag-section__inner">
+    {{ code(el.html) }}
+  </div>
 {% endmacro %}

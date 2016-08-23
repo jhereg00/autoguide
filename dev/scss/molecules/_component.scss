@@ -1,0 +1,15 @@
+/***
+ *  Component
+ *
+ *  Each individual bit of crap to display.
+ *
+ *  @modifier .ag-component--html
+ */
+.ag-component {
+
+  &--html {
+    // iframe
+    width: 100%;
+    border: none;
+  }
+}

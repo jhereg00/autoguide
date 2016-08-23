@@ -1,0 +1,30 @@
+/***
+ *  Font Sample
+ *
+ *  Shows the first font found in the font stack of variables in a file named fonts.scss.
+ *
+ *  html:
+ *    <div class="ag-font">
+ *      <span class="ag-font__var-name">$my-font</span>
+ *      <span class="ag-font__value" style="font-family: 'Times New Roman', serif;">
+ *        Times New Roman
+ *      </span>
+ *    </div>
+ */
+.ag-font {
+  @include colspan (12);
+  margin: $vr * 2 auto;
+  @include mq ($bp-medium) {
+    @include colspan (6);
+    &:nth-child(2n) {
+      clear: left;
+    }
+  }
+}
+.ag-font__var-name {
+  @include font-mono;
+  display: block;
+}
+.ag-font__value {
+  @include h2;
+}

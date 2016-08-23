@@ -5,20 +5,26 @@
 
 {% macro section (el, parentId) %}
   <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}" class="ag-section ag-section--element ag-section--depth-{{ el.depth }}">
-    {{ components.header (el) }}
+    <div class="ag-section__inner">
+      {{ components.header (el) }}
 
-    {% if el.description %}
-      <div class="ag-section__description">{{ el.description | markdown | safe }}</div>
-    {% endif %}
+      {% if el.description %}
+        <div class="ag-description">{{ el.description | markdown | safe }}</div>
+      {% endif %}
 
-    {% if el.code %}
-      {{ components.code(el.code) }}
+      {% if el.code %}
+        {{ components.code(el.code) }}
+      {% endif %}
+    </div>
+
+    {% if el.html %}
+      {{ components.html(el) }}
     {% endif %}
 
     {% if el.subElements %}
       <div class="ag-section__sub-elements">
         {% for subEl in el.subElements %}
-          {{ section (subEl, parentId ~ '/' ~ (el.title | lower | replace(' ','-'))) }}
+          {{ section (subEl, (parentId if parentId) ~ '/' ~ (el.title | lower | replace(' ','-'))) }}
         {% endfor %}
       </div>
     {% endif %}

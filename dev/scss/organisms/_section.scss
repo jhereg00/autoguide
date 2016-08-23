@@ -13,4 +13,11 @@
  */
 .ag-section {
   @include clear-fix();
+  margin: $vr * 12 auto;
+}
+
+.ag-section__inner {
+  max-width: $max-width;
+  padding: 0 $wr;
+  margin: 0 auto;
 }

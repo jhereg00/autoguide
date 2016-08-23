@@ -1,9 +1,8 @@
 // Colors
-$black: #000;
-$text-dark: #333;
-$dark: #66676c;
-$medium: #f1f2f2;
-$white: #fff;
-$text-light: #fff;
-$accent: #046C6F;
-$accent-light: #11c1c4;
+$text-body: #333 !default;
+$text-subtle: rgba(33,33,33,.5) !default;
+$text-light: #fff !default;
+$bg-body: #fff !default;
+$border-html: #e9eaf0 !default;
+$accent: #046C6F !default;
+$accent-light: #11c1c4 !default;

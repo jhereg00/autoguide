@@ -24,5 +24,12 @@
     {% endfor %}
 
   </div>
+
+  <script>
+    window.ag = window.ag || {};
+    window.ag.styles = {% if styles %}["{{ styles | join('","') | safe }}"]{% else %}[]{% endif %};
+    window.ag.scripts = {% if scripts %}["{{ scripts | join('","') | safe }}"]{% else %}[]{% endif %};
+  </script>
+  <script src="{{ assetPath | replace('/\/$/','') }}/js/autoguide.js"></script>
 </body>
 </html>

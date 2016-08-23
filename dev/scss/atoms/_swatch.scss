@@ -14,7 +14,10 @@
  */
 .ag-swatch {
   @include colspan(6,12,0);
+  position: relative;
   height: $vr * 6;
+  overflow: hidden;
+  background: #abcdef;
 
   @include mq ($bp-medium) {
     @include colspan(4,12,0);
@@ -26,5 +29,29 @@
 
   &--dark {
     color: $text-light;
+  }
+}
+.ag-swatch__var-name {
+  @include font-mono;
+  position: absolute;
+  right: $wr;
+  bottom: 0;
+  white-space: nowrap;
+}
+.ag-swatch__value {
+  @include font-header;
+  position: absolute;
+  right: .01em;
+  bottom: 0;
+  left: .01em;
+  opacity: .25;
+  font-size: $vr * 2.5;
+  line-height: 1;
+
+  &--hex {
+    right: 0;
+    left: $wr * -.5;
+    bottom: $vr * -.75;
+    font-size: $vr * 4;
   }
 }

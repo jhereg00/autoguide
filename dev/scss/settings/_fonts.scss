@@ -1,24 +1,15 @@
-// Fonts
-//
-// We have both variables and mixins. The mixins include the proper letter spacing.
-//
-// $font-primary - main display font. Gotham.
-// $font-secondary - alternate font, more for style than legibility. Freeland.
-// $font-tertiary - alternate font, more for style than legibility. Trade Gothic/Myriad Pro.
-// @mixin font-primary - main display font and its letter spacing.
-// @mixin font-secondary - alternate font and its letter spacing.
-// @mixin font-tertiary - alternate font and its letter spacing.
-//
-// Styleguide 1.2
+@import 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Source+Code+Pro:500|Source+Sans+Pro:900';
 
-// @font-face {
-//   font-family: 'Wander Wisely';
-//   src: url('../fonts/wander-wisely.otf') format('opentype'), url('../fonts/wander-wisely.ttf') format('truetype');
-// }
+$font-body: 'Lato', sans-serif;
+$font-header: 'Source Sans Pro', sans-serif;
+$font-mono: 'Source Code Pro', monospace;
 
-$font-primary: "Open Sans","Helvetica","Arial",sans-serif;
-$font-secondary: "Times New Roman",serif;
-
-@mixin font-primary {
-  font-family: $font-primary;
+@mixin font-body {
+  font-family: $font-body;
+}
+@mixin font-header {
+  font-family: $font-header;
+}
+@mixin font-mono {
+  font-family: $font-mono;
 }
