@@ -5,13 +5,16 @@
  *
  *  html:
  *    <header class="header-main">
- *      <div class="toggle">
- *        <input type="checkbox" id="showGrids" class="toggle__checkbox">
- *        <label for="showGrids" class="toggle__button button--small">Show Grid</label>
- *      </div>
- *      <div class="toggle">
- *        <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
- *        <label for="showDev" class="toggle__button button--small">Show Code Sections</label>
+ *      <h1 class="header-main__title">Styleguide</h1>
+ *      <div class="header-main__controls">
+ *        <div class="toggle">
+ *          <input type="checkbox" id="showGrids" class="toggle__checkbox">
+ *          <label for="showGrids" class="toggle__button button--small">Show Grid</label>
+ *        </div>
+ *        <div class="toggle">
+ *          <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
+ *          <label for="showDev" class="toggle__button button--small">Show Code Sections</label>
+ *        </div>
  *      </div>
  *    </header>
  */
@@ -22,5 +25,18 @@
   top: 0; right: 0; left: 0;
   z-index: 8675309;
   border-bottom: 2px solid $accent;
+}
+.header-main__title {
+  @include h3;
+  @include colspan (12);
+  @include mq ($bp-large) {
+    @include colspan (8);
+  }
+}
+.header-main__controls {
+  @include colspan (12);
   text-align: right;
+  @include mq ($bp-large) {
+    @include colspan (4);
+  }
 }
