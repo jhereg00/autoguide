@@ -1,0 +1,12 @@
+{# header with nice controls #}
+<header class="header-main">
+  {# control buttons #}
+  <div class="toggle">
+    <input type="checkbox" id="showGrids" class="toggle__checkbox">
+    <label for="showGrids" class="toggle__button button--small">Show Grid</label>
+  </div>
+  <div class="toggle">
+    <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
+    <label for="showDev" class="toggle__button button--small">Show Code Sections</label>
+  </div>
+</header>

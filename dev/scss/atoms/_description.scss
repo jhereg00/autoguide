@@ -10,4 +10,8 @@
  */
 .ag-description {
   max-width: n-col-width(10);
+
+  .ag-component-header + & > :first-child {
+    margin-top: 0;
+  }
 }

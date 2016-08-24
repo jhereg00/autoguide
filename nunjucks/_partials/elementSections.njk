@@ -4,7 +4,22 @@
 {% import './sectionComponents.njk' as components %}
 
 {% macro section (el, parentId) %}
-  <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}" class="ag-section ag-section--element ag-section--depth-{{ el.depth }}">
+  {% if el.code %}
+    {% set devOnly = true %}
+  {% elif el.subElements %}
+    {% set devOnly = true %}
+    {% for se in el.subElements %}
+      {% if not se.code %}
+        {% set devOnly = false %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}"
+    class="ag-section
+      ag-section--element
+      ag-section--depth-{% if el.depth %}{{ el.depth }}{% else %}1{% endif %} 
+      {% if devOnly %}dev-only{% endif %}">
     <div class="ag-section__inner">
       {{ components.header (el) }}
 
@@ -18,7 +33,7 @@
     </div>
 
     {% if el.html %}
-      {{ components.html(el) }}
+      {{ components.html(el, el.filePath | contains ('organisms') or el.filePath | contains ('layout') or el.filePath | contains ('pages')) }}
     {% endif %}
 
     {% if el.subElements %}

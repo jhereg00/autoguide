@@ -4,12 +4,45 @@
  *  Each individual bit of crap to display.
  *
  *  @modifier .ag-component--html
+ *  @modifier .ag-component--code
+ *
+ *  html:
+ *    <div class="ag-component">
+ *      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, velit, est! Perspiciatis consectetur non eos sequi, mollitia porro recusandae voluptatem, eum aliquam possimus a dolorum saepe pariatur repudiandae in nobis.</p>
+ *    </div>
  */
 .ag-component {
 
   &--html {
     // iframe
+    display: block;
     width: 100%;
-    border: none;
+    max-width: $max-width + $wr * 2 + $vr / 2;
+    border: $vr / 4 solid $border-html;
+    margin: $vr auto;
+    box-sizing: content-box;
+    background: $bg-body;
+
+    &.fs {
+      max-width: 100%;
+      margin: $vr 0;
+      border-width: $vr / 4 0;
+    }
+  }
+
+  &--code {
+    display: none;
+    background: $bg-code;
+    margin: 0 $wr * -1;
+    padding: $vr $wr;
+    overflow: auto;
+
+    @if (lightness($bg-code) < 55) {
+      color: $text-light;
+    }
+
+    .show-dev & {
+      display: block;
+    }
   }
 }

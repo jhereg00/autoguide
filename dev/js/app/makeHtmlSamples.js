@@ -9,7 +9,7 @@
  *  So, thanks to that Hugo Giraudel guy.
  *
  *  code:
- *    makeHtmlSamples(); // goes through the whole page and does its thing
+ *    require('app/makeHtmlSamples')(); // goes through the whole page and does its thing
  */
 // requirements
 
@@ -51,6 +51,7 @@ function forEach (arr, fn) {
 // get some meta tags
 var metas = document.querySelectorAll('meta');
 var styles, scripts;
+var samples = [];
 
 var HtmlSample = function (sourceElement) {
   this.sourceElement = sourceElement;
@@ -65,6 +66,8 @@ var HtmlSample = function (sourceElement) {
     _this.setSize();
     requestAnimationFrame(checkIframeHeight);
   })();
+
+  samples.push(this);
 }
 HtmlSample.prototype = {
   /**
@@ -72,7 +75,7 @@ HtmlSample.prototype = {
    */
   buildContent: function () {
     var content = '<!doctype html>';
-    content += '<html><head>';
+    content += '<html class="show-dev ' + (this.sourceElement.classList.contains('fs') ? 'fs' : 'not-fs') + '"><head>';
     forEach(metas,function (meta) {
       content += meta.outerHTML;
     });
@@ -101,6 +104,12 @@ HtmlSample.prototype = {
    */
   getDocument: function () {
     return this.element.contentDocument || this.element.contentWindow.document;
+  },
+  /**
+   *  adds/removes the 'show-grid' class to the <html> element so we can show a grid overlay
+   */
+  toggleGrid: function () {
+    this.getDocument().getElementsByTagName('html')[0].classList.toggle('show-grid');
   }
 }
 
@@ -116,3 +125,20 @@ function makeHtmlSamples () {
 }
 
 module.exports = makeHtmlSamples;
+
+/***
+ *  Toggle HTML Sample Grids
+ *
+ *  Toggles a `.show-grid` class on the `&lt;html&gt;` element inside all the
+ *  iframes.  With the in-frame.css stylesheet included, this will turn on a 12
+ *  column grid overlay.
+ *
+ *  code:
+ *    require('app/makeHtmlSamples').toggleGrids()
+ */
+var toggleGrids = function () {
+  forEach(samples, function (s) {
+    s.toggleGrid();
+  });
+}
+module.exports.toggleGrids = toggleGrids;

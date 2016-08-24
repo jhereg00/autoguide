@@ -83,7 +83,10 @@
   'atoms/file-path',
   'atoms/swatch',
   'atoms/font',
-  'atoms/description'
+  'atoms/description',
+  'atoms/button',
+  'atoms/toggle',
+  'atoms/component-header'
   ;
 
 /***
@@ -107,5 +110,12 @@
  * >\- http://bradfrost.com/blog/post/atomic-web-design/#organisms
  */
 @import
-  'organisms/section'
+  'organisms/section',
+  'organisms/header-main',
+  'organisms/footer-main'
+  ;
+
+// extra
+@import
+  'extra/dev-only'
   ;

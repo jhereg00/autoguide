@@ -1,0 +1,11 @@
+/***
+ *  Code
+ *
+ *  &lt;code&gt; elements. Uses `$font-mono`.
+ *
+ *  html:
+ *    <code>this.is_some("code")</code>
+ */
+code {
+  @include font-mono;
+}

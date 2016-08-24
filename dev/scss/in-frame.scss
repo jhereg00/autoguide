@@ -1,0 +1,73 @@
+/**
+ *  Extra styles to add inside iframes
+ */
+ /**
+  * Utilities
+  *
+  * Reusable functions, mixins, and helper classes.  Things like colors, vertical rhythm, and the .clear-fix helper are in this group.
+  * > This directory of partials is also important because we’ll need to define global classes, mixins and styles that can be used anywhere and at any time.
+  * >
+  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
+  */
+ @import
+ // Sass Functions
+   //'utilities/icons',
+   'utilities/stripUnits',
+   'utilities/pxToRem',
+   'utilities/pxToEm',
+   'utilities/sqrt',
+   'utilities/pow',
+   'utilities/aspect-ratio',
+
+ // Sass Mixins
+   'utilities/quantity-query',
+   'utilities/media-queries',
+
+ // global styles
+   'utilities/clear-fix',
+   'utilities/grid'
+   //'utilities/visuallyhidden',
+   //'utilities/resets'
+   ;
+
+ /**
+  * Settings
+  *
+  * Global settings and variables. This defines global site wide things like
+  * colors and fonts.
+  */
+ @import
+   'settings/spacing',
+   'settings/colors',
+   //'settings/fonts',
+   'settings/transitions'
+   //'settings/type-scale'
+   ;
+
+
+
+html:not(.fs) body {
+  padding: $vr $wr;
+}
+body {
+  @extend %clear-fix;
+
+  .show-grid &::before {
+    content: '';
+    position: fixed;
+    top: 0; bottom: 0; left: 50%;
+    width: 100%;
+    max-width: $max-width;
+    z-index: 8675309;
+    transform: translateX(-50%);
+    background-image:
+      linear-gradient(
+        to right,
+        transparent $wr,
+        $overlay-columns $wr,
+        $overlay-columns calc(100% - #{$wr}),
+        transparent calc(100% - #{$wr})
+      );
+    background-size: #{1 / 12 * 100%} auto;
+  }
+}

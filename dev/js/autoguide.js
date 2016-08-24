@@ -6,3 +6,4 @@
  *  parts of the library we need.
  */
 require('app/makeHtmlSamples')();
+require('app/controls');

@@ -8,8 +8,10 @@
   <title>{{ title | default('Styleguide') }}</title>
   <link rel="stylesheet" href="{{ assetPath | replace('/\/$/','') }}/css/autoguide.css">
 </head>
-<body>
+<body class="{% if showDev %}show-dev{% endif %}">
   <div class="ag-global-container">
+
+    {% include './_partials/header.njk' %}
 
     {% include './_partials/nav.njk' %}
 
@@ -23,11 +25,14 @@
       {{ elementSections.section(element) }}
     {% endfor %}
 
+    <footer class="footer-main">
+      {{ footerMessage | markdown | safe }}
+    </footer>
   </div>
 
   <script>
     window.ag = window.ag || {};
-    window.ag.styles = {% if styles %}["{{ styles | join('","') | safe }}"]{% else %}[]{% endif %};
+    window.ag.styles = {% if styles %}["{{ styles | join('","') | safe }}"]{% else %}[]{% endif %}.concat(['{{ assetPath | replace('/\/$/','') }}/css/in-frame.css']);
     window.ag.scripts = {% if scripts %}["{{ scripts | join('","') | safe }}"]{% else %}[]{% endif %};
   </script>
   <script src="{{ assetPath | replace('/\/$/','') }}/js/autoguide.js"></script>

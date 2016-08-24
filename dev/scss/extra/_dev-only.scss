@@ -1,0 +1,9 @@
+/**
+ * .dev-only defines if an element should only show when dev view is enabled
+ */
+.dev-only {
+  display: none;
+  .show-dev & {
+    display: block;
+  }
+}

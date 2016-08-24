@@ -4,13 +4,13 @@
  *  The swatch samples near the beginning of the guide.
  *
  *  html:
- *    <div class="ag-swatch {{ modifier }}">
+ *    <div class="ag-swatch">
  *      <span class="ag-swatch__var-name">$color-name</span>
  *      <span class="ag-swatch__value">#abcdef</span>
  *    </div>
  *
  *  @default .ag-swatch--light
- *  @modifier .ag-swatch--dark
+ *  @modifier .ag-swatch--dark - swap for light text on dark colors. Example color isn't particularly dark, though.
  */
 .ag-swatch {
   @include colspan(6,12,0);

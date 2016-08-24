@@ -45,6 +45,8 @@ Once included in your file, you can simply call it as a function. You may pass i
   * `template` - template file to use for [nunjucks](http://mozilla.github.io/nunjucks) rendering. There's one built into the module.
   * `dest` - directory to place a new `index.html` file into. Default: `'./dist/styleguide'`
   * `templateVars` - an object of extra variables to pass to the template
+    * `showDev` - boolean for if sections with only code components should show by default. Default: `true`.
+    * `footerMessage` - string to put in the footer, parsed with markdown. I appreciate attribution...
   * `order` - array with the order to sort elements into. Default works for my [startup-library](https://github.com/jhereg00/startup-library)
   * `assetPath` - server path to autoguide specific assets, with the path relative to the value of `dest`. Default: `assets`
   * `assetDest` - file path to autoguide specific assets (will contain `css`, `js`, and `images` folders). Default: assetPath from dest
@@ -72,3 +74,13 @@ autoguide({
     console.log ('Super Awesome Styleguide created!');
 });
 ```
+
+## Vars
+
+* `html:` - code to use in creating a sample iframe.
+* `code:` - code to output in a code block. Good for examples of scripts or mixin usage.
+
+## Attributes
+
+* `@modifier .class - description` - description is optional. Each of these adds another html sample to the element's section with the modifier added to the outermost element.
+* `@default name - description` - description is optional. If modifiers are present, changes the title 'Default' to name and adds the description before the first, unmodified sample.

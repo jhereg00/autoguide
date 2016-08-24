@@ -1,0 +1,26 @@
+/***
+ *  Main Header
+ *
+ *  Simple fixed header with the controls.
+ *
+ *  html:
+ *    <header class="header-main">
+ *      <div class="toggle">
+ *        <input type="checkbox" id="showGrids" class="toggle__checkbox">
+ *        <label for="showGrids" class="toggle__button button--small">Show Grid</label>
+ *      </div>
+ *      <div class="toggle">
+ *        <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
+ *        <label for="showDev" class="toggle__button button--small">Show Code Sections</label>
+ *      </div>
+ *    </header>
+ */
+.header-main {
+  background: $bg-header;
+  padding: $vr / 2 $wr;
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  z-index: 8675309;
+  border-bottom: 2px solid $accent;
+  text-align: right;
+}

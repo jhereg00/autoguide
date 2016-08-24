@@ -1,0 +1,33 @@
+/***
+ *  Button
+ *
+ *  Basic button, and its variations.
+ *
+ *  @modifier .button--small
+ *
+ *  html:
+ *    <a class="button">Click Here, Dummy</a>
+ */
+.button {
+  @include body;
+  @include font-header;
+  position: relative;
+  display: inline-block;
+  padding: $vr / 2 $wr;
+  border: 1px solid $accent;
+  border-radius: $vr / 4;
+  cursor: pointer;
+  transition: all .3s;
+  color: $accent;
+
+  &:hover {
+    border-color: $accent-light;
+    box-shadow: inset 0 0 $vr rgba($accent, .25);
+    color: $accent-light;
+  }
+}
+
+.button--small {
+  @include small;
+  padding: $vr / 4 $wr / 2;
+}

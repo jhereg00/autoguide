@@ -13,7 +13,7 @@
 {% endmacro %}
 
 {% macro code (content) %}
-  <h4 class="ag-component-header">Code</h4>
+  <h4 class="ag-component-header dev-only">Code</h4>
   <pre class="ag-component ag-component--code"><code>
 {%- raw -%}
 {{ content }}
@@ -21,22 +21,30 @@
   </code></pre>
 {% endmacro %}
 
+{% macro htmlSample (title, description, content, fullWidth) %}
+  <div class="ag-section__inner">
+    <h4 class="ag-component-header">{{ title }}</h4>
+    {% if description %}
+      <div class="ag-description">{{ description | markdown | safe }}</div>
+    {% endif %}
+  </div>
+  <make-iframe class="ag-component ag-component--html {% if fullWidth %}fs{% endif %}">
+    {{ content | safe }}
+  </make-iframe>
+{% endmacro %}
 
 {% macro html (el, fullWidth) %}
-  {% if not fullWidth %}
-    <div class="ag-section__inner">
-      <h4 class="ag-component-header">Sample</h4>
-      <make-iframe class="ag-component ag-component--html">
-        {{ el.html | safe }}
-      </make-iframe>
-    </div>
+  {% if el.modifier | length %}
+    {% if el.default | length %}
+      {{ htmlSample (el.default[0].name, el.default[0].description, el.html, fullWidth) }}
+    {% else %}
+      {{ htmlSample ("Default", null, el.html, fullWidth) }}
+    {% endif %}
+    {% for mod in el.modifier %}
+      {{ htmlSample (mod.name, mod.description, el.html | addModifier(mod.name), fullWidth) }}
+    {% endfor %}
   {% else %}
-    <div class="ag-section__inner">
-      <h4 class="ag-component-header">Sample</h4>
-    </div>
-    <make-iframe class="ag-component ag-component--html">
-      {{ el.html | safe }}
-    </make-iframe>
+    {{ htmlSample ("Sample", null, el.html, fullWidth) }}
   {% endif %}
   <div class="ag-section__inner">
     {{ code(el.html) }}

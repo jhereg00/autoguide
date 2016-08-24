@@ -1,0 +1,27 @@
+/***
+ *  Main Footer
+ *
+ *  Just a quick signoff.
+ *
+ *  html:
+ *    <footer class="footer-main">
+ *      <p>Created using <a href="https://github.com/jhereg00/autoguide" target="_blank">Autoguide</a>.</p>
+ *    </footer>
+ */
+.footer-main {
+  @include small;
+  padding: $vr $wr;
+  margin-top: $vr * 8;
+  background: $bg-footer;
+
+  @if (lightness($bg-footer) < 55) {
+    color: $text-light;
+  } @else {
+    color: $text-subtle;
+  }
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+}

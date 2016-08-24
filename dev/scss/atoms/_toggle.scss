@@ -1,0 +1,28 @@
+/***
+ *  Toggle
+ *
+ *  A button that stays active based on a hidden checkbox. Class extends
+ *  [button](#/atoms/button).
+ *
+ *  html:
+ *    <div class="toggle">
+ *      <input type="checkbox" id="sample" class="toggle__checkbox">
+ *      <label for="sample" class="toggle__button">I Toggle</label>
+ *    </div>
+ */
+.toggle {
+  display: inline-block;
+}
+.toggle__checkbox {
+  @extend %visuallyhidden;
+}
+.toggle__button {
+  @extend .button;
+
+  .toggle__checkbox:checked ~ & {
+    background: $bg-code;
+    @if (lightness($bg-code) < .55) {
+      color: $text-light;
+    }
+  }
+}

@@ -6,7 +6,7 @@ body {
   @include body;
   font-weight: 300;
   margin: 0;
-  padding: 0;
+  padding: $vr * 4 0 0 0; // push everything down for the fixed header
   background: $bg-body;
   color: $text-body;
 }

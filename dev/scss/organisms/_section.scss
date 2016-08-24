@@ -5,19 +5,53 @@
  *
  *  html:
  *    <section class="ag-section {{ modifier }}">
- *      <header class="ag-section__header">
- *        <h4>This is a Section</h4>
- *      </header>
- *      <div class="ag-section__description"><p>The info here is <em>super</em> important!</p></div>
+ *      <div class="ag-section__inner">
+ *        <header class="ag-section__header">
+ *          <h4>This is a Section</h4>
+ *        </header>
+ *        <div class="ag-section__description"><p>The info here is <em>super</em> important!</p></div>
+ *      </div>
  *    </section>
  */
 .ag-section {
   @include clear-fix();
-  margin: $vr * 12 auto;
+  margin: $vr * 8 auto;
+  position: relative;
+
+  &--depth-1 {
+    margin-top: $vr * 12;
+  }
 }
 
 .ag-section__inner {
   max-width: $max-width;
   padding: 0 $wr;
   margin: 0 auto;
+}
+
+.ag-section__sub-elements {
+  position: relative;
+  padding-top: $vr * 4;
+  margin-top: $vr * 2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    margin: 0 auto;
+    width: $max-width;
+    max-width: 100%;
+    border-left: 1px solid $border-html;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  > .ag-section:first-child {
+    margin-top: 0;
+  }
+  > .ag-section:last-child {
+    margin-bottom: 0;
+  }
+  .ag-section__inner {
+    padding-left: $wr;
+    box-sizing: border-box;
+  }
 }
