@@ -1,27 +1,26 @@
-// Media Queries
-//
-// Defines our default breakpoints.  Assumes mobile-first code, but supports not
-// by passing your breakpoint to the alternate mixin: `mq-lt`. Don't worry about
-// having a ton of these, since the minification process will combine them.
-//
-// There's also a separate mixin each for `portrait` and `landscape` orientations.
-//
-// ```
-// @include mq($breakpoint) {
-//   @content;
-// }
-// @include portrait {
-//   @content;
-// }
-// @include landscape {
-//   @content;
-// }
-// ```
-//
-// $breakpoint - what size you'd like to target larger than. A few have been pre-defined.
-// @content - the content to put in the media query
-//
-// Styleguide I.3
+/***
+ * Media Queries
+ *
+ * Defines our default breakpoints.  Assumes mobile-first code, but supports not
+ * by passing your breakpoint to the alternate mixin: `mq-lt`. Don't worry about
+ * having a ton of these, since the minification process will combine them.
+ *
+ * There's also a separate mixin each for `portrait` and `landscape` orientations.
+ *
+ * code:
+ *   @include mq($breakpoint) {
+ *     @content;
+ *   }
+ *   @include portrait {
+ *     @content;
+ *   }
+ *   @include landscape {
+ *     @content;
+ *   }
+ *
+ * @param $breakpoint - what size you'd like to target larger than. A few have been pre-defined.
+ * @param @content - the content to put in the media query
+ */
 @mixin mq ($breakpoint) {
   @media only screen and (min-width:$breakpoint) {
     @content;

@@ -1,0 +1,13 @@
+/***
+ * Strip Units
+ *
+ * Strips the units from a number
+ *
+ * code:
+ *   stripUnits($number);
+ *
+ * @param $number - value to strip the units from.
+ */
+@function stripUnits($number) {
+  @return $number / ($number * 0 + 1);
+}

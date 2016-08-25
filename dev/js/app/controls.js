@@ -7,7 +7,8 @@
  *    require('app/controls');
  */
 // requirements
-var toggleGrids = require('app/makeHtmlSamples').toggleGrids;
+var toggleGrids = require('app/HtmlSample').toggleGrids;
+var setWidths = require('app/HtmlSample').setWidths;
 
 // settings
 
@@ -22,4 +23,12 @@ var showDev = document.getElementById('showDev');
 if (showDev)
   showDev.addEventListener('change', function () {
     document.body.classList.toggle('show-dev');
+  });
+
+// size iframes
+var sizeMobile = document.getElementById('sizeMobile');
+if (sizeMobile)
+  sizeMobile.addEventListener('click', function (e) {
+    e.preventDefault();
+    setWidths(320);
   });

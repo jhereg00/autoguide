@@ -1,15 +1,12 @@
 /***
- *  Html Sample
+ *  Make All Html Samples
  *
  *  Searches for all `<make-iframe>` elements and does just that: makes them iframes.
  *  It also includes the stylesheets and scripts present in the window level `ag`
  *  object.  Those should be populated by the template.
  *
- *  This code is based _**heavily**_ on [iframify](https://github.com/edenspiekermann/iframify/blob/master/iframify.js).
- *  So, thanks to that Hugo Giraudel guy.
- *
  *  code:
- *    require('app/makeHtmlSamples')(); // goes through the whole page and does its thing
+ *    require('app/HtmlSample').makeAll(); // goes through the whole page and does its thing
  */
 // requirements
 
@@ -53,6 +50,28 @@ var metas = document.querySelectorAll('meta');
 var styles, scripts;
 var samples = [];
 
+/***
+ *  `HtmlSample` Class
+ *
+ *  Controls an individual HTML Sample, which is an iframe that loads the css and
+ *  scripts that the styleguide is meant to show. It includes the stylesheets and
+ *  scripts present in the window level `ag` object.
+ *
+ *  @param {DOMElement} sourceElement - the element to turn into an iframe
+ *
+ *  @method {void} buildContent() - builds a string of the element as a full html document
+ *    and assigns it as the document of the iframe.
+ *  @method {void} autoHeight() - alters the height of the iframe to be the minimum needed to
+ *    eliminate a scrollbar.  Automatically called on a per animation frame basis.
+ *  @method {DOMElement} getDocument() - returns the iframe's document object
+ *  @method {void} toggleGrid() - adds/removes the 'show-grid' class to the <html> element
+ *    so we can show a grid overlay
+ *  @method {void} setWidth(width) - sets the width of the iframe, useful for showing
+ *    media queries
+ *    @param {int} width - width in pixels. Resets to default size if falsy
+ *
+ *  @prop element - the actual iframe element
+ */
 var HtmlSample = function (sourceElement) {
   this.sourceElement = sourceElement;
   this.element = document.createElement('iframe');
@@ -63,7 +82,7 @@ var HtmlSample = function (sourceElement) {
 
   var _this = this;
   (function checkIframeHeight () {
-    _this.setSize();
+    _this.autoHeight();
     requestAnimationFrame(checkIframeHeight);
   })();
 
@@ -91,9 +110,9 @@ HtmlSample.prototype = {
     this.element.srcdoc = content;
   },
   /**
-   *  setSize updates the height of the iframe to exactly contain its content
+   *  autoHeight updates the height of the iframe to exactly contain its content
    */
-  setSize: function () {
+  autoHeight: function () {
     var doc = this.getDocument();
     var docHeight = getDocumentHeight(doc);
     if (docHeight != this.element.height)
@@ -110,6 +129,19 @@ HtmlSample.prototype = {
    */
   toggleGrid: function () {
     this.getDocument().getElementsByTagName('html')[0].classList.toggle('show-grid');
+  },
+  /**
+   *  sets the width of the iframe, useful for showing media queries
+   */
+  setWidth: function (w) {
+    if (w) {
+      this.element.style.width = w + 'px';
+      this.element.classList.add('resized');
+    }
+    else {
+      this.element.style.width = '';
+      this.element.classList.remove('resized');
+    }
   }
 }
 
@@ -123,8 +155,6 @@ function makeHtmlSamples () {
     new HtmlSample(els[i]);
   };
 }
-
-module.exports = makeHtmlSamples;
 
 /***
  *  Toggle HTML Sample Grids
@@ -141,4 +171,24 @@ var toggleGrids = function () {
     s.toggleGrid();
   });
 }
+
+/***
+ *  setWidths
+ *
+ *  Sets all `HtmlSample`s to the provided width.
+ *
+ *  code:
+ *    require('app/HtmlSample').setWidths(width);
+ *
+ *  @param {int} width
+ */
+var setWidths = function (w) {
+  forEach(samples, function (s) {
+    s.setWidth(w);
+  });
+}
+
+module.exports = HtmlSample;
+module.exports.makeAll = makeHtmlSamples;
 module.exports.toggleGrids = toggleGrids;
+module.exports.setWidths = setWidths;

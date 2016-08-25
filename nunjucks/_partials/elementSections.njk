@@ -27,9 +27,7 @@
         <div class="ag-description">{{ el.description | markdown | safe }}</div>
       {% endif %}
 
-      {% if el.param %}
-        {{ components.params(el.param) }}
-      {% endif %}
+      {{ components.arrays(el) }}
 
       {% if el.code %}
         {{ components.code(el.code) }}

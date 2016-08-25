@@ -5,7 +5,7 @@
 {% macro colors (el) %}
   <section id="/colors" class="ag-section ag-section--var ag-section--colors ag-section--depth-1">
     <div class="ag-section__inner">
-      {{ components.header (el) }}
+      {{ components.header (el, true) }}
     {% for var, val in el.vars %}
       <div class="ag-swatch ag-swatch--{{ var | replace('$','') }} ag-swatch--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}" style="background-color: {{ val }}">
         <span class="ag-swatch__var-name">{{ var }}</span>
@@ -21,7 +21,7 @@
 {% macro fonts (el) %}
   <section id="/fonts" class="ag-section ag-section--var ag-section--fonts ag-section--depth-1">
     <div class="ag-section__inner">
-      {{ components.header (el) }}
+      {{ components.header (el, true) }}
     {% for var, val in el.vars %}
       {% set stack = val | split(',') %}
       <div class="ag-font ag-font--{{ var | replace('$','') }}">

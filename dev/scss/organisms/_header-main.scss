@@ -4,9 +4,9 @@
  *  Simple fixed header with the controls.
  *
  *  html:
- *    <header class="header-main">
- *      <h1 class="header-main__title">Styleguide</h1>
- *      <div class="header-main__controls">
+ *    <header class="ag-header-main">
+ *      <h1 class="ag-header-main__title">Styleguide</h1>
+ *      <div class="ag-header-main__controls">
  *        <div class="toggle">
  *          <input type="checkbox" id="showGrids" class="toggle__checkbox">
  *          <label for="showGrids" class="toggle__button button--small">Show Grid</label>
@@ -18,7 +18,7 @@
  *      </div>
  *    </header>
  */
-.header-main {
+.ag-header-main {
   background: $bg-header;
   padding: $vr / 2 0;
   position: fixed;
@@ -26,14 +26,14 @@
   z-index: 8675309;
   border-bottom: 2px solid $accent;
 }
-.header-main__title {
+.ag-header-main__title {
   @include h3;
   @include colspan (12);
   @include mq ($bp-large) {
     @include colspan (8);
   }
 }
-.header-main__controls {
+.ag-header-main__controls {
   @include colspan (12);
   text-align: right;
   @include mq ($bp-large) {

@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    fs = require('fs')
+    fs = require('fs'),
+    gutil = require('gulp-util')
     ;
 
 function browserifyScript (fileName) {

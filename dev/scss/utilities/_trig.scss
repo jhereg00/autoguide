@@ -1,6 +1,4 @@
-////////////////////////
-//  trig
-////////////////////////
+// TODO: properly document these functions
 @function pow($number, $exp) {
   $value: 1;
   @if $exp > 0 {

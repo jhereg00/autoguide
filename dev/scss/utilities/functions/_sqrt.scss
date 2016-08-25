@@ -1,16 +1,15 @@
-// Square Root Function
-//
-// Gets the square root of a number (within a margin of error)
-//
-// Useful for diagonal/Pythagorean stuff.
-//
-// ```
-// sqrt($num)
-// ```
-//
-// $num - number to get square root of
-//
-// Styleguide I.1.2
+/***
+ * Square Root Function
+ *
+ * Gets the square root of a number (within a margin of error)
+ *
+ * Useful for diagonal/Pythagorean stuff.
+ *
+ * code:
+ *   sqrt($num)
+ *
+ * @param $num - number to get square root of
+ */
 @function approximateSq($num, $approx) {
   $root : (( $num / $approx ) + $approx) / 2;
   @return $root;

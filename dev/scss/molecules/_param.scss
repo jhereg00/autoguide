@@ -12,10 +12,19 @@
  */
 .ag-param {
   padding-left: $wr;
+
+  & + & {
+    margin-top: $vr;
+  }
+
+  & & {
+    padding-left: $wr * 2;
+  }
 }
 .ag-param__type {
   @include font-mono;
   color: $text-subtle;
+  margin-right: $wr;
 }
 .ag-param__name {
   @include font-mono;
@@ -25,5 +34,8 @@
   padding-left: $wr;
   > :first-child {
     margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
   }
 }

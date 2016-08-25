@@ -1,17 +1,16 @@
-// Power / Exponent Function
-//
-// Raises a number to a certain power. Supports integers and .5s as the exponent.
-//
-// Useful for diagonal/Pythagorean stuff.
-//
-// ```
-// pow($base, $exponent)
-// ```
-//
-// $base - number to get square root of
-// $exponent - exponent to raise the base number to
-//
-// Styleguide I.1.3
+/***
+ * Power / Exponent Function
+ *
+ * Raises a number to a certain power. Supports integers and .5s as the exponent.
+ *
+ * Useful for diagonal/Pythagorean stuff.
+ *
+ * code:
+ *   pow($base, $exponent)
+ *
+ * @param $base - number to get square root of
+ * @param $exponent - exponent to raise the base number to
+ */
 @function pow ($base, $exponent) {
   $unit: $base / stripUnits($base);
   $base: stripUnits($base);

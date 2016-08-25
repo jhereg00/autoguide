@@ -1,5 +1,0 @@
-// Strips the units from a number
-// useful for conversions
-@function stripUnits($number) {
-  @return $number / ($number * 0 + 1);
-}

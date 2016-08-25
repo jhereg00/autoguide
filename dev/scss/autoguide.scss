@@ -16,11 +16,11 @@
 //
 // Styleguide I.1
   'utilities/icons',
-  'utilities/stripUnits',
-  'utilities/pxToRem',
-  'utilities/pxToEm',
-  'utilities/sqrt',
-  'utilities/pow',
+  'utilities/functions/stripUnits',
+  'utilities/functions/pxToRem',
+  'utilities/functions/pxToEm',
+  'utilities/functions/sqrt',
+  'utilities/functions/pow',
   'utilities/mixins/aspect-ratio',
 
 // Sass Mixins
@@ -28,12 +28,12 @@
 // Helpful mixins for complex queries and properties.
 //
 // Styleguide I.2
-  'utilities/quantity-query',
-  'utilities/media-queries',
+  'utilities/mixins/quantity-query',
+  'utilities/mixins/media-queries',
 
 // global styles
   'utilities/mixins/clear-fix',
-  'utilities/grid',
+  'utilities/mixins/grid',
   'utilities/visuallyhidden',
   'utilities/resets'
   ;

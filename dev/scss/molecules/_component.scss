@@ -23,9 +23,9 @@
     box-sizing: content-box;
     background: $bg-body;
 
-    &.fs {
+    &.fs:not(.resized) {
       max-width: 100%;
-      margin: $vr 0;
+      margin: $vr auto;
       border-width: $vr / 4 0;
     }
   }

@@ -1,13 +1,19 @@
-{% macro header (el) %}
+{% macro header (el, titleCase) %}
   <header class="ag-section__header">
     {% if el.filePath %}
       <p class="file-path">{{ el.filePath | join('/') }}</p>
     {% endif %}
 
-    {% if el.depth %}
-      <h{{ el.depth }}>{{ el.title | title }}</h{{ el.depth }}>
+    {% if el.generated or titleCase %}
+      {% set title = el.title | title | markdown | safe %}
     {% else %}
-      <h1>{{ el.title | title }}</h1>
+      {% set title = el.title | markdown | safe %}
+    {% endif %}
+
+    {% if el.depth %}
+      <h{{ el.depth }}>{{ title }}</h{{ el.depth }}>
+    {% else %}
+      <h1>{{ title }}</h1>
     {% endif %}
   </header>
 {% endmacro %}
@@ -22,12 +28,16 @@
 {% endmacro %}
 
 {% macro htmlSample (title, description, content, fullWidth) %}
-  <div class="ag-section__inner">
-    <h4 class="ag-component-header">{{ title }}</h4>
-    {% if description %}
-      <div class="ag-description">{{ description | markdown | safe }}</div>
-    {% endif %}
-  </div>
+  {% if title or description %}
+    <div class="ag-section__inner">
+      {% if title %}
+        <h4 class="ag-component-header">{{ title }}</h4>
+      {% endif %}
+      {% if description %}
+        <div class="ag-description">{{ description | markdown | safe }}</div>
+      {% endif %}
+    </div>
+  {% endif %}
   <make-iframe class="ag-component ag-component--html {% if fullWidth %}fs{% endif %}">
     {{ content | safe }}
   </make-iframe>
@@ -44,28 +54,86 @@
       {{ htmlSample (mod.name, mod.description, el.html | addModifier(mod.name), fullWidth) }}
     {% endfor %}
   {% else %}
-    {{ htmlSample ("Sample", null, el.html, fullWidth) }}
+    {{ htmlSample (null, null, el.html, fullWidth) }}
   {% endif %}
   <div class="ag-section__inner">
     {{ code(el.html) }}
   </div>
 {% endmacro %}
 
-{% macro params (params) %}
+{% macro arrItem (param) %}
+  <div class="ag-param">
+    {% if param.type %}
+      <span class="ag-param__type">{{ param.type }}</span>
+    {% endif %}
+    {% if param.name %}
+      <span class="ag-param__name">{{ param.name }}</span>
+    {% endif %}
+    {% if param.description %}
+      <div class="ag-param__description ag-description">{{ param.description | markdown | safe }}</div>
+    {% endif %}
+    {{ arrays (param, true) }}
+  </div>
+{% endmacro %}
+
+{% macro params (params, sub) %}
   <div class="ag-component--params">
-    <h4 class="ag-component-header">Parameters</h4>
+    {% if not sub %}
+      <h4 class="ag-component-header">Parameters</h4>
+    {% endif %}
     {% for param in params %}
-      <div class="ag-param">
-        {% if param.type %}
-          <span class="ag-param__type">{{ param.type }}</span>
-        {% endif %}
-        {% if param.name %}
-          <span class="ag-param__name">{{ param.name }}</span>
-        {% endif %}
-        {% if param.description %}
-          <div class="ag-param__description ag-description">{{ param.description | markdown | safe }}</div>
-        {% endif %}
-      </div>
+      {{ arrItem (param) }}
     {% endfor %}
   </div>
+{% endmacro %}
+
+{% macro methods (params, sub) %}
+  <div class="ag-component--params">
+    {% if not sub %}
+      <h4 class="ag-component-header">Methods</h4>
+    {% endif %}
+    {% for param in params %}
+      {{ arrItem (param) }}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro props (params, sub) %}
+  <div class="ag-component--params">
+    {% if not sub %}
+      <h4 class="ag-component-header">Properties</h4>
+    {% endif %}
+    {% for param in params %}
+      {{ arrItem (param) }}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro returns (params, sub) %}
+  <div class="ag-component--params">
+    {% if not sub %}
+      <h4 class="ag-component-header">Returns</h4>
+    {% endif %}
+    {% for param in params %}
+      {{ arrItem (param) }}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro arrays (el, sub) %}
+  {% if el.param %}
+    {{ params(el.param, sub) }}
+  {% endif %}
+
+  {% if el.method %}
+    {{ methods(el.method, sub) }}
+  {% endif %}
+
+  {% if el.prop %}
+    {{ props(el.prop, sub) }}
+  {% endif %}
+
+  {% if el.returns %}
+    {{ returns(el.returns, sub) }}
+  {% endif %}
 {% endmacro %}
