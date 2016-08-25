@@ -1,14 +1,15 @@
-// Blockquote
-//
-// Really just a reset
-//
-// Markup:
-//   <blockquote>
-//     <p>"Some content that's a quote."</p>
-//   </blockquote>
-//
-// Styleguide 2.4
+/***
+ * Blockquote
+ *
+ * Inset with a left border.
+ *
+ * html:
+ *   <blockquote>
+ *     <p>"Some content that's a quote."</p>
+ *   </blockquote>
+ */
 blockquote {
   margin: $vr 0;
-  padding: 0;
+  padding: 0 0 0 $vr * .75;
+  border-left: $vr * .25 solid $border-html;
 }

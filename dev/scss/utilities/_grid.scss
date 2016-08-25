@@ -1,27 +1,28 @@
-// Grid
-//
-// Our super simple custom grid system. Just include the mixin `gridContainer`
-// to set max-width = $max-width + $gutter. For internal stuff, use
-// `subgridContainer` to automatically offset the margins on the container if
-// needed, and `colspan` on the actual column.  By default, assumes 12 columns
-// and a 2 * $wr gutter, but those can be overridden for more complex layouts.
-// It spits out styles wherever it is called, so you can define different
-// columns or even entirely different grids within media queries.
-//
-// There's also a colpush mixin to shift an element to the right by a number of columns.
-//
-// ```
-// @include gridContainer ([$gutter]);
-// @include subgridContainer ([$gutter]);
-// @include colspan ($span[, $total[, $gutter]]);
-// @include colpush ($span[, $total[, $gutter]]);
-// ```
-//
-// $span - number of columns to span
-// $total - number of total columns the grid has
-// $gutter - width of the gutters between columns
-//
-// Styleguide I.4
+/***
+ * Grid
+ *
+ * Our super simple custom grid system. Just include the mixin `gridContainer`
+ * to set max-width = $max-width + $gutter. For internal stuff, use
+ * `subgridContainer` to automatically offset the margins on the container if
+ * needed, and `colspan` on the actual column.  By default, assumes 12 columns
+ * and a 2 * $wr gutter, but those can be overridden for more complex layouts.
+ * It spits out styles wherever it is called, so you can define different
+ * columns or even entirely different grids within media queries.
+ *
+ * There's also a colpush mixin to shift an element to the right by a number of columns.
+ *
+ * Remember, variables wrapped in `[]` in the example are optional.
+ *
+ * code:
+ *   @include gridContainer ([$gutter]);
+ *   @include subgridContainer ([$gutter]);
+ *   @include colspan ($span[, $total[, $gutter]]);
+ *   @include colpush ($span[, $total[, $gutter]]);
+ *
+ * @param {int} $span - number of columns to span
+ * @param {int} $total - number of total columns the grid has
+ * @param {number w/ unit} $gutter - width of the gutters between columns
+ */
 @mixin gridContainer ($gutter: $wr * 2) {
   @extend %clear-fix;
   @if $max-width != 100% {

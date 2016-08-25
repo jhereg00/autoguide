@@ -129,7 +129,7 @@ module.exports = makeHtmlSamples;
 /***
  *  Toggle HTML Sample Grids
  *
- *  Toggles a `.show-grid` class on the `&lt;html&gt;` element inside all the
+ *  Toggles a `.show-grid` class on the `<html>` element inside all the
  *  iframes.  With the in-frame.css stylesheet included, this will turn on a 12
  *  column grid overlay.
  *

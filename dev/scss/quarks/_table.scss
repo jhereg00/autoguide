@@ -1,25 +1,28 @@
-// Table
-//
-// Markup:
-//   <table>
-//     <tr>
-//       <th>Lorem</th>
-//       <td>Ipsum</td>
-//       <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse perspiciatis vitae sunt, magnam blanditiis unde velit quis perferendis iure ut excepturi tempora eos autem accusamus amet et, non? Distinctio, eaque.</td>
-//     </tr>
-//     <tr>
-//       <th>Sit</th>
-//       <td>Amet</td>
-//       <td>Lorem</td>
-//     </tr>
-//     <tr>
-//       <th>Ipsum</th>
-//       <td>Dolor</td>
-//       <td>Sit</td>
-//     </tr>
-//   </table>
-//
-// Styleguide 2.5
+/***
+ * Table
+ *
+ * html:
+ *   <table>
+ *     <tr>
+ *       <th>Lorem</th>
+ *       <td>Ipsum</td>
+ *       <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+ *          perspiciatis vitae sunt, magnam blanditiis unde velit quis perferendis
+ *          iure ut excepturi tempora eos autem accusamus amet et, non? Distinctio,
+ *          eaque.</td>
+ *     </tr>
+ *     <tr>
+ *       <th>Sit</th>
+ *       <td>Amet</td>
+ *       <td>Lorem</td>
+ *     </tr>
+ *     <tr>
+ *       <th>Ipsum</th>
+ *       <td>Dolor</td>
+ *       <td>Sit</td>
+ *     </tr>
+ *   </table>
+ */
 table {
   display: table;
   width: 100%;
@@ -27,8 +30,8 @@ table {
   border-collapse: collapse;
 }
 tr {
-  border-top: 1px solid mix(white, $black, 30%);
-  border-bottom: 1px solid mix(white, $black, 30%);
+  border-top: 1px solid $border-html;
+  border-bottom: 1px solid $border-html;
 }
 th,td {
   text-align: left;

@@ -17,14 +17,14 @@
    'utilities/pxToEm',
    'utilities/sqrt',
    'utilities/pow',
-   'utilities/aspect-ratio',
+   'utilities/mixins/aspect-ratio',
 
  // Sass Mixins
    'utilities/quantity-query',
    'utilities/media-queries',
 
  // global styles
-   'utilities/clear-fix',
+   'utilities/mixins/clear-fix',
    'utilities/grid'
    //'utilities/visuallyhidden',
    //'utilities/resets'

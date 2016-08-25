@@ -18,13 +18,17 @@
   <section id="{{ parentId }}/{{ el.title | lower | replace(' ','-') }}"
     class="ag-section
       ag-section--element
-      ag-section--depth-{% if el.depth %}{{ el.depth }}{% else %}1{% endif %} 
+      ag-section--depth-{% if el.depth %}{{ el.depth }}{% else %}1{% endif %}
       {% if devOnly %}dev-only{% endif %}">
     <div class="ag-section__inner">
       {{ components.header (el) }}
 
       {% if el.description %}
         <div class="ag-description">{{ el.description | markdown | safe }}</div>
+      {% endif %}
+
+      {% if el.param %}
+        {{ components.params(el.param) }}
       {% endif %}
 
       {% if el.code %}

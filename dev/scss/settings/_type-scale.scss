@@ -3,6 +3,14 @@
  *
  *  Created using [Gridlover](http://www.gridlover.net/try).  Values were size 16,
  *  line height 2, scale factor 1.5
+ *
+ *  code:
+ *    @include h1;
+ *    @include h2;
+ *    @include h3;
+ *    @include h4;
+ *    @include body;
+ *    @include small;
  */
 @mixin h1 () {
   font-size: pxToRem(54);

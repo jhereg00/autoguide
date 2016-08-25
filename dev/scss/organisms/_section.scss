@@ -17,6 +17,7 @@
   @include clear-fix();
   margin: $vr * 8 auto;
   position: relative;
+  overflow: hidden;
 
   &--depth-1 {
     margin-top: $vr * 12;
@@ -27,6 +28,13 @@
   max-width: $max-width;
   padding: 0 $wr;
   margin: 0 auto;
+  box-sizing: border-box;
+
+  @for $depth from 2 through 5 {
+    .ag-section--depth-#{$depth} & {
+      padding-left: $wr * ($depth);
+    }
+  }
 }
 
 .ag-section__sub-elements {
@@ -36,7 +44,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 0; bottom: 0; left: 50%;
+    top: 0; bottom: 0; //left: 50%;
     margin: 0 auto;
     width: $max-width;
     max-width: 100%;
@@ -50,8 +58,10 @@
   > .ag-section:last-child {
     margin-bottom: 0;
   }
-  .ag-section__inner {
-    padding-left: $wr;
-    box-sizing: border-box;
+
+  @for $depth from 1 through 5 {
+    .ag-section--depth-#{$depth} &::before {
+      left: calc(50% + #{$wr * ($depth)});
+    }
   }
 }

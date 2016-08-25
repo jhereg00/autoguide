@@ -23,7 +23,7 @@ Note the 3 \*'s to start the comment block, which tells Autoguide to include the
  * variable: value (see below for things the template
  *   listens for, but can be any key/value pair)
  *
- * @attribute name - description
+ * @attribute {type} name - description
  */
 ```
 
@@ -84,3 +84,5 @@ autoguide({
 
 * `@modifier .class - description` - description is optional. Each of these adds another html sample to the element's section with the modifier added to the outermost element.
 * `@default name - description` - description is optional. If modifiers are present, changes the title 'Default' to name and adds the description before the first, unmodified sample.
+* `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
+* `@returns {type} name - description` - all components optional, but should probably have at least one.

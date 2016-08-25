@@ -50,3 +50,22 @@
     {{ code(el.html) }}
   </div>
 {% endmacro %}
+
+{% macro params (params) %}
+  <div class="ag-component--params">
+    <h4 class="ag-component-header">Parameters</h4>
+    {% for param in params %}
+      <div class="ag-param">
+        {% if param.type %}
+          <span class="ag-param__type">{{ param.type }}</span>
+        {% endif %}
+        {% if param.name %}
+          <span class="ag-param__name">{{ param.name }}</span>
+        {% endif %}
+        {% if param.description %}
+          <div class="ag-param__description ag-description">{{ param.description | markdown | safe }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endmacro %}

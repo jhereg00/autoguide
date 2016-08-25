@@ -20,7 +20,7 @@
  */
 .header-main {
   background: $bg-header;
-  padding: $vr / 2 $wr;
+  padding: $vr / 2 0;
   position: fixed;
   top: 0; right: 0; left: 0;
   z-index: 8675309;

@@ -1,0 +1,29 @@
+/***
+ *  Parameter Description
+ *
+ *  Describes a parameter included using `@param {type} name - description`.
+ *
+ *  html:
+ *    <div class="ag-param">
+ *      <span class="ag-param__type">object</span>
+ *      <span class="ag-param__name">myVar</span>
+ *      <div class="ag-param__description ag-description">Makes the function do something awesome.</div>
+ *    </div>
+ */
+.ag-param {
+  padding-left: $wr;
+}
+.ag-param__type {
+  @include font-mono;
+  color: $text-subtle;
+}
+.ag-param__name {
+  @include font-mono;
+  font-weight: 700;
+}
+.ag-param__description {
+  padding-left: $wr;
+  > :first-child {
+    margin-top: 0;
+  }
+}
