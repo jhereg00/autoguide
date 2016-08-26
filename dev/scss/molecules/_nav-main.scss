@@ -42,8 +42,16 @@
   padding: 0;
   list-style-type: none;
 
-  .ag-nav-main__link {
-    padding-left: $wr * 3;
+  @for $i from 1 through 5 {
+  $nest-selector: '& ';
+    @if ($i > 1) {
+      @for $j from 2 through $i {
+        $nest-selector: $nest-selector '& ';
+      }
+    }
+    #{$nest-selector} .ag-nav-main__link {
+        padding-left: $wr * ($i + 2);
+    }
   }
 }
 .ag-nav-main__link {
