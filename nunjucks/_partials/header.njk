@@ -1,20 +1,6 @@
 {# header with nice controls #}
 <header class="ag-header-main">
-  <h1 class="ag-header-main__title">{{ title | default('Styleguide') }}</h1>
-  {# control buttons #}
-  <div class="ag-header-main__controls ag-controls">
-    <div class="ag-controls__sizes">
-      <a id="sizeMobile" class="button button--small">Mobile</a>
-    </div>
-    <div class="ag-controls__toggles">
-      <div class="toggle">
-        <input type="checkbox" id="showGrids" class="toggle__checkbox">
-        <label for="showGrids" class="toggle__button button--small">Show Grid</label>
-      </div>
-      <div class="toggle">
-        <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
-        <label for="showDev" class="toggle__button button--small">Show Code Sections</label>
-      </div>
-    </div>
+  <div class="ag-header-main__inner">
+    <h1 class="ag-header-main__title">{{ title | default('Styleguide') }}</h1>
   </div>
 </header>

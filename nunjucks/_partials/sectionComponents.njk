@@ -11,9 +11,13 @@
     {% endif %}
 
     {% if el.depth %}
-      <h{{ el.depth }}>{{ title }}</h{{ el.depth }}>
+      <h{{ el.depth }} class="ag-section__title ag-section__title--{{ title | lower | replace(' ','-') }}">
+        {{ title }}
+      </h{{ el.depth }}>
     {% else %}
-      <h1>{{ title }}</h1>
+      <h1 class="ag-section__title ag-section__title--{{ title | lower | replace(' ','-') }}">
+        {{ title }}
+      </h1>
     {% endif %}
   </header>
 {% endmacro %}

@@ -25,7 +25,9 @@
   </li>
 {% endmacro %}
 
-<nav class="ag-nav-main">
+<nav class="ag-nav-main ag-tray__tier">
+  <a class="ag-nav-main__opener ag-tray__tier-opener"><span class="visuallyhidden">Open Controls</span></a>
+
   <ul class="ag-nav-main__list">
     {% if foundColors %}
       <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/colors">Colors</a></li>

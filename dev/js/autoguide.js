@@ -7,3 +7,4 @@
  */
 require('app/HtmlSample').makeAll();
 require('app/controls');
+require('app/Tray');

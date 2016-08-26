@@ -1,5 +1,5 @@
 /***
- *  Controls
+ *  Controls and Nav
  *
  *  When required, automatically enables control buttons/toggles.
  *
@@ -9,6 +9,7 @@
 // requirements
 var toggleGrids = require('app/HtmlSample').toggleGrids;
 var setWidths = require('app/HtmlSample').setWidths;
+var forEach = require('util/forEach');
 
 // settings
 

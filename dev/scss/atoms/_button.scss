@@ -19,6 +19,7 @@
   cursor: pointer;
   transition: all .3s;
   color: $accent;
+  background: $bg-body;
 
   &:hover {
     border-color: $accent-light;

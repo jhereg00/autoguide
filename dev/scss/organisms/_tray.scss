@@ -1,0 +1,96 @@
+/***
+ *  Controls/Nav Tray
+ *
+ *  A fold-away thingy with tiers that can open/close.
+ *
+ *  html:
+ *    <div class="ag-tray">
+ *      <div class="ag-tray__tier">
+ *        <a class="ag-tray__tier-opener"></a>
+ *        <h4>Tier 1</h4>
+ *      </div>
+ *      <div class="ag-tray__tier">
+ *        <a class="ag-tray__tier-opener"></a>
+ *        <h4>Tier 2</h4>
+ *      </div>
+ *    </div>
+ */
+.ag-tray {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999999;
+  transition: background .3s;
+
+  &.open {
+    background: rgba($accent,.5);
+    pointer-events: auto;
+
+    > .ag-tray__tiers-container {
+      filter: drop-shadow(0 0 $wr / 2 rgba($accent,.8));
+    }
+  }
+}
+.ag-tray__tier {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80vw;
+  padding: $vr $wr;
+  box-sizing: border-box;
+  background: $bg-code;
+  pointer-events: auto;
+  transform: translateX(100%);
+  transition: transform .3s, right .3s;
+  z-index: 10;
+
+  @include mq ($bp-medium) {
+    width: 33vw;
+  }
+  @include mq ($bp-large) {
+    width: 20vw;
+  }
+
+  &.open {
+    transform: none;
+  }
+
+  @for $i from 2 through 5 {
+    &:nth-child(#{$i}) {
+      z-index: 10 - $i;
+      background: darken($bg-code,8% * ($i - 1));
+      .ag-tray__tier-opener {
+        top: $vr * 2 * ($i - 1);
+      }
+    }
+
+    $nest-selector: '&.open +';
+    @if ($i > 2) {
+      @for $j from 3 through $i {
+        $nest-selector: $nest-selector '&.open +';
+      }
+    }
+    #{$nest-selector} & {
+      @include mq ($bp-medium) {
+        right: 33vw * ($i - 1);
+      }
+      @include mq ($bp-large) {
+        right: 20vw * ($i - 1);
+      }
+    }
+  }
+}
+.ag-tray__tier-opener {
+  display: block;
+  position: absolute;
+  top: 0; right: 100%;
+  width: $wr * 2;
+  height: $vr * 2;
+  background: inherit;
+  cursor: pointer;
+  color: $text-subtle;
+  transition: color .3s;
+
+  &:hover, .ag-tray__tier.open & {
+    color: $text-body;
+  }
+}

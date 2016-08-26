@@ -25,7 +25,7 @@
 }
 
 .ag-section__inner {
-  max-width: $max-width;
+  @include gridContainer;
   padding: 0 $wr;
   margin: 0 auto;
   box-sizing: border-box;
@@ -61,7 +61,7 @@
 
   @for $depth from 1 through 5 {
     .ag-section--depth-#{$depth} &::before {
-      left: calc(50% + #{$wr * ($depth)});
+      left: calc(50% + #{$wr * ($depth - 1)});
     }
   }
 }

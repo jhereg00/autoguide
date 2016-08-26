@@ -9,6 +9,7 @@
  *    require('app/HtmlSample').makeAll(); // goes through the whole page and does its thing
  */
 // requirements
+var forEach = require('util/forEach');
 
 // settings
 
@@ -31,17 +32,6 @@ function getDocumentHeight (doc) {
     body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight
   );
-}
-/**
- * Iterate over an array, passing the value to the passed function
- *
- * @param {Array} array to iterate
- * @param {function} fn to call
- */
-function forEach (arr, fn) {
-  for (var i = 0, len = arr.length; i < len; i++) {
-    fn.call(arr[i],arr[i],arr);
-  }
 }
 
 // do things!
