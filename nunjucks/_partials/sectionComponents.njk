@@ -5,9 +5,9 @@
     {% endif %}
 
     {% if el.generated or titleCase %}
-      {% set title = el.title | title | markdown | safe %}
+      {% set title = el.title | title %}
     {% else %}
-      {% set title = el.title | markdown | safe %}
+      {% set title = el.title %}
     {% endif %}
 
     {% if el.depth %}
