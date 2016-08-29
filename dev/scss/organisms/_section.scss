@@ -13,6 +13,21 @@
  *      </div>
  *    </section>
  */
+$icons:
+  'colors',
+  'fonts',
+  'quarks',
+  'atoms',
+  'molecules',
+  'organisms',
+  'settings',
+  'utilities',
+  'menu',
+  'phone',
+  'table',
+  'desktop'
+;
+
 .ag-section {
   @include clear-fix();
   margin: $vr * 8 auto;
@@ -58,10 +73,29 @@
   > .ag-section:last-child {
     margin-bottom: 0;
   }
+  .ag-section__title::before {
+    display: none;
+  }
 
   @for $depth from 1 through 5 {
     .ag-section--depth-#{$depth} &::before {
       left: calc(50% + #{$wr * ($depth - 1)});
     }
+  }
+}
+
+.ag-section__title {
+  position: relative;
+  &::before {
+    position: absolute;
+    right: 100%; top: 0;
+    vertical-align: top;
+    margin-right: $wr;
+  }
+  @include icon('menu');
+}
+@each $i in $icons {
+  .ag-section__title--#{$i} {
+    @include icon($i);
   }
 }

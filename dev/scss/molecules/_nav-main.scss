@@ -33,6 +33,10 @@
   list-style-type: none;
   max-height: 100%;
   overflow: auto;
+  overflow: -moz-scrollbars-none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .ag-nav-main__item {
   margin: 0;
@@ -57,4 +61,7 @@
 .ag-nav-main__link {
   display: block;
   padding-left: $wr * 2;
+}
+.ag-nav-main__opener {
+  @include icon('menu');
 }

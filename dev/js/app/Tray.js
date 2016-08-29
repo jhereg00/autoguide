@@ -1,5 +1,5 @@
 // requirements
-var forEach = require('util/forEach');
+var forEach = require('lib/util/forEach');
 
 // settings
 

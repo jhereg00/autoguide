@@ -7,7 +7,7 @@
  * @param {function} fn to call
  *
  * code:
- *   var forEach = require('util/forEach');
+ *   var forEach = require('lib/util/forEach');
  *   forEach(someArray, function (item) { alert(item) });
  */
 function forEach (arr, fn) {

@@ -89,6 +89,8 @@
   cursor: pointer;
   color: $text-subtle;
   transition: color .3s;
+  text-align: center;
+  @include h4;
 
   &:hover, .ag-tray__tier.open & {
     color: $text-body;

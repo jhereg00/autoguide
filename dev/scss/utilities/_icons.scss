@@ -1,0 +1,116 @@
+@font-face {
+	font-family: "icons";
+	src: url('../fonts/icons.eot');
+	src: url('../fonts/icons.eot?#iefix') format('eot'),
+		url('../fonts/icons.woff2') format('woff2'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype'),
+		url('../fonts/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == atoms {
+		$char: "\E001";
+	}
+	@if $filename == colors {
+		$char: "\E002";
+	}
+	@if $filename == desktop {
+		$char: "\E003";
+	}
+	@if $filename == fonts {
+		$char: "\E004";
+	}
+	@if $filename == menu {
+		$char: "\E005";
+	}
+	@if $filename == molecules {
+		$char: "\E006";
+	}
+	@if $filename == organisms {
+		$char: "\E007";
+	}
+	@if $filename == phone {
+		$char: "\E008";
+	}
+	@if $filename == quarks {
+		$char: "\E009";
+	}
+	@if $filename == settings {
+		$char: "\E00A";
+	}
+	@if $filename == tablet {
+		$char: "\E00B";
+	}
+	@if $filename == utilities {
+		$char: "\E00C";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-atoms {
+	@include icon(atoms);
+}
+.icon-colors {
+	@include icon(colors);
+}
+.icon-desktop {
+	@include icon(desktop);
+}
+.icon-fonts {
+	@include icon(fonts);
+}
+.icon-menu {
+	@include icon(menu);
+}
+.icon-molecules {
+	@include icon(molecules);
+}
+.icon-organisms {
+	@include icon(organisms);
+}
+.icon-phone {
+	@include icon(phone);
+}
+.icon-quarks {
+	@include icon(quarks);
+}
+.icon-settings {
+	@include icon(settings);
+}
+.icon-tablet {
+	@include icon(tablet);
+}
+.icon-utilities {
+	@include icon(utilities);
+}

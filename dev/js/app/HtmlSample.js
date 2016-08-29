@@ -9,7 +9,7 @@
  *    require('app/HtmlSample').makeAll(); // goes through the whole page and does its thing
  */
 // requirements
-var forEach = require('util/forEach');
+var forEach = require('lib/util/forEach');
 
 // settings
 

@@ -9,7 +9,7 @@
 // requirements
 var toggleGrids = require('app/HtmlSample').toggleGrids;
 var setWidths = require('app/HtmlSample').setWidths;
-var forEach = require('util/forEach');
+var forEach = require('lib/util/forEach');
 
 // settings
 
@@ -27,9 +27,15 @@ if (showDev)
   });
 
 // size iframes
-var sizeMobile = document.getElementById('sizeMobile');
-if (sizeMobile)
-  sizeMobile.addEventListener('click', function (e) {
-    e.preventDefault();
-    setWidths(320);
+var sampleSizeRadios = document.getElementsByName('sampleSize');
+forEach(sampleSizeRadios, function (radio) {
+  radio.addEventListener('change', function (e) {
+    if (this.checked) {
+      setWidths(this.value);
+    }
   });
+
+  if (!this.value) {
+    this.checked = true;
+  }
+});

@@ -86,3 +86,10 @@ autoguide({
 * `@default name - description` - description is optional. If modifiers are present, changes the title 'Default' to name and adds the description before the first, unmodified sample.
 * `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
 * `@returns {type} name - description` - all components optional, but should probably have at least one.
+
+# Improvements
+
+No promises on when I'd get to such things, but some additional features I'd like to add:
+* theming / better customization options
+* sorting support for other common systems
+* more "branding" type sections, similar to the color and font sections

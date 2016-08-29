@@ -14,6 +14,5 @@ window.addEventListener('hashchange', function (e) {
   e.preventDefault();
   tray.close();
   var el = document.getElementById(window.location.hash.replace(/^#/,''));
-  console.log(el, getPageOffset(el).top);
   animateScroll(getPageOffset(el).top - OFFSET);
 });

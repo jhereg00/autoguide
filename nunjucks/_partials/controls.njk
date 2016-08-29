@@ -1,9 +1,20 @@
 <div class="ag-controls ag-tray__tier">
   <a class="ag-controls__opener ag-tray__tier-opener"><span class="visuallyhidden">Open Controls</span></a>
 
-  <div class="ag-controls__group">
+  <div class="ag-controls__group ag-controls__group--sample-size">
     <h4 class="ag-controls__group-header">Sample Size</h4>
-    <a id="sizeMobile" class="button button--small ag-controls__button">Mobile</a>
+    <div class="toggle">
+      <input type="radio" name="sampleSize" id="sampleSizeMobile" value="320" class="toggle__checkbox">
+      <label title="320" for="sampleSizeMobile" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--phone"><span class="visuallyhidden">Mobile</span></a>
+    </div>
+    <div class="toggle">
+      <input type="radio" name="sampleSize" id="sampleSizeTablet" value="800" class="toggle__checkbox">
+      <label title="800" for="sampleSizeTablet" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--tablet"><span class="visuallyhidden">Tablet (Nexus 10)</span></a>
+    </div>
+    <div class="toggle">
+      <input type="radio" name="sampleSize" id="sampleSizeDesktop" value="" class="toggle__checkbox" checked>
+      <label title="default" for="sampleSizeDesktop" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--desktop"><span class="visuallyhidden">Desktop</span></a>
+    </div>
   </div>
 
   <div class="ag-controls__group">

@@ -10,9 +10,9 @@
  *      <label for="sample" class="toggle__button">I Toggle</label>
  *    </div>
  */
-.toggle {
-  display: inline-block;
-}
+// .toggle {
+//   display: inline-block;
+// }
 .toggle__checkbox {
   @extend %visuallyhidden;
 }
@@ -20,9 +20,12 @@
   @extend .button;
 
   .toggle__checkbox:checked ~ & {
-    background: $bg-code;
-    @if (lightness($bg-code) < .55) {
+    background: $accent-light;
+    @if (lightness($accent-light) < .55) {
       color: $text-light;
+    }
+    @else {
+      color: $text-body;
     }
   }
 }

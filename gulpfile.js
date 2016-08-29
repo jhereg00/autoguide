@@ -6,8 +6,9 @@ global.serverPort = 8001;
 var gulp = require('gulp');
 var autoguide = require('./index');
 
-gulp.task('sass',require('./gulp-tasks/sass'));
+gulp.task('sass',['fonts'],require('./gulp-tasks/sass'));
 gulp.task('scripts',require('./gulp-tasks/scripts'));
+gulp.task('icons',require('./gulp-tasks/icons'));
 gulp.task('autoguide',['sass','scripts'],function (done) {
   autoguide({
     src: [global.devPath + "/scss",global.devPath + "/js","./lib"],
@@ -16,7 +17,11 @@ gulp.task('autoguide',['sass','scripts'],function (done) {
   }, function (err, success) {
     done();
   });
-})
+});
+gulp.task('fonts', ['icons'], function () {
+  return gulp.src(global.devPath + '/fonts/**/*')
+          .pipe(gulp.dest(global.distPath + '/fonts'));
+});
 
 // start a server for easy dev
 gulp.task('server',require('./gulp-tasks/webserver'));
