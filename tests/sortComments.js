@@ -1,4 +1,5 @@
 var expect = require('chai').expect;
+var util = require('util');
 
 var sortComments = require('../lib/sortComments');
 var parseDirectory = require('../lib/parseDirectory');
@@ -16,6 +17,7 @@ describe('sortComments', function () {
     parseDirectory(testDir, function (err, data) {
       parsed = data;
       sorted = sortComments(parsed, testOrder);
+      //console.log(util.inspect(sorted));
       done();
     });
   });
@@ -26,7 +28,7 @@ describe('sortComments', function () {
     expect(sorted[0].title.toLowerCase()).to.equal(testOrder[0]);
   });
   it('should put non-matching sections at \'*\' in order array', function () {
-    expect(sorted[2].title.toLowerCase()).to.equal(testOrder[2]);
+    expect(sorted[sorted.length - 1].title.toLowerCase()).to.equal(testOrder[2]);
     expect(sorted[1].title).to.not.equal(testOrder[0]).and.to.not.equal(testOrder[2]);
   });
   it('should nest subElements', function () {

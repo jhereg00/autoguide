@@ -1,4 +1,5 @@
 var expect = require('chai').expect;
+var util = require('util');
 
 var parseComment = require('../lib/parseComment');
 
@@ -29,6 +30,7 @@ var testData =
 
 describe('parseComment', function () {
   var parsed = parseComment(testData);
+  //console.log(util.inspect(parsed));
   it ('should return a js object', function () {
     expect(parsed).to.exist;
     expect(typeof parsed).to.equal('object');
@@ -52,9 +54,9 @@ describe('parseComment', function () {
     expect(parsed['arbitraryDescription']).to.exist;
     expect(parsed['arbitraryDescription']).to.equal(
       'This is an arbitrary\n' +
-      'multiline description\n' +
+      '  multiline description\n' +
       '\n' +
-      'With a paragraph and _markdown_.');
+      '  With a paragraph and _markdown_.');
   });
   it ('should contain arbitraryArray', function () {
     expect(parsed['arbitraryArray']).to.exist;
