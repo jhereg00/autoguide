@@ -8,6 +8,11 @@
       {{ components.header (el, true) }}
     {% for var, val in el.vars %}
       <div class="ag-swatch ag-swatch--{{ var | replace('$','') }} ag-swatch--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}" style="background-color: {{ val }}">
+        <div class="ag-swatch__copy-buttons">
+          <label>Copy: </label>
+          <a class="copyable" data-copy="{{ val }}">Color</a>
+          <a class="copyable" data-copy="{{ var }}">Variable</a>
+        </div>
         <span class="ag-swatch__var-name">{{ var }}</span>
         <span class="ag-swatch__value {% if val[0] == '#' %}ag-swatch__value--hex{% endif %}">{{ val | replace(',',', ') }}</span>
       </div>

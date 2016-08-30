@@ -5,6 +5,11 @@
  *
  *  html:
  *    <div class="ag-swatch">
+ *      <div class="ag-swatch__copy-buttons">
+ *        <label>Copy: </label>
+ *        <a class="copyable" data-copy="#abcdef">Color</a>
+ *        <a class="copyable" data-copy="$color-name">Variable</a>
+ *      </div>
  *      <span class="ag-swatch__var-name">$color-name</span>
  *      <span class="ag-swatch__value">#abcdef</span>
  *    </div>
@@ -30,6 +35,12 @@
   &--dark {
     color: $text-light;
   }
+
+  &:hover {
+    .ag-swatch__copy-buttons {
+      opacity: 1;
+    }
+  }
 }
 .ag-swatch__var-name {
   @include font-mono;
@@ -53,5 +64,22 @@
     left: $wr * -.5;
     bottom: $vr * -.75;
     font-size: $vr * 4;
+  }
+}
+.ag-swatch__copy-buttons {
+  position: absolute;
+  top: $vr / 2; right: $wr / 2;
+  @include small;
+  opacity: 0;
+  transition: opacity .3s;
+
+  .copyable {
+    color: inherit;
+    border-color: inherit;
+    background: transparent;
+    &:hover {
+      color: inherit;
+      border-color: inherit;
+    }
   }
 }

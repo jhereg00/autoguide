@@ -1,0 +1,14 @@
+/***
+ * Copyable element
+ *
+ * Element that, when clicked, copies a string to the user's clipboard. Extends
+ * `.button` and `.button--small`.
+ *
+ * html:
+ *   <a class="copyable" data-copy="Copy Me!">Click to "Copy Me"</a>
+ */
+.copyable {
+  @extend .button;
+  @extend .button--small;
+  padding: 0 $wr / 4;
+}
