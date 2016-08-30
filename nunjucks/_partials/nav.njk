@@ -12,7 +12,7 @@
 
 {% macro elementLink (element, linkPrepend) %}
   <li class="ag-nav-main__item">
-    <a href="{{ linkPrepend }}/{{ element.title|lower|replace(' ','-') }}" class="ag-nav-main__link">
+    <a href="{{ linkPrepend }}/{{ element.title|lower|replace(' ','-') }}" class="ag-nav-main__link ag-nav-main__link--{{ element.title | lower | replace(' ','-') }}">
       {{ element.title | title }}
     </a>
     {% if element.subElements and element.subElements | length %}
@@ -30,10 +30,10 @@
 
   <ul class="ag-nav-main__list">
     {% if foundColors %}
-      <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/colors">Colors</a></li>
+      <li class="ag-nav-main__item"><a class="ag-nav-main__link ag-nav-main__link--colors" href="#/colors">Colors</a></li>
     {% endif %}
     {% if foundFonts %}
-      <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/fonts">Fonts</a></li>
+      <li class="ag-nav-main__item"><a class="ag-nav-main__link ag-nav-main__link--fonts" href="#/fonts">Fonts</a></li>
     {% endif %}
 
     {# elements #}

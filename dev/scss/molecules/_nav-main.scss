@@ -24,6 +24,21 @@
  *      </ul>
  *    </nav>
  */
+$icons:
+  'colors',
+  'fonts',
+  'quarks',
+  'atoms',
+  'molecules',
+  'organisms',
+  'settings',
+  'utilities',
+  'menu',
+  'phone',
+  'table',
+  'desktop'
+;
+
 .ag-nav-main.ag-tray__tier {
   padding: 0 $wr;
 }
@@ -36,6 +51,14 @@
   overflow: -moz-scrollbars-none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  > .ag-nav-main__item > .ag-nav-main__link {
+    @each $i in $icons {
+      &--#{$i} {
+        @include icon($i);
+      }
+    }
   }
 }
 .ag-nav-main__item {
@@ -60,7 +83,15 @@
 }
 .ag-nav-main__link {
   display: block;
+  position: relative;
   padding-left: $wr * 2;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    margin-right: $wr / 2;
+    vertical-align: top;
+  }
 }
 .ag-nav-main__opener {
   @include icon('menu');
