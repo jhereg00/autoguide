@@ -4,7 +4,7 @@ $text-subtle: rgba(33,33,33,.5) !default;
 $text-light: #fff !default;
 $bg-body: #fff !default;
 $border-html: #e9eaf0 !default;
-$bg-code: #e9eaf0 !default;
+$bg-code: $border-html !default;
 $accent: #046C6F !default;
 $accent-light: #11c1c4 !default;
 $overlay-columns: rgba(17, 193, 196, .1) !default;
