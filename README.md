@@ -27,14 +27,6 @@ Note the 3 \*'s to start the comment block, which tells Autoguide to include the
  */
 ```
 
-### Builtin Components
-
-These components will output to the styleguide when using the default template.
-
-* `code` - outputs a code block
-* `html` - outputs an iframe with the html in it, as well as a collapsible code block
-* `wrap` - wraps contents of `html` in an element of a given class (or several classes)
-
 ## Use
 
 Once included in your file, you can simply call it as a function. You may pass it a few parameters:
@@ -74,6 +66,10 @@ autoguide({
     console.log ('Super Awesome Styleguide created!');
 });
 ```
+
+# Builtin Components
+
+These components will output to the styleguide when using the default template.
 
 ## Vars
 
