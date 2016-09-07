@@ -31,7 +31,7 @@
   </code></pre>
 {% endmacro %}
 
-{% macro htmlSample (title, description, content, fullWidth) %}
+{% macro htmlSample (title, description, content, fullWidth, wrap) %}
   {% if title or description %}
     <div class="ag-section__inner">
       {% if title %}
@@ -43,22 +43,27 @@
     </div>
   {% endif %}
   <make-iframe class="ag-component ag-component--html {% if fullWidth %}fs{% endif %}">
-    {{ content | safe }}
+    {% if wrap %}
+      {{ content | wrap(wrap) | safe }}
+    {% else %}
+      {{ content | safe }}
+    {% endif %}
   </make-iframe>
 {% endmacro %}
 
 {% macro html (el, fullWidth) %}
+  {{ el.wrap }}
   {% if el.modifier | length %}
     {% if el.default | length %}
-      {{ htmlSample (el.default[0].name, el.default[0].description, el.html, fullWidth) }}
+      {{ htmlSample (el.default[0].name, el.default[0].description, el.html, fullWidth, el.wrap) }}
     {% else %}
-      {{ htmlSample ("Default", null, el.html, fullWidth) }}
+      {{ htmlSample ("Default", null, el.html, fullWidth, el.wrap) }}
     {% endif %}
     {% for mod in el.modifier %}
-      {{ htmlSample (mod.name, mod.description, el.html | addModifier(mod.name), fullWidth) }}
+      {{ htmlSample (mod.name, mod.description, el.html | addModifier(mod.name), fullWidth, el.wrap) }}
     {% endfor %}
   {% else %}
-    {{ htmlSample (null, null, el.html, fullWidth) }}
+    {{ htmlSample (null, null, el.html, fullWidth, el.wrap) }}
   {% endif %}
   <div class="ag-section__inner">
     {{ code(el.html) }}
