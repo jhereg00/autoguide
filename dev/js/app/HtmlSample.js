@@ -29,8 +29,8 @@ function getDocumentHeight (doc) {
     return 0;
 
   return Math.max(
-    body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight
+    body.offsetHeight,
+    html.offsetHeight
   );
 }
 
