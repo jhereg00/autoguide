@@ -52,7 +52,6 @@
 {% endmacro %}
 
 {% macro html (el, fullWidth) %}
-  {{ el.wrap }}
   {% if el.modifier | length %}
     {% if el.default | length %}
       {{ htmlSample (el.default[0].name, el.default[0].description, el.html, fullWidth, el.wrap) }}
