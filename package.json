@@ -1,6 +1,6 @@
 {
   "name": "autoguide",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Automatically generates developer guide from comments in code",
   "main": "index.js",
   "repository": {
