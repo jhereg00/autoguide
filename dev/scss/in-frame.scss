@@ -45,7 +45,9 @@
    ;
 
 
-
+html {
+  min-width: 100vw;
+}
 html:not(.fs) body {
   padding: $vr $wr;
 }
@@ -70,4 +72,7 @@ body {
       );
     background-size: #{1 / 12 * 100%} auto;
   }
+}
+::-webkit-scrollbar {
+  display: none;
 }
