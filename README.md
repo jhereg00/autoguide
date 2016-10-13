@@ -84,9 +84,58 @@ These components will output to the styleguide when using the default template.
 * `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
 * `@returns {type} name - description` - all components optional, but should probably have at least one.
 
-# Improvements
+# Coming Improvements
 
 No promises on when I'd get to such things, but some additional features I'd like to add:
 * theming / better customization options
 * sorting support for other common systems
 * more "branding" type sections, similar to the color and font sections
+
+# Change Log
+
+### 0.3.0
+New template, which is much more thorough and exposes many more options.  This includes some breaking changes:
+* ..
+* ..
+
+---
+
+### 0.2
+Basic usable version. MVP. Adequate for internal use.
+
+#### 0.2.5
+Added `\r` to regex in parser in order to better support Windows.
+
+#### 0.2.4
+More cleanup.
+
+#### 0.2.3
+**Bugfix:** iframes for html samples can now shrink as well as grow when their contents' size changes.
+
+#### 0.2.2
+Client side js cleanup.
+
+#### 0.2.1
+Console call cleanup.
+
+#### 0.2.0
+Added support for `wrap` variable to wrap samples.
+
+---
+
+### 0.1
+Proof of concept and basic parsing.
+
+#### 0.1.3
+Added support for defining variables with other variables. For example:
+```scss
+$black: #070707;
+$text: $black;
+```
+will output a swatch with $text showing the value '#070707'.  Only looks within same file.
+
+#### 0.1.2
+Added icons to predicted atomic nav items.  Added buttons to automatically copy the value or variable of color swatches.
+
+#### 0.1.1
+First public release.
