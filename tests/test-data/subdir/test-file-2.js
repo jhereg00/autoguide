@@ -10,3 +10,9 @@
  *
  *  There's things to know about stuff
  */
+
+/***
+ *  Defined Path
+ *
+ *  path: some/arbitrary/path
+ */

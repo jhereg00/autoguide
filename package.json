@@ -8,7 +8,8 @@
     "url": "git+https://github.com/jhereg00/autoguide.git"
   },
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha tests",
+    "dev": "nodemon --exec 'gulp autoguide' --watch lib --watch nunjucks"
   },
   "keywords": [
     "sass",

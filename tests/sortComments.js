@@ -34,4 +34,9 @@ describe('sortComments', function () {
   it('should nest subElements', function () {
     expect(sorted[0].subElements).to.exist.and.to.be.an('array');
   });
+  it('should honor user defined paths', function () {
+    for(var someIndex = 0; someIndex < sorted.length && sorted[someIndex].title != "some"; someIndex++){};
+    expect(sorted[someIndex].subElements[0].title).to.equal('arbitrary');
+    expect(sorted[someIndex].subElements[0].subElements[0].subElements[0]).to.exist;
+  });
 });
