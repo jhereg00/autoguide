@@ -76,6 +76,7 @@ These components will output to the styleguide when using the default template.
 * `html:` - code to use in creating a sample iframe.
 * `code:` - code to output in a code block. Good for examples of scripts or mixin usage.
 * `wrap:` - element(s) to wrap the html content in. Written similar to [Emmet](http://emmet.io/), but significantly less robust. Really just handles tags, classes, and ids. Example: `wrap: div.outer>section.inner` would wrap the html content so that it outputs `<div class="outer"><section class="inner">{{ content }}</section></div>`.  This is useful for elements that inherit styles or when javascript only inits components within certain other elements.
+* `path:` - define a path for where to place this within the styleguide.  This overrides the default of placing a component based on it's file location.
 
 ## Attributes
 

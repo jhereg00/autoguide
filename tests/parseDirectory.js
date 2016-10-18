@@ -15,6 +15,6 @@ describe('parseDirectory', function () {
   });
   it ('returns an array of all comments found in all files in the directory', function () {
     expect(err).to.be.null;
-    expect(parsed.length).to.equal(6);
+    expect(parsed.length).to.equal(7);
   });
 })

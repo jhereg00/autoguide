@@ -27,9 +27,16 @@ var testData =
 ' *   multiline description\n' +
 ' *   multiline description\n' +
 ' */';
+var testContent =
+'$foo: bar;\n' +
+'$color: #ffffff;\n' +
+'$color2: $color;\n' +
+'.not-a-var {\n' +
+'  color: $color2;\n' +
+'}';
 
 describe('parseComment', function () {
-  var parsed = parseComment(testData);
+  var parsed = parseComment(testData, testContent);
   //console.log(util.inspect(parsed));
   it ('should return a js object', function () {
     expect(parsed).to.exist;
@@ -62,5 +69,15 @@ describe('parseComment', function () {
     expect(parsed['arbitraryArray']).to.exist;
     expect(parsed['arbitraryArray'].length).to.equal(3);
     expect(parsed['arbitraryArray'][1]).to.eql({ name: 'myVal2' });
+  });
+  describe('should parse content for variables', function () {
+    it ('should add a `sassVars` array', function () {
+      expect(parsed['sassVars']).to.exist;
+      expect(parsed['sassVars']).to.be.an(Array);
+    });
+    it ('should store variables and their values as objects with `name` and `value`', function () {
+      expect(parsed['sassVars'][0].name).to.equal('$foo');
+      expect(parsed['sassVars'][0].value).to.equal('bar');
+    });
   });
 });
