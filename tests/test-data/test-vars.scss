@@ -1,7 +1,7 @@
-/***
+/**
  * Colors
  *
- * System should dynamically notice that we're referring to variables.
+ * Should get ignored because it only has 2 `*`s.
  */
 $black: #000000;
 $white: #ffffff;

@@ -71,13 +71,12 @@ describe('parseComment', function () {
     expect(parsed['arbitraryArray'][1]).to.eql({ name: 'myVal2' });
   });
   describe('should parse content for variables', function () {
-    it ('should add a `sassVars` array', function () {
+    it ('should add a `sassVars` object', function () {
       expect(parsed['sassVars']).to.exist;
-      expect(parsed['sassVars']).to.be.an(Array);
+      expect(parsed['sassVars']).to.be.an('object');
     });
-    it ('should store variables and their values as objects with `name` and `value`', function () {
-      expect(parsed['sassVars'][0].name).to.equal('$foo');
-      expect(parsed['sassVars'][0].value).to.equal('bar');
+    it ('should store variables and their values as key value pairs', function () {
+      expect(parsed['sassVars']['$foo']).to.equal('bar');
     });
   });
 });

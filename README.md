@@ -10,7 +10,7 @@ Biggest TODO: Template customization through variables.
 
 Note the 3 \*'s to start the comment block, which tells Autoguide to include the comment.
 
-```
+```scss
 /***
  * Item Title
  *
@@ -25,6 +25,7 @@ Note the 3 \*'s to start the comment block, which tells Autoguide to include the
  *
  * @attribute {type} name - description
  */
+$sass-variables: 'will also be passed as an object: sassVars';
 ```
 
 ## Use
@@ -33,7 +34,6 @@ Once included in your file, you can simply call it as a function. You may pass i
 
 * `settings` - optional object of settings to use. Defaults are in place for each of these.
   * `src` - directories to parse for comments. Default: `['./dev/scss/','./dev/js/']`
-  * `vars` - directories or files to parse for sass vars. Default: `['./dev/scss/settings/']`
   * `template` - template file to use for [nunjucks](http://mozilla.github.io/nunjucks) rendering. There's one built into the module.
   * `dest` - directory to place a new `index.html` file into. Default: `'./dist/styleguide'`
   * `templateVars` - an object of extra variables to pass to the template
@@ -76,7 +76,7 @@ These components will output to the styleguide when using the default template.
 * `html:` - code to use in creating a sample iframe.
 * `code:` - code to output in a code block. Good for examples of scripts or mixin usage.
 * `wrap:` - element(s) to wrap the html content in. Written similar to [Emmet](http://emmet.io/), but significantly less robust. Really just handles tags, classes, and ids. Example: `wrap: div.outer>section.inner` would wrap the html content so that it outputs `<div class="outer"><section class="inner">{{ content }}</section></div>`.  This is useful for elements that inherit styles or when javascript only inits components within certain other elements.
-* `path:` - define a path for where to place this within the styleguide.  This overrides the default of placing a component based on it's file location.
+* `path:` - define a path for where to place this within the styleguide.  This overrides the default of placing a component based on it's file location.  Use `.` or `./` to make it top level.
 
 ## Attributes
 
@@ -85,18 +85,24 @@ These components will output to the styleguide when using the default template.
 * `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
 * `@returns {type} name - description` - all components optional, but should probably have at least one.
 
-# Coming Improvements
-
-No promises on when I'd get to such things, but some additional features I'd like to add:
-* theming / better customization options
-* sorting support for other common systems
-* more "branding" type sections, similar to the color and font sections
-
 # Change Log
 
 ### 0.3.0
-New template, which is much more thorough and exposes many more options.  This includes some breaking changes:
-* ..
+New template, which is much more thorough and exposes many more options.  New features include:
+* path override
+* arbitrary variable documentation (color palettes, sizing, etc.)
+
+**This also includes some breaking changes:**
+* `vars` is no longer an option. Instead, comment the areas with your sass variables as you would a component. For example:
+  ```scss
+  /***
+   * Colors
+   *
+   * Stick only to these approved colors.
+   */
+  $red: #e01033;
+  $blue: #00129a;
+  ```
 * ..
 
 ---

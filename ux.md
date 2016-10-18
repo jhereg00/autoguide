@@ -31,7 +31,7 @@ Receive New Project &rarr; Design Predicted Components &rarr; Send Components to
 # Needs to Achieve Goal
 * ~~path override~~
 * component status
-* **arbitrary variable documentation (color palettes, sizing, etc.)**
+* ~~arbitrary variable documentation (color palettes, sizing, etc.)~~
 * styleguide branding overrides
   * colors, fonts, sizing
 * arbitrary templating
