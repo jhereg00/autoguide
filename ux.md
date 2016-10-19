@@ -34,11 +34,12 @@ Receive New Project &rarr; Design Predicted Components &rarr; Send Components to
 * ~~arbitrary variable documentation (color palettes, sizing, etc.)~~
 * styleguide branding overrides
   * colors, fonts, sizing
-* arbitrary templating
-  * if not defined, system should guess
+* **arbitrary templating**
+  * **if not defined, system should guess**
 * documentation variable, meant for dev-focused information
 * arbitrary iframe resizing
 * ~~note making/sending?~~: out of scope for now
 * search
 * nesting as modifier
   `@modifier .emmet.style &`
+* ~~arbitrary ordering of components~~

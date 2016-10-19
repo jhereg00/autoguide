@@ -1,0 +1,38 @@
+{# standard wrapper for ALL components #}
+{# then includes the specifics of a given component #}
+
+<section class="component component--{{ element.template | default('default') }} component--depth-{{ element.depth | default('1') }}">
+  {% block preheader %}{% endblock %}
+  
+  {% block header %}
+    <header class="component__header">
+      <h{{ element.depth | default('1') }}>
+        {% if element.generated %}
+          {{ element.title | title }}
+        {% else %}
+          {{ element.title }}
+        {% endif %}
+      </h{{ element.depth | default('1') }}>
+    </header>
+  {% endblock %}
+
+  {% block description %}
+    <div class="component__description">
+      {{ element.description | default('') | markdown | safe }}
+    </div>
+  {% endblock %}
+
+  {% block main %}{% endblock %}
+
+  {% if element.subElements %}
+    <div class="component__sub-elements">
+      {% for element in element.subElements %}
+        {% if element.template %}
+          {% include './' + element.template + '.njk' %}
+        {% else %}
+          {% include './default.njk' %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

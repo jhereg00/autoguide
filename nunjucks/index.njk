@@ -1,40 +1,29 @@
-{% import './_partials/varSections.njk' as varSections %}
-{% import './_partials/elementSections.njk' as elementSections %}
+{% import './componentTemplates/_componentWrapper.njk' as component %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>{{ title | default('Styleguide') }}</title>
-  <link rel="stylesheet" href="{{ assetPath | replace('/\/$/','') }}/css/autoguide.css">
 </head>
-<body class="{% if showDev %}show-dev{% endif %}">
-  <div class="ag-global-container">
+<body>
+  <div class="page-container">
+    <header class="header-main">
+      <div class="header-main__inner">
+        <h1 class="header-main__title">{{ title | default('Styleguide') }}</h1>
+      </div>
+    </header>
+    <img src="https://morbotron.com/gif/S03E10/608190/612361.gif?b64lines=Q2hhbmdlCnBsYWNlcyE=" alt="CHANGE PLACES!" />
 
-    {% include './_partials/header.njk' %}
-
-    {% include './_partials/tray.njk' %}
-
-    {% for var in vars %}
-      {% if varSections[var.title | lower] %}
-        {{ varSections[var.title | lower](var) }}
-      {% endif %}
-    {% endfor %}
-
-    {% for element in elements %}
-      {{ elementSections.section(element) }}
-    {% endfor %}
-
-    <footer class="footer-main">
-      {{ footerMessage | markdown | safe }}
-    </footer>
+    <main class="content-main">
+      {% for element in elements %}
+        {% if element.template %}
+          {% include './componentTemplates/' + element.template + '.njk' %}
+        {% else %}
+          {% include './componentTemplates/default.njk' %}
+        {% endif %}
+      {% endfor %}
+    </main>
   </div>
-
-  <script>
-    window.ag = window.ag || {};
-    window.ag.styles = {% if styles %}["{{ styles | join('","') | safe }}"]{% else %}[]{% endif %}.concat(['{{ assetPath | replace('/\/$/','') }}/css/in-frame.css']);
-    window.ag.scripts = {% if scripts %}["{{ scripts | join('","') | safe }}"]{% else %}[]{% endif %};
-  </script>
-  <script src="{{ assetPath | replace('/\/$/','') }}/js/autoguide.js"></script>
 </body>
 </html>

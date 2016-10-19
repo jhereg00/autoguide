@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "mocha tests",
-    "dev": "nodemon --exec 'gulp autoguide' --watch lib --watch nunjucks"
+    "dev": "nodemon --exec 'gulp autoguide' -e js,scss,njk --ignore sample/ --ignore dist/ --ignore dev/fonts/ --ignore dev/scss/utilities/_icons.scss -V"
   },
   "keywords": [
     "sass",

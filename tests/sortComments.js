@@ -39,4 +39,9 @@ describe('sortComments', function () {
     expect(sorted[someIndex].subElements[0].title).to.equal('arbitrary');
     expect(sorted[someIndex].subElements[0].subElements[0].subElements[0]).to.exist;
   });
+  it('should honor user defined order vars', function () {
+    for(var order1Index = 0; order1Index < sorted.length && sorted[order1Index].order != 1; order1Index++){};
+    for(var order2Index = 0; order2Index < sorted.length && sorted[order2Index].order != 2; order2Index++){};
+    expect(order1Index).to.be.below(order2Index);
+  });
 });

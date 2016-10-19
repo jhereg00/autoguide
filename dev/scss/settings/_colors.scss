@@ -1,9 +1,19 @@
 /***
+ * Colors
+ *
+ * These colors define the look of the guide itself, _not_ anything within the examples.
+ *
+ * path: .
+ */
+
+/***
  * Primary Palette
  *
- * The main colors used for the Autoguide template.
+ * The main colors used for the Autoguide template.  By default, these colors get
+ * reused for the more detailed palette.
  *
  * path: ./colors
+ * order: 0
  */
 $text-body: #333 !default;
 $text-subtle: rgba(33,33,33,.5) !default;
@@ -16,3 +26,14 @@ $accent-light: #11c1c4 !default;
 $overlay-columns: rgba(17, 193, 196, .1) !default;
 $bg-header: #fff !default;
 $bg-footer: #66676a !default;
+
+/***
+ * Detailed Palette
+ *
+ * These are the colors that will actually appear throughout the generated guide.
+ * Altering these will grant a very fine level of control over components.
+ *
+ * path: ./colors
+ * order: 1
+ */
+$bg-header: $accent !default;

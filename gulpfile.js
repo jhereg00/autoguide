@@ -12,7 +12,10 @@ gulp.task('icons',require('./gulp-tasks/icons'));
 gulp.task('autoguide',['sass','scripts'],function (done) {
   autoguide({
     src: [global.devPath + "/scss",global.devPath + "/js","./lib"],
-    dest: "./sample"
+    dest: "./sample",
+    templateVars: {
+      title: 'Autoguide Docs'
+    }
   }, function (err, success) {
     done();
   });

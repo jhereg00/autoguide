@@ -10,6 +10,8 @@
  *    which the string will be copied.
  *  @method copy() - copies string to clipboard. Listener is automatically added,
  *    so you shouldn't need to manually call this.
+ *
+ *  template: js
  */
 // requirements
 var forEach = require('lib/util/forEach');
