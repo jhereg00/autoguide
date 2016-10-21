@@ -1,0 +1,11 @@
+/***
+ * Modular Scale Function
+ *
+ * Determines a size from a base, multiple, and scale factor.
+ *
+ * scss:
+ *   font-size: modularScale(16, 3, 1.5); // 36
+ */
+@function modularScale ($base: pxToRem(16), $multiple: 1, $factor: 1.5) {
+  @return $base * pow($factor, ($multiple - 1));
+}

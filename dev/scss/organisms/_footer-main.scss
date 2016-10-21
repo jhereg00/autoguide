@@ -15,7 +15,7 @@
   background: $bg-footer;
 
   @if (lightness($bg-footer) < 55) {
-    color: $text-light;
+    color: $text-inverted;
   } @else {
     color: $text-subtle;
   }

@@ -1,9 +1,9 @@
 {# standard wrapper for ALL components #}
 {# then includes the specifics of a given component #}
 
-<section class="component component--{{ element.template | default('default') }} component--depth-{{ element.depth | default('1') }}">
+<section class="component component--{{ element.template | default('default') }} component--depth-{{ element.depth | default('1') }} component--title-{{ element.title | lower | replace(' ','-') }}" id="{{ parentId }}/{{ element.title | lower | replace(' ','-') }}">
   {% block preheader %}{% endblock %}
-  
+
   {% block header %}
     <header class="component__header">
       <h{{ element.depth | default('1') }}>
@@ -25,6 +25,7 @@
   {% block main %}{% endblock %}
 
   {% if element.subElements %}
+    {% set parentId = parentId + '/' + (element.title | lower | replace(' ','-') ) %}
     <div class="component__sub-elements">
       {% for element in element.subElements %}
         {% if element.template %}

@@ -1,0 +1,15 @@
+{% extends 'nunjucks/componentTemplates/_componentWrapper.njk' %}
+
+{% block main %}
+  <div class="palette">
+    {% for key,val in element.sassVars %}
+    <div class="color color--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}">
+      <div class="swatch swatch--{{ var | replace('$','') }} swatch--{% if val | luminance > 0.55 %}light{% else %}dark{% endif %}" style="background-color: {{ val | color }}"></div>
+      <div class="color__details">
+        <span class="color__var-name" data-copy="{{ key }}">{{ key }}</span>
+        <span class="color__value {% if val[0] == '#' %}color__value--hex{% endif %}" data-copy="{{ val | color }}">{{ val | color | replace(',',', ') }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+/***
+ * Component
+ *
+ * An individual piece of the styleguide.
+ *
+ * html:
+TODO
+ */
+.component {
+  @include clearFix;
+  padding: 0 $wr;
+  margin: $vr * 4 auto;
+  max-width: $max-width;
+}

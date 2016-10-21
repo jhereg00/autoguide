@@ -4,12 +4,12 @@
  *  The main sections of the guide.  Modifiers would define variations.
  *
  *  html:
- *    <section class="ag-section {{ modifier }}">
- *      <div class="ag-section__inner">
- *        <header class="ag-section__header">
+ *    <section class="section {{ modifier }}">
+ *      <div class="section__inner">
+ *        <header class="section__header">
  *          <h4>This is a Section</h4>
  *        </header>
- *        <div class="ag-section__description"><p>The info here is <em>super</em> important!</p></div>
+ *        <div class="section__description"><p>The info here is <em>super</em> important!</p></div>
  *      </div>
  *    </section>
  */
@@ -28,8 +28,8 @@ $icons:
   'desktop'
 ;
 
-.ag-section {
-  @include clear-fix();
+.section {
+  @include clearFix();
   margin: $vr * 8 auto;
   position: relative;
   overflow: hidden;
@@ -39,20 +39,20 @@ $icons:
   }
 }
 
-.ag-section__inner {
+.section__inner {
   @include gridContainer;
   padding: 0 $wr;
   margin: 0 auto;
   box-sizing: border-box;
 
   @for $depth from 2 through 5 {
-    .ag-section--depth-#{$depth} & {
+    .section--depth-#{$depth} & {
       padding-left: $wr * ($depth);
     }
   }
 }
 
-.ag-section__sub-elements {
+.section__sub-elements {
   position: relative;
   padding-top: $vr * 4;
   margin-top: $vr * 2;
@@ -67,24 +67,24 @@ $icons:
     transform: translateX(-50%);
     pointer-events: none;
   }
-  > .ag-section:first-child {
+  > .section:first-child {
     margin-top: 0;
   }
-  > .ag-section:last-child {
+  > .section:last-child {
     margin-bottom: 0;
   }
-  .ag-section__title::before {
+  .section__title::before {
     display: none;
   }
 
   @for $depth from 1 through 5 {
-    .ag-section--depth-#{$depth} &::before {
+    .section--depth-#{$depth} &::before {
       left: calc(50% + #{$wr * ($depth - 1)});
     }
   }
 }
 
-.ag-section__title {
+.section__title {
   position: relative;
   &::before {
     position: absolute;
@@ -95,7 +95,7 @@ $icons:
   @include icon('menu');
 }
 @each $i in $icons {
-  .ag-section__title--#{$i} {
+  .section__title--#{$i} {
     @include icon($i);
   }
 }

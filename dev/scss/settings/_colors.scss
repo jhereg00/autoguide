@@ -12,20 +12,18 @@
  * The main colors used for the Autoguide template.  By default, these colors get
  * reused for the more detailed palette.
  *
+ * Note to learners: these variable names are less than stellar.  They're kept
+ * intentionally vague, because of their wide application.
+ *
  * path: ./colors
  * order: 0
+ * template: color
  */
-$text-body: #333 !default;
-$text-subtle: rgba(33,33,33,.5) !default;
-$text-light: #fff !default;
-$bg-body: #fff !default;
-$border-html: #e9eaf0 !default;
-$bg-code: $border-html !default;
+$text: #333 !default;
+$bg-primary: #fff !default;
+$bg-secondary: #e9eaf0 !default;
 $accent: #046C6F !default;
 $accent-light: #11c1c4 !default;
-$overlay-columns: rgba(17, 193, 196, .1) !default;
-$bg-header: #fff !default;
-$bg-footer: #66676a !default;
 
 /***
  * Detailed Palette
@@ -35,5 +33,34 @@ $bg-footer: #66676a !default;
  *
  * path: ./colors
  * order: 1
+ * template: color
  */
+$text-body: $text !default;
+$text-headlines: $text !default;
+$text-subtle: rgba($text, .5) !default;
+$text-inverted: white !default;
+$text-footer: rgb(255, 255, 255) !default;
+$text-code: $text !default;
 $bg-header: $accent !default;
+$bg-body: $bg-primary !default;
+$bg-code: $bg-secondary !default;
+$bg-footer: #66676a !default;
+$border-html: $bg-secondary !default;
+$overlay-columns: rgba($accent, .1) !default;
+
+
+/***
+ * Detailed Palette 2
+ *
+ * path: ./colors
+ * order: 2
+ * template: color
+ */
+$c1: #f00;
+$c2: #ee0000;
+$c3: #dd0000;
+$c4: #cc0000;
+$c5: #bb0000;
+$c6: #aa0000;
+$c7: #990000;
+$c8: #880000;

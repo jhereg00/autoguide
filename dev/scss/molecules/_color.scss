@@ -1,0 +1,47 @@
+/***
+ * Color Sample
+ *
+ * A swatch and variable name + color value combo molecule. JS also makes the
+ * variable name and value copyable with a click.
+ *
+ * @default .color--light
+ * @modifier .color--dark - when a color's luminosity is < 55%.
+ *
+ * html:
+ *   <div class="color">
+ *     <div class="swatch" style="background-color: #ee0022;"></div>
+ *     <div class="color__details">
+ *       <span class="color__var-name js-copyable" data-copy="$my-color">$my-color</span>
+ *       <span class="color__value js-copyable" data-copy="#EE0022">#EE0022</span>
+ *     </div>
+ *   </div>
+ */
+.color {
+  // sizing handled by palette organism
+  position: relative;
+
+  .swatch {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__details {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: $vr $wr;
+    text-align: right;
+  }
+  &__var-name {
+    @include font-mono;
+    display: block;
+  }
+  &__value {
+    display: block;
+  }
+
+  &--dark {
+    color: $text-inverted;
+  }
+}

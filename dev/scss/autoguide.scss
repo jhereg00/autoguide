@@ -21,6 +21,7 @@
   'utilities/functions/pxToEm',
   'utilities/functions/sqrt',
   'utilities/functions/pow',
+  'utilities/functions/modularScale',
   'utilities/mixins/aspect-ratio',
 
 // Sass Mixins
@@ -102,10 +103,10 @@
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
  */
 @import
-  'molecules/component',
   'molecules/param',
   'molecules/nav-main',
-  'molecules/controls'
+  'molecules/controls',
+  'molecules/color'
   ;
 
 /***
@@ -120,7 +121,9 @@
   'organisms/section',
   'organisms/header-main',
   'organisms/footer-main',
-  'organisms/tray'
+  'organisms/tray',
+  'organisms/component',
+  'organisms/palette'
   ;
 
 // extra

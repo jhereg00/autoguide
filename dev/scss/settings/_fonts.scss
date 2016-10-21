@@ -1,7 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Source+Code+Pro:500|Source+Sans+Pro:900';
-
 $font-body: 'Lato', sans-serif !default;
-$font-header: 'Source Sans Pro', sans-serif !default;
+$font-header: 'Droid Serif', serif !default;
 $font-mono: 'Source Code Pro', monospace !default;
 
 @mixin font-body {
