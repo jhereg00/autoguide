@@ -1,0 +1,39 @@
+/***
+ * HTML Sample
+ *
+ * An output of a sample element/component.  It is turned into an iframe by
+ * autoguide.js, allowing it to keep all of its styling localized.
+ *
+ * Title and description are optional based on the passed data.
+ *
+ * html:
+ *   <div class="html-sample">
+ *     <h6 class="html-sample__header">A Single Sample</h6>
+ *     <div class="html-sample__description">
+ *       <p>This is a sample of the sample. Neat, right?</p>
+ *       <p>Side note, iframe can't be dynamically generated within dynamically generated iframe. It fucks up.</p>
+ *     </div>
+ *     <iframe class="html-sample__iframe" srcdoc='
+ *       <html>
+ *         <head>
+ *           <link rel="stylesheet" href="assets/css/autoguide.css">
+ *         </head>
+ *         <body><h5>This is in an iframe</h5></body>
+ *       </html>'>
+ *     </iframe>
+ *   </div>
+ */
+.html-sample {
+  &__header--class-name {
+    @include font-mono;
+  }
+  &__description {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+  &__iframe {
+    border: $vr / 4 solid $border-html;
+    width: calc(100% - #{$vr / 2});
+  }
+}

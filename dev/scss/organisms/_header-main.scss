@@ -1,0 +1,31 @@
+/***
+ * Main Header
+ *
+ * The main header of the styleguide.
+ *
+ * Makes use of `$background-header` and `$text-header` with the `super` sizing.
+ * Background size is set to `cover` in case you want to override `$background-header`
+ * with an image.
+ *
+ * html:
+ *   <header class="header-main">
+ *     <h1 class="header-main__title">Autoguide</h1>
+ *   </header>
+ */
+.header-main {
+  padding: $vr * 12 $wr * 2 $vr * 3;
+  background: $background-header;
+  background-size: cover;
+
+  &__inner {
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+
+  &__title {
+    @include super;
+    @include font-headline;
+    margin: 0;
+    color: $text-header;
+  }
+}

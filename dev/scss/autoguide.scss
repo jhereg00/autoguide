@@ -1,6 +1,8 @@
 // guide styles
 @charset 'UTF-8';
 
+$background-header: #010101;
+
 /***
  * Utilities
  *
@@ -91,14 +93,13 @@
   'atoms/description',
   'atoms/button',
   'atoms/toggle',
-  'atoms/component-header',
   'atoms/copyable'
   ;
 
 /***
  * Molecules
  *
- * Structures which combine multiple elements to create a coherent piece. A masthead with an image and headline, or a nav dropdown containing numerous links, for example.
+ * Structures which combine multiple elements to create a coherent piece. A header with an image and headline, or a nav dropdown containing numerous links, for example.
  * > This is where we can combine multiple quarks and atoms, without interfering with any of our global styles.
  * >
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
@@ -124,7 +125,8 @@
   'organisms/footer-main',
   'organisms/tray',
   'organisms/component',
-  'organisms/palette'
+  'organisms/palette',
+  'organisms/html-sample'
   ;
 
 // extra

@@ -14,23 +14,28 @@
 
 h1,.h1 {
   @include h1;
-  @include font-header;
+  @include font-headline;
   margin: 0;
 }
 h2,.h2 {
   @include h2;
-  @include font-header;
+  @include font-headline;
   margin: 0;
 }
 h3,.h3 {
   @include h3;
-  @include font-header;
+  @include font-headline;
   margin: 0;
 }
 h4,.h4 {
   @include h4;
-  @include font-header;
+  @include font-headline;
   margin: 0;
+}
+h5,.h5,h6,.h6 {
+  @include body;
+  @include font-headline;
+  margin: $vr 0 0;
 }
 p {
   margin: $vr auto;

@@ -48,7 +48,7 @@
 html {
   min-width: 100vw;
 }
-html:not(.fs) body {
+html.not-fs body {
   padding: $vr $wr;
 }
 body {

@@ -28,7 +28,7 @@
       {% endfor %}
     </main>
   </div>
-  
+
   <script>
     window.ag = window.ag || {};
     window.ag.styles = {% if styles %}["{{ styles | join('","') | safe }}"]{% else %}[]{% endif %}.concat(['{{ assetPath | replace('/\/$/','') }}/css/in-frame.css']);

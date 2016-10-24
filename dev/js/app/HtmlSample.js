@@ -104,15 +104,17 @@ HtmlSample.prototype = {
    */
   autoHeight: function () {
     var doc = this.getDocument();
-    var docHeight = getDocumentHeight(doc);
-    if (docHeight != this.element.height)
-      this.element.setAttribute('height', docHeight);
+    if (doc) {
+      var docHeight = getDocumentHeight(doc);
+      if (docHeight != this.element.height)
+        this.element.setAttribute('height', docHeight);
+    }
   },
   /**
    *  getDocument gets the internal document of the iframe
    */
   getDocument: function () {
-    return this.element.contentDocument || this.element.contentWindow.document;
+    return this.element.contentDocument || (this.element.contentWindow && this.element.contentWindow.document);
   },
   /**
    *  adds/removes the 'show-grid' class to the <html> element so we can show a grid overlay

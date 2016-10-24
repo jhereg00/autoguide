@@ -1,12 +1,13 @@
 $font-body: 'Lato', sans-serif !default;
-$font-header: 'Droid Serif', serif !default;
+$font-headline: 'Droid Serif', serif !default;
 $font-mono: 'Source Code Pro', monospace !default;
 
 @mixin font-body {
   font-family: $font-body;
 }
-@mixin font-header {
-  font-family: $font-header;
+@mixin font-headline {
+  font-family: $font-headline;
+  weight: 400;
 }
 @mixin font-mono {
   font-family: $font-mono;

@@ -5,7 +5,7 @@
   <div class="html-sample">
     {% if title or description %}
       {% if title %}
-        <h6 class="html-sample__header">{{ title }}</h6>
+        <h6 class="html-sample__header{% if title[0] == '.' %} html-sample__header--class-name{% endif %}">{{ title }}</h6>
       {% endif %}
       {% if description %}
         <div class="html-sample__description">{{ description | markdown | safe }}</div>

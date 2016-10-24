@@ -12,7 +12,6 @@
  */
 .button {
   @include body;
-  @include font-header;
   position: relative;
   display: inline-block;
   padding: $vr / 2 $wr;

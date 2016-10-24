@@ -31,6 +31,10 @@ $accent-light: #11c1c4 !default;
  * These are the colors that will actually appear throughout the generated guide.
  * Altering these will grant a very fine level of control over components.
  *
+ * The colors titled `$background-*` are used directly as the background property
+ * for their given element, so you can replace them with anything that could apply
+ * there.  For example: `$background-header: url(https://morbotron.com/img/S03E06/1053451.jpg) center center no-repeat cover`.
+ *
  * path: ./colors
  * order: 1
  * template: color
@@ -39,6 +43,7 @@ $text-body: $text !default;
 $text-headlines: $text !default;
 $text-subtle: rgba($text, .5) !default;
 $text-inverted: white !default;
+$text-header: $text-inverted !default;
 $text-footer: rgb(255, 255, 255) !default;
 $text-code: $text !default;
 $background-header: $accent !default;
