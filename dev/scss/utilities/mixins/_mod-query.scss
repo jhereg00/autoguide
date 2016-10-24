@@ -1,0 +1,43 @@
+/***
+ * Mod Query
+ *
+ * A damn clever way to select elements when the number of children is divisible
+ * by a given integer. As opposed to the absolute [Quantity Query](#/utilities/mixins/quantity-query),
+ * this selects when `children % n = 0`, or if a remainder is also passed, when
+ * `children % n = remainder`.
+ *
+ * Gleefully stolen from Patrick Clancey's article: http://alistapart.com/article/using-css-mod-queries-with-range-selectors
+ *
+ * scss:
+ *   @include selectRange(5,9) {
+ *     // things you want only items 5 - 9 to do
+ *   }
+ *   @include modQuery(3, 0, '.custom-selector') {
+ *     // things you want all .custom-selectors in a given parent to do
+ *     // when their total number is divisible by 3
+ *   }
+ *   @include modFirst(3, 1) {
+ *     // things you want the first element to do when the total number of
+ *     // children matches n % 3 == 1
+ *   }
+ */
+
+// range selector mixin
+@mixin selectRange($start, $end){
+  &:nth-child(n+#{$start}):nth-child(-n+#{$end}){
+    @content;
+  }
+}
+// mod query mixin
+@mixin modQuery($mod, $remainder: 0, $selector: li){
+  &:nth-last-child(#{$mod}n+#{$remainder}):first-child,
+  &:nth-last-child(#{$mod}n+#{$remainder}):first-child ~ #{$selector} {
+    @content;
+  }
+}
+
+@mixin modFirst($mod, $remainder: 0) {
+  &:nth-last-child(#{$mod}n+#{$remainder}):first-child {
+    @content;
+  }
+}

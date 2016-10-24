@@ -37,7 +37,7 @@
   width: 80vw;
   padding: $vr $wr;
   box-sizing: border-box;
-  background: $bg-code;
+  background: $background-code;
   pointer-events: auto;
   transform: translateX(100%);
   transition: transform .3s, right .3s;
@@ -57,7 +57,7 @@
   @for $i from 2 through 5 {
     &:nth-child(#{$i}) {
       z-index: 10 - $i;
-      background: darken($bg-code,8% * ($i - 1));
+      background: darken($background-code,8% * ($i - 1));
       .ag-tray__tier-opener {
         top: $vr * 2 * ($i - 1);
       }

@@ -20,8 +20,8 @@
  * template: color
  */
 $text: #333 !default;
-$bg-primary: #fff !default;
-$bg-secondary: #e9eaf0 !default;
+$background-primary: #fff !default;
+$background-secondary: #e9eaf0 !default;
 $accent: #046C6F !default;
 $accent-light: #11c1c4 !default;
 
@@ -41,11 +41,11 @@ $text-subtle: rgba($text, .5) !default;
 $text-inverted: white !default;
 $text-footer: rgb(255, 255, 255) !default;
 $text-code: $text !default;
-$bg-header: $accent !default;
-$bg-body: $bg-primary !default;
-$bg-code: $bg-secondary !default;
-$bg-footer: #66676a !default;
-$border-html: $bg-secondary !default;
+$background-header: $accent !default;
+$background-body: $background-primary !default;
+$background-code: $background-secondary !default;
+$background-footer: #66676a !default;
+$border-html: $background-secondary !default;
 $overlay-columns: rgba($accent, .1) !default;
 
 

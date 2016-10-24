@@ -21,14 +21,14 @@
  *     <div class="color color--light">
  *       <div class="swatch swatch-- swatch--light" style="background-color: #FFFFFF"></div>
  *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$bg-primary">$bg-primary</span>
+ *         <span class="color__var-name" data-copy="$background-primary">$background-primary</span>
  *         <span class="color__value color__value--hex" data-copy="#FFFFFF">#FFFFFF</span>
  *       </div>
  *     </div>
  *     <div class="color color--light">
  *       <div class="swatch swatch-- swatch--light" style="background-color: #E9EAF0"></div>
  *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$bg-secondary">$bg-secondary</span>
+ *         <span class="color__var-name" data-copy="$background-secondary">$background-secondary</span>
  *         <span class="color__value color__value--hex" data-copy="#E9EAF0">#E9EAF0</span>
  *       </div>
  *     </div>
@@ -55,11 +55,39 @@
     float: left;
     width: (100% / 3);
     // sexy ass mod selector!
-    @for $i from 3 through 5 {
-      &:nth-last-child(#{$i}n):first-child {
-        &, & ~ .color {
-          width: (100% / $i);
-        }
+    @include modQuery(4,0,'.color') {
+      width: (100% / 4);
+    }
+    @include modQuery(4,3,'.color') {
+      width: (100% / 4);
+      @include selectRange(1,3) {
+        width: (100% / 3);
+      }
+    }
+  }
+
+  [id*="primary"] & {
+    @include h4;
+    .color {
+      width: 50%;
+      height: $vr * 12;
+      @include modFirst(2,1) {
+        width: 100%;
+      }
+
+      @include modQuery(3,0,'.color') {
+        width: (100% / 3);
+      }
+
+      @include modQuery(3,1,'.color') {
+        width: (100% / 3);
+      }
+      @include modFirst(3,1) {
+        width: 100%;
+      }
+
+      @include modQuery(2,0,'.color') {
+        width: (100% / 2);
       }
     }
   }

@@ -12,9 +12,9 @@
   @include small;
   padding: $vr $wr;
   margin-top: $vr * 8;
-  background: $bg-footer;
+  background: $background-footer;
 
-  @if (lightness($bg-footer) < 55) {
+  @if (lightness($background-footer) < 55) {
     color: $text-inverted;
   } @else {
     color: $text-subtle;

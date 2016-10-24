@@ -22,14 +22,15 @@
   'utilities/functions/sqrt',
   'utilities/functions/pow',
   'utilities/functions/modularScale',
-  'utilities/mixins/aspect-ratio',
 
 // Sass Mixins
 //
 // Helpful mixins for complex queries and properties.
 //
 // Styleguide I.2
+  'utilities/mixins/aspect-ratio',
   'utilities/mixins/quantity-query',
+  'utilities/mixins/mod-query',
   'utilities/mixins/media-queries',
 
 // global styles
