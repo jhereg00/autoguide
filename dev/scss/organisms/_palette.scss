@@ -12,38 +12,31 @@
  * html:
  *   <div class="palette">
  *     <div class="color color--dark">
- *       <div class="swatch swatch-- swatch--dark" style="background-color: #333333"></div>
+ *       <div class="swatch swatch-- swatch--dark" style="background-color: #FF0000"></div>
  *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$text">$text</span>
- *         <span class="color__value color__value--hex" data-copy="#333333">#333333</span>
- *       </div>
- *     </div>
- *     <div class="color color--light">
- *       <div class="swatch swatch-- swatch--light" style="background-color: #FFFFFF"></div>
- *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$background-primary">$background-primary</span>
- *         <span class="color__value color__value--hex" data-copy="#FFFFFF">#FFFFFF</span>
- *       </div>
- *     </div>
- *     <div class="color color--light">
- *       <div class="swatch swatch-- swatch--light" style="background-color: #E9EAF0"></div>
- *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$background-secondary">$background-secondary</span>
- *         <span class="color__value color__value--hex" data-copy="#E9EAF0">#E9EAF0</span>
+ *         <span class="color__var-name" data-copy="$c1">$c1</span>
+ *         <span class="color__value color__value--hex" data-copy="#FF0000">#FF0000</span>
  *       </div>
  *     </div>
  *     <div class="color color--dark">
- *       <div class="swatch swatch-- swatch--dark" style="background-color: #046C6F"></div>
+ *       <div class="swatch swatch-- swatch--dark" style="background-color: #EE0000"></div>
  *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$accent">$accent</span>
- *         <span class="color__value color__value--hex" data-copy="#046C6F">#046C6F</span>
+ *         <span class="color__var-name" data-copy="$c2">$c2</span>
+ *         <span class="color__value color__value--hex" data-copy="#EE0000">#EE0000</span>
  *       </div>
  *     </div>
- *     <div class="color color--light">
- *       <div class="swatch swatch-- swatch--light" style="background-color: #11C1C4"></div>
+ *     <div class="color color--dark">
+ *       <div class="swatch swatch-- swatch--dark" style="background-color: #DD0000"></div>
  *       <div class="color__details">
- *         <span class="color__var-name" data-copy="$accent-light">$accent-light</span>
- *         <span class="color__value color__value--hex" data-copy="#11C1C4">#11C1C4</span>
+ *         <span class="color__var-name" data-copy="$c3">$c3</span>
+ *         <span class="color__value color__value--hex" data-copy="#DD0000">#DD0000</span>
+ *       </div>
+ *     </div>
+ *     <div class="color color--dark">
+ *       <div class="swatch swatch-- swatch--dark" style="background-color: #CC0000"></div>
+ *       <div class="color__details">
+ *         <span class="color__var-name" data-copy="$c4">$c4</span>
+ *         <span class="color__value color__value--hex" data-copy="#CC0000">#CC0000</span>
  *       </div>
  *     </div>
  *   </div>

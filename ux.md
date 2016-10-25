@@ -40,6 +40,6 @@ Receive New Project &rarr; Design Predicted Components &rarr; Send Components to
 * arbitrary iframe resizing
 * ~~note making/sending?~~: out of scope for now
 * search
-* nesting as modifier
+* ~~nesting as modifier~~
   `@modifier .emmet.style &`
 * ~~arbitrary ordering of components~~
