@@ -1,14 +1,35 @@
 /***
  * Copyable element
  *
- * Element that, when clicked, copies a string to the user's clipboard. Extends
- * `.button` and `.button--small`.
+ * Element that, when clicked, copies a string to the user's clipboard.
  *
  * html:
- *   <a class="copyable" data-copy="Copy Me!">Click to "Copy Me"</a>
+ *   <span data-copy="Copy Me!">Click to "Copy Me"</span>
  */
-.copyable {
-  @extend .button;
-  @extend .button--small;
-  padding: 0 $wr / 4;
+[data-copy] {
+  @include icon('copy');
+  cursor: copy;
+
+  &::before {
+    display: inline-block;
+    padding-right: .25em;
+    vertical-align: bottom;
+    opacity: 0;
+    transform: translateX(50%);
+    transition: opacity $transition-time linear, transform $transition-time ease-in;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      transform: none;
+      transition-timing-function: ease-out;
+    }
+  }
+  &:active {
+    &::before {
+      transform: translateY(-15%);
+      transition-duration: 0s;
+    }
+  }
 }

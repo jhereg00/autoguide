@@ -1,0 +1,37 @@
+{#########################################}
+{# a sample of html that gets iframified #}
+{#########################################}
+{% macro htmlSample (title, description, content, fullWidth, wrap) %}
+  <div class="html-sample">
+    {% if title or description %}
+      {% if title %}
+        <h6 class="html-sample__header{% if title[0] == '.' %} html-sample__header--class-name{% endif %}">{{ title }}</h6>
+      {% endif %}
+      {% if description %}
+        <div class="html-sample__description">{{ description | markdown | safe }}</div>
+      {% endif %}
+    {% endif %}
+    <make-iframe class="html-sample__iframe">
+      {% if wrap %}
+        {{ content | wrap(wrap) | safe }}
+      {% else %}
+        {{ content | safe }}
+      {% endif %}
+    </make-iframe>
+  </div>
+{% endmacro %}
+
+
+{###########################################}
+{# a block of code, optionally collapsable #}
+{###########################################}
+{% macro code (content, collapsable, language) %}
+  <div class="code-block {% if collapsible %}js-collapsable{% endif %}">
+    {% if language or collapsable %}
+      <div class="code-block__header {% if collapsable %}collapsable__toggle js-collapsable-toggle{% endif %}">
+        <h6>{{ language | default('Code') }}</h6>
+      </div>
+    {% endif %}
+    <pre class="code-block__pre {% if collapsable %}collapsable__content js-collapsable-content{% endif %}">{{ content | highlight(language) | safe }}</pre>
+  </div>
+{% endmacro %}

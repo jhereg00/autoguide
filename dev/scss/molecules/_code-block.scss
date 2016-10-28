@@ -1,0 +1,142 @@
+.hljs {
+  &-comment {
+    color: $code-comment;
+    font-style: italic;
+  }
+  &-quote {
+    color: $code-quote;
+    font-style: italic;
+  }
+  &-keyword {
+    color: $code-keyword;
+    font-weight: bold;
+  }
+  &-selector-tag {
+    color: $code-selector-tag;
+    font-weight: bold;
+  }
+  &-subst {
+    color: $code-subst;
+  }
+  &-number {
+    color: $code-number;
+  }
+  &-literal {
+    color: $code-literal;
+  }
+  &-variable {
+    color: $code-variable;
+  }
+  &-template-variable {
+    color: $code-template-variable;
+  }
+  &-tag .hljs-attr {
+    color: $code-tag-attr;
+  }
+  &-string {
+    color: $code-string;
+  }
+  &-doctag {
+    color: $code-doctag;
+  }
+  &-title {
+    color: $code-title;
+    font-weight: bold;
+  }
+  &-section {
+    color: $code-section;
+    font-weight: bold;
+  }
+  &-selector-id {
+    color: $code-selector-id;
+    font-weight: bold;
+  }
+  &-type {
+    color: $code-type;
+    font-weight: bold;
+  }
+  &-class .hljs-title {
+    color: $code-class-title;
+    font-weight: bold;
+  }
+  &-tag {
+    color: $code-tag;
+    font-weight: normal;
+  }
+  &-name {
+    color: $code-name;
+    font-weight: normal;
+  }
+  &-attribute {
+    color: $code-attribute;
+    font-weight: normal;
+  }
+  &-regexp {
+    color: $code-regexp;
+  }
+  &-link {
+    color: $code-link;
+  }
+  &-symbol {
+    color: $code-symbol;
+  }
+  &-bullet {
+    color: $code-bullet;
+  }
+  &-built_in {
+    color: $code-built_in;
+  }
+  &-builtin-name {
+    color: $code-builtin-name;
+  }
+  &-meta {
+    color: $code-meta;
+    font-weight: bold;
+  }
+  &-deletion {
+    background: #fdd;
+  }
+  &-addition {
+    background: #dfd;
+  }
+  &-emphasis {
+    font-style: italic;
+  }
+  &-strong {
+    font-weight: bold;
+  }
+}
+
+/***
+ * Code Block
+ *
+ * A (usually) collapsable block of code. Colors are from a [unique palette](#/molecules/code-block/code-colors).
+ * To see how the collapsable part works, check it out in its [JS section](#/app/collapsable).
+ *
+ * html:
+ *   <div class="code-block js-collapsable is-open">
+ *     <div class="code-block__header collapsable__toggle js-collapsable-toggle">
+ *       <h6>HTML</h6>
+ *     </div>
+ *     <pre class="code-block__pre collapsable__content js-collapsable-content"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-main"</span>&gt;</span>
+ *     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-main__title"</span>&gt;</span>Autoguide<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+ *   <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre>
+ *   </div>
+ */
+.code-block {
+  border: $vr / 4 solid $border-code;
+  &__header {
+    padding: 0 $wr;
+    margin: 0;
+    h6 {
+      margin: 0;
+    }
+  }
+  &__pre {
+    margin: 0;
+    padding: $vr $wr;
+    background: $background-code;
+    color: $text-code;
+    overflow: auto;
+  }
+}

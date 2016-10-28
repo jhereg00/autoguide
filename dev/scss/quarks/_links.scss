@@ -5,8 +5,8 @@
  *   <a href="#">Simple Default Link</a>
  */
 
-$link-color: $accent;
-$hover-color: $accent-light; // temp?
+$link-color: $accent-primary;
+$hover-color: $accent-primary-light; // temp?
 
 a {
   color: $link-color;

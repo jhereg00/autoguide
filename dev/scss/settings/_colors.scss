@@ -22,8 +22,10 @@
 $text: #333 !default;
 $background-primary: #fff !default;
 $background-secondary: #e9eaf0 !default;
-$accent: #046C6F !default;
-$accent-light: #11c1c4 !default;
+$accent-primary: #046C6F !default;
+$accent-primary-light: #11c1c4 !default;
+$accent-secondary: #14477a !default;
+$accent-secondary-light: #186cbf !default;
 
 /***
  * Detailed Palette
@@ -46,26 +48,47 @@ $text-inverted: white !default;
 $text-header: $text-inverted !default;
 $text-footer: rgb(255, 255, 255) !default;
 $text-code: $text !default;
-$background-header: $accent !default;
+$background-header: $accent-primary !default;
 $background-body: $background-primary !default;
 $background-code: $background-secondary !default;
 $background-footer: #66676a !default;
 $border-html: $background-secondary !default;
-$overlay-columns: rgba($accent, .1) !default;
+$border-code: $background-secondary !default;
+$overlay-columns: rgba($accent-primary, .1) !default;
 
 
 /***
- * Detailed Palette 2
+ * Code Colors
  *
- * path: ./colors
- * order: 2
+ * These are the color variables that can be overridden for code blocks.
+ *
  * template: color
+ * path: ./molecules/code-block
  */
-$c1: #f00;
-$c2: #ee0000;
-$c3: #dd0000;
-$c4: #cc0000;
-$c5: #bb0000;
-$c6: #aa0000;
-$c7: #990000;
-$c8: #880000;
+$code-comment: $text-subtle !default;
+$code-quote: $text-subtle !default;
+$code-keyword: $text-code !default;
+$code-selector-tag: $text-code !default;
+$code-subst: $text-code !default;
+$code-number: $accent-primary-light !default;
+$code-literal: $accent-primary-light !default;
+$code-variable: $accent-primary-light !default;
+$code-template-variable: $accent-primary-light !default;
+$code-tag-attr: $accent-primary-light !default;
+$code-string: $accent-secondary-light !default;
+$code-doctag: $accent-secondary-light !default;
+$code-title: $accent-secondary !default;
+$code-section: $accent-secondary !default;
+$code-selector-id: $accent-secondary !default;
+$code-type: $accent-primary !default;
+$code-class-title: $accent-primary !default;
+$code-tag: darken($accent-primary, 4) !default;
+$code-name: darken($accent-primary, 4) !default;
+$code-attribute: darken($accent-primary, 4) !default;
+$code-regexp: $accent-secondary !default;
+$code-link: $accent-secondary !default;
+$code-symbol: darken($accent-secondary, 4) !default;
+$code-bullet: darken($accent-secondary, 4) !default;
+$code-built_in: $accent-primary !default;
+$code-builtin-name: $accent-primary !default;
+$code-meta: $text-subtle !default;

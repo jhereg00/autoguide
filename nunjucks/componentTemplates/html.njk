@@ -1,38 +1,21 @@
 {% extends 'nunjucks/componentTemplates/_componentWrapper.njk' %}
 
 
-{% macro htmlSample (title, description, content, fullWidth, wrap) %}
-  <div class="html-sample">
-    {% if title or description %}
-      {% if title %}
-        <h6 class="html-sample__header{% if title[0] == '.' %} html-sample__header--class-name{% endif %}">{{ title }}</h6>
-      {% endif %}
-      {% if description %}
-        <div class="html-sample__description">{{ description | markdown | safe }}</div>
-      {% endif %}
-    {% endif %}
-    <make-iframe class="html-sample__iframe">
-      {% if wrap %}
-        {{ content | wrap(wrap) | safe }}
-      {% else %}
-        {{ content | safe }}
-      {% endif %}
-    </make-iframe>
-  </div>
-{% endmacro %}
+{% import './_macros.njk' as macros %}
 
 
 {% block main %}
   {% if element.modifier | length %}
     {% if element.default | length %}
-      {{ htmlSample (element.default[0].name, element.default[0].description, element.html, element.wrap) }}
+      {{ macros.htmlSample (element.default[0].name, element.default[0].description, element.html, element.wrap) }}
     {% else %}
-      {{ htmlSample ("Default", null, element.html, element.wrap) }}
+      {{ macros.htmlSample ("Default", null, element.html, element.wrap) }}
     {% endif %}
     {% for mod in element.modifier %}
-      {{ htmlSample (mod.name, mod.description, element.html | addModifier(mod.name), element.wrap) }}
+      {{ macros.htmlSample (mod.name, mod.description, element.html | addModifier(mod.name), element.wrap) }}
     {% endfor %}
   {% else %}
-    {{ htmlSample (null, null, element.html, element.wrap) }}
+    {{ macros.htmlSample (null, null, element.html, element.wrap) }}
   {% endif %}
+  {{ macros.code (element.html, true, 'HTML') }}
 {% endblock %}

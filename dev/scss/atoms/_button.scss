@@ -15,17 +15,17 @@
   position: relative;
   display: inline-block;
   padding: $vr / 2 $wr;
-  border: 1px solid $accent;
+  border: 1px solid $accent-primary;
   border-radius: $vr / 4;
   cursor: pointer;
   transition: all .3s;
-  color: $accent;
+  color: $accent-primary;
   background: $background-body;
 
   &:hover {
-    border-color: $accent-light;
-    box-shadow: inset 0 0 $vr rgba($accent, .25);
-    color: $accent-light;
+    border-color: $accent-primary-light;
+    box-shadow: inset 0 0 $vr rgba($accent-primary, .25);
+    color: $accent-primary-light;
   }
 }
 

@@ -82,6 +82,7 @@ These components will output to the styleguide when using the default template.
 ## Attributes
 
 * `@modifier .class - description` - description is optional. Each of these adds another html sample to the element's section with the modifier added to the outermost element.
+  Additionally, can write a sass style nest. For example: `@modifier .parent &`.
 * `@default name - description` - description is optional. If modifiers are present, changes the title 'Default' to name and adds the description before the first, unmodified sample.
 * `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
 * `@returns {type} name - description` - all components optional, but should probably have at least one.
@@ -92,6 +93,7 @@ These components will output to the styleguide when using the default template.
 New template, which is much more thorough and exposes many more options.  New features include:
 * path override
 * arbitrary variable documentation (color palettes, sizing, etc.)
+* nested modifiers
 
 **This also includes some breaking changes:**
 * `vars` is no longer an option. Instead, comment the areas with your sass variables as you would a component. For example:

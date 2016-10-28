@@ -20,8 +20,8 @@
   @extend .button;
 
   .toggle__checkbox:checked ~ & {
-    background: $accent-light;
-    @if (lightness($accent-light) < .55) {
+    background: $accent-primary-light;
+    @if (lightness($accent-primary-light) < .55) {
       color: $text-light;
     }
     @else {

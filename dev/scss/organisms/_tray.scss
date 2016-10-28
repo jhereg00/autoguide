@@ -23,11 +23,11 @@
   transition: background .3s;
 
   &.open {
-    background: rgba($accent,.5);
+    background: rgba($accent-primary,.5);
     pointer-events: auto;
 
     > .ag-tray__tiers-container {
-      filter: drop-shadow(0 0 $wr / 2 rgba($accent,.8));
+      filter: drop-shadow(0 0 $wr / 2 rgba($accent-primary,.8));
     }
   }
 }

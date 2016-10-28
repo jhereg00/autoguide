@@ -33,35 +33,38 @@
 	@if $filename == colors {
 		$char: "\E002";
 	}
-	@if $filename == desktop {
+	@if $filename == copy {
 		$char: "\E003";
 	}
-	@if $filename == fonts {
+	@if $filename == desktop {
 		$char: "\E004";
 	}
-	@if $filename == menu {
+	@if $filename == fonts {
 		$char: "\E005";
 	}
-	@if $filename == molecules {
+	@if $filename == menu {
 		$char: "\E006";
 	}
-	@if $filename == organisms {
+	@if $filename == molecules {
 		$char: "\E007";
 	}
-	@if $filename == phone {
+	@if $filename == organisms {
 		$char: "\E008";
 	}
-	@if $filename == quarks {
+	@if $filename == phone {
 		$char: "\E009";
 	}
-	@if $filename == settings {
+	@if $filename == quarks {
 		$char: "\E00A";
 	}
-	@if $filename == tablet {
+	@if $filename == settings {
 		$char: "\E00B";
 	}
-	@if $filename == utilities {
+	@if $filename == tablet {
 		$char: "\E00C";
+	}
+	@if $filename == utilities {
+		$char: "\E00D";
 	}
 
 	@return $char;
@@ -83,6 +86,9 @@
 }
 .icon-colors {
 	@include icon(colors);
+}
+.icon-copy {
+	@include icon(copy);
 }
 .icon-desktop {
 	@include icon(desktop);
