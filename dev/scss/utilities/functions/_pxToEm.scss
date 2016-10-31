@@ -3,7 +3,7 @@
  *
  * Converts pixels to EMs so we can keep our units consistent.  Assumes 1em is 16px, or you can pass a different base.
  *
- * code:
+ * scss:
  *   pxToEm($px[,$base]);
  *
  * @param $px - unitless integer to convert to rems

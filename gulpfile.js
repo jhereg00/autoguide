@@ -15,7 +15,8 @@ gulp.task('autoguide',['sass','scripts'],function (done) {
     dest: "./sample",
     templateVars: {
       title: 'Autoguide Docs'
-    }
+    },
+    //sassPrepend: ['tests/override-test.scss']
   }, function (err, success) {
     done();
   });

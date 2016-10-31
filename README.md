@@ -44,7 +44,8 @@ Once included in your file, you can simply call it as a function. You may pass i
   * `assetDest` - file path to autoguide specific assets (will contain `css`, `js`, and `images` folders). Default: assetPath from dest
   * `styles` - array of path(s) to css file(s) for the elements. These are the stylesheets that will be included _within_ the iframes that the html samples are placed in.  The paths need to be what you'd put in the `href` attibute of your `link` tag. Default: ['assets/css/autoguide.css'].
   * `scripts` - array of path(s) to javascript file(s) for the elements. These are the scripts that will be included _within_ the iframes that the html samples are placed in.  The paths need to be what you'd put in the `src` attibute of your `script` tag. Default: ['assets/js/autoguide.js'].
-* `callback` - callback function. Passed `error` and `true`
+  * `sassPrepend` - string or array of file(s) to import into the **guide's** css.  Useful for variable overrides or custom component templating.
+* `callback` - callback function. Passed `error` and `success` as a boolean
 
 #### Example Usage:
 

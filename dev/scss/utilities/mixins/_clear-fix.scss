@@ -3,7 +3,7 @@
  *
  *  Clears all floats inside this element by using the `::after` pseudo-element.
  *
- *  code:
+ *  scss:
  *    @include clear-fix;
  *    // or
  *    @extend %clear-fix;

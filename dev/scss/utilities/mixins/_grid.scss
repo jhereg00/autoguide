@@ -13,7 +13,7 @@
  *
  * Remember, variables wrapped in `[]` in the example are optional.
  *
- * code:
+ * scss:
  *   @include gridContainer ([$gutter]);
  *   @include subgridContainer ([$gutter]);
  *   @include colspan ($span[, $total[, $gutter]]);

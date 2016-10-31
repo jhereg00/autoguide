@@ -4,7 +4,7 @@
  * Mixins to allow styles to be set based on at-least, at-most, and exactly `n`
  * number of an element.
  *
- * code:
+ * scss:
  *   @include qqAtLeast ($n) {
  *     @content;
  *   }

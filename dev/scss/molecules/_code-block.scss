@@ -114,11 +114,11 @@
  * To see how the collapsable part works, check it out in its [JS section](#/app/collapsable).
  *
  * html:
- *   <div class="code-block js-collapsable is-open">
- *     <div class="code-block__header collapsable__toggle js-collapsable-toggle">
+ *   <div class="code-block js-collapsable">
+ *     <div class="code-block__header collapsable__toggle is-open js-collapsable-toggle">
  *       <h6>HTML</h6>
  *     </div>
- *     <pre class="code-block__pre collapsable__content js-collapsable-content"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-main"</span>&gt;</span>
+ *     <pre class="code-block__pre collapsable__content is-open js-collapsable-content"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-main"</span>&gt;</span>
  *     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-main__title"</span>&gt;</span>Autoguide<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
  *   <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></code></pre>
  *   </div>

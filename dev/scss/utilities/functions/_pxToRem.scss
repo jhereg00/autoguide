@@ -3,7 +3,7 @@
  *
  * Converts pixels to REMs so we can keep our units consistent.  Assumes 1rem is 16px (default for most browsers).
  *
- * code:
+ * scss:
  *   pxToRem($px[,$baseRem]);
  *
  * @param $px - unitless integer to convert to rems

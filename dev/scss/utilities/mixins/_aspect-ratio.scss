@@ -3,7 +3,7 @@
  *
  * Gets padding for correct aspect ratio, and sets height to 0.
  *
- * code:
+ * scss:
  *   @include aspect-ratio($width, $height)
  *
  * @param {Number} $width - comparative width of the ratio. The 'x' in x:y
