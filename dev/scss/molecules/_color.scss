@@ -43,5 +43,8 @@
 
   &--dark {
     color: $text-inverted;
+    [data-copy]::before {
+      color: $text-inverted;
+    }
   }
 }

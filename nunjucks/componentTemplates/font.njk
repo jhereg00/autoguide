@@ -1,0 +1,14 @@
+{% extends 'nunjucks/componentTemplates/_componentWrapper.njk' %}
+
+{% block main %}
+  <div class="font-group">
+    {% for key,val in element.sassVars %}
+    {% set fontStack = val | split(',') %}
+    {% set fontName = fontStack[0]  | replace('"','') | replace("'","") %}
+    <div class="font-sample">
+      <span class="font-sample__var-name" data-copy="{{ key }}">{{ key }}</span>
+      <span class="font-sample__value" data-copy="{{ fontName }}" style="font-family: {{val}}">{{ fontName }}</span>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

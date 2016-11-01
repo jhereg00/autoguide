@@ -14,7 +14,7 @@
  *  js:
  *    require('app/HtmlSample').makeAll(); // goes through the whole page and does its thing
  *
- *  path: ./app/html-sample
+ *  path: ./app/html_sample
  */
 // requirements
 var forEach = require('lib/util/forEach');
@@ -70,7 +70,7 @@ var samples = [];
  *
  *  @prop element - the actual iframe element
  *
- *  path: ./app/html-sample
+ *  path: ./app/html_sample
  *  order: 0
  */
 var HtmlSample = function (sourceElement) {
@@ -169,7 +169,7 @@ function makeHtmlSamples () {
  *  js:
  *    require('app/HtmlSample').toggleGrids()
  *
- *  path: ./app/html-sample
+ *  path: ./app/html_sample
  */
 var toggleGrids = function () {
   forEach(samples, function (s) {
@@ -187,7 +187,7 @@ var toggleGrids = function () {
  *
  *  @param {int} width
  *
- *  path: ./app/html-sample
+ *  path: ./app/html_sample
  */
 var setWidths = function (w) {
   forEach(samples, function (s) {

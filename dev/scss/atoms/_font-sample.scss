@@ -1,0 +1,23 @@
+/***
+ *  Font Sample
+ *
+ *  Shows the first font found in the font stack of variables in a file named fonts.scss.
+ *
+ *  html:
+ *    <div class="font-sample">
+ *      <span class="font-sample__var-name">$my-font</span>
+ *      <span class="font-sample__value" style="font-family: 'Times New Roman', serif;">
+ *        Times New Roman
+ *      </span>
+ *    </div>
+ */
+.font-sample {
+  margin: $vr * 2 auto;
+}
+.font-sample__var-name {
+  @include font-mono;
+  display: block;
+}
+.font-sample__value {
+  @include h2;
+}

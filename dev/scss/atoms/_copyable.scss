@@ -14,17 +14,18 @@
 
   &::before {
     display: inline-block;
-    padding-right: .25em;
+    width: 0;
     vertical-align: bottom;
     opacity: 0;
-    transform: translateX(50%);
+    transform: translateX(-.25em);
     transition: opacity $transition-time linear, transform $transition-time ease-in;
+    color: $accent-primary;
   }
 
   &:hover {
     &::before {
       opacity: 1;
-      transform: none;
+      transform: translateX(-1em);
       transition-timing-function: ease-out;
     }
   }

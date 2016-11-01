@@ -1,3 +1,13 @@
+/***
+ * Fonts
+ *
+ * The font families used throughout the guide.  These can be overridden just like
+ * colors.  If you need to load a webfont, you can do so in your `sassPrepend` file
+ * using `@import`.
+ *
+ * template: font
+ * path: ./
+ */
 $font-body: 'Lato', sans-serif !default;
 $font-headline: 'Droid Serif', serif !default;
 $font-mono: 'Source Code Pro', monospace !default;

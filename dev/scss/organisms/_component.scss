@@ -8,26 +8,27 @@ TODO
  */
 .component {
   @include clearFix;
-  padding: 0 $wr;
-  margin: $vr * 4 auto;
-  max-width: $max-width;
+  position: relative;
+  padding: $vr * 6 calc((100% - #{$max-width}) / 2);
 
-  @for $i from 1 through 4 {
+  @for $i from 2 through 4 {
     &--depth-#{$i} {
-      margin: max($vr * 4, $vr * (10 - $i * 2)) auto;
+      padding-top: max($vr * 2, $vr * (8 - $i * 2));
+      padding-bottom: max($vr * 2, $vr * (8 - $i * 2));
     }
   }
 
   &__header {
     position: relative;
     margin: 0 0 $vr;
-    &::before {
-      @include h3;
-      position: absolute;
-      top: 50%; right: 100%;
-      margin-right: $wr;
-      transform: translateY(-50%);
-    }
+    // @include icon ('right-arrow');
+    // &::before {
+    //   @include h3;
+    //   position: absolute;
+    //   top: 50%; right: 100%;
+    //   margin-right: $wr;
+    //   transform: translateY(-50%);
+    // }
 
     .file-path {
       position: absolute;
@@ -36,43 +37,73 @@ TODO
     }
   }
 
-  &--depth-1 > .component__header::before {
-    @include h1;
+  &__sub-elements {
+    > .component {
+      padding-right: 0;
+      padding-left: $wr * 2;
+      margin: 0;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
 
-  &--title-colors, &--color {
-    > .component__header {
-      @include icon ('colors');
-    }
+  &--depth-1 {
+    border-top: 1px solid $border-html;
   }
-  &--title-quarks {
-    .component__header {
-      @include icon ('quarks');
-    }
-  }
-  &--title-atoms {
-    .component__header {
-      @include icon ('atoms');
-    }
-  }
-  &--title-molecules {
-    .component__header {
-      @include icon ('molecules');
-    }
-  }
-  &--title-organisms {
-    .component__header {
-      @include icon ('organisms');
-    }
-  }
-  &--title-settings {
-    .component__header {
-      @include icon ('settings');
-    }
-  }
-  &--title-utilities {
-    .component__header {
-      @include icon ('utilities');
-    }
-  }
+
+  // &--depth-1 > .component__header::before {
+  //   @include h1;
+  // }
+  //
+  // &--title-colors, &--color {
+  //   > .component__header {
+  //     @include icon ('colors');
+  //   }
+  // }
+  // &--title-fonts, &--font {
+  //   > .component__header {
+  //     @include icon ('fonts');
+  //   }
+  // }
+  // &--title-quarks {
+  //   > .component__header {
+  //     @include icon ('quarks');
+  //   }
+  // }
+  // &--title-atoms {
+  //   > .component__header {
+  //     @include icon ('atoms');
+  //   }
+  // }
+  // &--title-molecules {
+  //   > .component__header {
+  //     @include icon ('molecules');
+  //   }
+  // }
+  // &--title-organisms {
+  //   > .component__header {
+  //     @include icon ('organisms');
+  //   }
+  // }
+  // &--title-settings {
+  //   > .component__header {
+  //     @include icon ('settings');
+  //   }
+  // }
+  // &--title-utilities {
+  //   > .component__header {
+  //     @include icon ('utilities');
+  //   }
+  // }
+  // &--html {
+  //   > .component__header {
+  //     @include icon ('html');
+  //   }
+  // }
+  // &--code {
+  //   > .component__header {
+  //     @include icon ('code');
+  //   }
+  // }
 }
