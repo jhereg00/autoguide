@@ -11,7 +11,11 @@ gulp.task('scripts',require('./gulp-tasks/scripts'));
 gulp.task('icons',require('./gulp-tasks/icons'));
 gulp.task('autoguide',['sass','scripts'],function (done) {
   autoguide({
-    src: [global.devPath + "/scss",global.devPath + "/js","./lib"],
+    src: [
+      global.devPath + "/scss",
+      global.devPath + "/js",
+      "./lib"
+    ],
     dest: "./sample",
     templateVars: {
       title: 'Autoguide Docs'

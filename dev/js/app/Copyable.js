@@ -1,7 +1,8 @@
 /***
  *  Copyable
  *
- *  Makes an element clickable, copying a string to the user's clipboard.
+ *  Makes an element clickable, copying a string to the user's clipboard.  To see
+ *  how it looks, check out [the html sample](#/atoms/copyable-element).
  *
  *  @param {DOMElement} element
  *  @param {string} string to copy
@@ -10,8 +11,6 @@
  *    which the string will be copied.
  *  @method copy() - copies string to clipboard. Listener is automatically added,
  *    so you shouldn't need to manually call this.
- *
- *  template: js
  */
 // requirements
 var forEach = require('lib/util/forEach');

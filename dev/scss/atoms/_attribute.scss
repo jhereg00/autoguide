@@ -1,0 +1,38 @@
+/***
+ * Attribute
+ *
+ * A parameter, method, or other array-like bit of info for a component.
+ *
+ * Assumes it's part of an [Attribute List](#/molecules/attribute-list).
+ *
+ * html:
+ *   <dt class="attribute-list__term">
+ *     <span class="attribute__type">DOMElement</span>
+ *     <span class="attribute__name">makeInput()</span>
+ *   </dt>
+ *   <dd class="attribute-list__description">
+ *     <div class="attribute__description">
+ *       <p>internal function to make the input from which the string will be copied.</p>
+ *     </div>
+ *   </dd>
+ *
+ * wrap: dl.attribute-list
+ */
+.attribute {
+  &__type {
+    @include font-mono;
+    @include small;
+    margin-right: $wr;
+    color: $text-subtle;
+    font-style: italic;
+  }
+  &__name {
+    @include font-mono;
+    font-weight: bold;
+  }
+  &__description {
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+}

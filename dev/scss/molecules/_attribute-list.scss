@@ -1,0 +1,49 @@
+/***
+ * Attribute List
+ *
+ * A nestable list of attributes.
+ *
+ * html:
+ *   <dl class="attribute-list attribute-list--methods">
+ *     <h6 class="attribute-list__title">Methods</h6>
+ *     <dt class="attribute-list__term">
+ *       <span class="attribute__type">void</span>
+ *       <span class="attribute__name">toggleGrid()</span>
+ *     </dt>
+ *     <dd class="attribute-list__description">
+ *       <div class="attribute__description">
+ *         <p>adds/removes the 'show-grid' class to the  element so we can show a grid overlay</p>
+ *       </div>
+ *     </dd>
+ *     <dt class="attribute-list__term">
+ *       <span class="attribute__type">void</span>
+ *       <span class="attribute__name">setWidth(width)</span>
+ *     </dt>
+ *     <dd class="attribute-list__description">
+ *       <div class="attribute__description">
+ *         <p>sets the width of the iframe, useful for showing media queries</p>
+ *       </div>
+ *       <dl class="attribute-list attribute-list--parameters">
+ *         <h6 class="attribute-list__title">Parameters</h6>
+ *         <dt class="attribute-list__term">
+ *           <span class="attribute__type">int</span>
+ *           <span class="attribute__name">width</span>
+ *         </dt>
+ *         <dd class="attribute-list__description">
+ *           <div class="attribute__description">
+ *             <p>width in pixels. Resets to default size if falsy</p>
+ *           </div>
+ *         </dd>
+ *       </dl>
+ *     </dd>
+ *   </dl>
+ */
+.attribute-list {
+  &__description {
+    margin-left: $wr * 2;
+
+    .attribute-list__title {
+      @include small;
+    }
+  }
+}

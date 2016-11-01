@@ -6,7 +6,7 @@
  * @param {Array} array to iterate
  * @param {function} fn to call
  *
- * code:
+ * js:
  *   var forEach = require('lib/util/forEach');
  *   forEach(someArray, function (item) { alert(item) });
  */

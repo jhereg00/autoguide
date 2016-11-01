@@ -3,7 +3,7 @@
  *
  *  When required, automatically enables control buttons/toggles.
  *
- *  code:
+ *  js:
  *    require('app/controls');
  */
 // requirements

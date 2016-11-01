@@ -1,12 +1,20 @@
 /***
+ * HTML Sample
+ *
+ * The iframes that show an example of the output of a component.
+ */
+
+/***
  *  Make All Html Samples
  *
  *  Searches for all `<make-iframe>` elements and does just that: makes them iframes.
  *  It also includes the stylesheets and scripts present in the window level `ag`
  *  object.  Those should be populated by the template.
  *
- *  code:
+ *  js:
  *    require('app/HtmlSample').makeAll(); // goes through the whole page and does its thing
+ *
+ *  path: ./app/html-sample
  */
 // requirements
 var forEach = require('lib/util/forEach');
@@ -61,6 +69,9 @@ var samples = [];
  *    @param {int} width - width in pixels. Resets to default size if falsy
  *
  *  @prop element - the actual iframe element
+ *
+ *  path: ./app/html-sample
+ *  order: 0
  */
 var HtmlSample = function (sourceElement) {
   this.sourceElement = sourceElement;
@@ -155,8 +166,10 @@ function makeHtmlSamples () {
  *  iframes.  With the in-frame.css stylesheet included, this will turn on a 12
  *  column grid overlay.
  *
- *  code:
- *    require('app/makeHtmlSamples').toggleGrids()
+ *  js:
+ *    require('app/HtmlSample').toggleGrids()
+ *
+ *  path: ./app/html-sample
  */
 var toggleGrids = function () {
   forEach(samples, function (s) {
@@ -169,10 +182,12 @@ var toggleGrids = function () {
  *
  *  Sets all `HtmlSample`s to the provided width.
  *
- *  code:
+ *  js:
  *    require('app/HtmlSample').setWidths(width);
  *
  *  @param {int} width
+ *
+ *  path: ./app/html-sample
  */
 var setWidths = function (w) {
   forEach(samples, function (s) {

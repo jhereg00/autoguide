@@ -6,11 +6,12 @@
 
   {% block header %}
     <header class="component__header">
+      <p class="file-path">{{ element.filePath | join('/') }}</p>
       <h{{ element.depth | default('1') }}>
         {% if element.generated %}
           {{ element.title | title }}
         {% else %}
-          {{ element.title }}
+          {{ element.title | markdown | replace('<p>','') | replace('</p>','') | safe }}
         {% endif %}
       </h{{ element.depth | default('1') }}>
     </header>

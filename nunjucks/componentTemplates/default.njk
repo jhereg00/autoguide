@@ -3,6 +3,26 @@
 {% import './_macros.njk' as macros %}
 
 {% block main %}
+  {# methods / params / props / whatever #}
+  {{ macros.attributes(element) }}
+
+  {% if element.html %}
+    {% if element.modifier | length %}
+      {% if element.default | length %}
+        {{ macros.htmlSample (element.default[0].name, element.default[0].description, element.html, element.wrap) }}
+      {% else %}
+        {{ macros.htmlSample ("Default", null, element.html, element.wrap) }}
+      {% endif %}
+      {% for mod in element.modifier %}
+        {{ macros.htmlSample (mod.name, mod.description, element.html | addModifier(mod.name), element.wrap) }}
+      {% endfor %}
+    {% else %}
+      {{ macros.htmlSample (null, null, element.html, element.wrap) }}
+    {% endif %}
+    {{ macros.code (element.html, true, 'HTML') }}
+  {% endif %}
+
+  {# real code stuffs #}
   {% if element.code %}
     {{ macros.code (element.code, true) }}
   {% endif %}

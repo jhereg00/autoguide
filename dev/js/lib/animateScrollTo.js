@@ -5,7 +5,7 @@
  *
  *  @param {int} - end position in pixels
  *
- *  code:
+ *  js:
  *    var animateScroll = require('lib/animateScrollTo');
  *    animateScroll(top);
  */

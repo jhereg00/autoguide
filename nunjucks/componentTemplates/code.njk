@@ -1,0 +1,25 @@
+{% extends 'nunjucks/componentTemplates/_componentWrapper.njk' %}
+
+{% import './_macros.njk' as macros %}
+
+{% block main %}
+  {# methods / params / props / whatever #}
+  {{ macros.attributes(element) }}
+
+  {# real code stuffs #}
+  {% if element.code %}
+    {{ macros.code (element.code, true) }}
+  {% endif %}
+
+  {% if element.js %}
+    {{ macros.code (element.js, true, 'javascript') }}
+  {% endif %}
+
+  {% if element.css %}
+    {{ macros.code (element.css, true, 'css') }}
+  {% endif %}
+
+  {% if element.scss %}
+    {{ macros.code (element.scss, true, 'scss') }}
+  {% endif %}
+{% endblock %}

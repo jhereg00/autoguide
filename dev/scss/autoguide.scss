@@ -88,10 +88,10 @@
   'atoms/file-path',
   'atoms/swatch',
   'atoms/font',
-  'atoms/description',
   'atoms/button',
   'atoms/toggle',
-  'atoms/copyable'
+  'atoms/copyable',
+  'atoms/attribute'
   ;
 
 /***
@@ -107,7 +107,8 @@
   'molecules/nav-main',
   'molecules/controls',
   'molecules/color',
-  'molecules/code-block'
+  'molecules/code-block',
+  'molecules/attribute-list'
   ;
 
 /***

@@ -11,4 +11,68 @@ TODO
   padding: 0 $wr;
   margin: $vr * 4 auto;
   max-width: $max-width;
+
+  @for $i from 1 through 4 {
+    &--depth-#{$i} {
+      margin: max($vr * 4, $vr * (10 - $i * 2)) auto;
+    }
+  }
+
+  &__header {
+    position: relative;
+    margin: 0 0 $vr;
+    &::before {
+      @include h3;
+      position: absolute;
+      top: 50%; right: 100%;
+      margin-right: $wr;
+      transform: translateY(-50%);
+    }
+
+    .file-path {
+      position: absolute;
+      right: 0;
+      bottom: $vr * .5;
+    }
+  }
+
+  &--depth-1 > .component__header::before {
+    @include h1;
+  }
+
+  &--title-colors, &--color {
+    > .component__header {
+      @include icon ('colors');
+    }
+  }
+  &--title-quarks {
+    .component__header {
+      @include icon ('quarks');
+    }
+  }
+  &--title-atoms {
+    .component__header {
+      @include icon ('atoms');
+    }
+  }
+  &--title-molecules {
+    .component__header {
+      @include icon ('molecules');
+    }
+  }
+  &--title-organisms {
+    .component__header {
+      @include icon ('organisms');
+    }
+  }
+  &--title-settings {
+    .component__header {
+      @include icon ('settings');
+    }
+  }
+  &--title-utilities {
+    .component__header {
+      @include icon ('utilities');
+    }
+  }
 }

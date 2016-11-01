@@ -35,3 +35,45 @@
     <pre class="code-block__pre {% if collapsable %}collapsable__content js-collapsable-content{% endif %}">{{ content | highlight(language) | safe }}</pre>
   </div>
 {% endmacro %}
+
+
+{###########################################}
+{# an attribute list for code items        #}
+{###########################################}
+{% macro attributeList (list, name) %}
+  <dl class="attribute-list attribute-list--{{ name | lower | replace(' ','-') }}">
+    <h6 class="attribute-list__title">{{ name }}</h6>
+    {% for item in list %}
+      <dt class="attribute-list__term">
+        {% if item.type %}
+          <span class="attribute__type">{{ item.type }}</span>
+        {% endif %}
+        <span class="attribute__name">{{ item.name }}</span>
+      </dt>
+      <dd class="attribute-list__description">
+        <div class="attribute__description">
+          {{ item.description | markdown | safe }}
+        </div>
+        {{ attributes (item) }}
+      </dd>
+    {% endfor %}
+  </dl>
+{% endmacro %}
+
+{###########################################}
+{# make attribute lists for various vars   #}
+{###########################################}
+{% macro attributes (obj) %}
+  {% if obj.param %}
+    {{ attributeList (obj.param, 'Parameters') }}
+  {% endif %}
+  {% if obj.method %}
+    {{ attributeList (obj.method, 'Methods') }}
+  {% endif %}
+  {% if obj.prop %}
+    {{ attributeList (obj.prop, 'Properties') }}
+  {% endif %}
+  {% if obj.returns %}
+    {{ attributeList (obj.returns, 'Returns') }}
+  {% endif %}
+{% endmacro %}

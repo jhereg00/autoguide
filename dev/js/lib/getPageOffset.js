@@ -8,7 +8,7 @@
  *    @prop {number} left
  *    @prop {number} top
  *
- *  code:
+ *  js:
  *    var getPageOffset = require('lib/getPageOffset');
  *    getPageOffset(someElement);
  */

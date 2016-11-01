@@ -3,6 +3,8 @@
  *
  * Element that, when clicked, copies a string to the user's clipboard.
  *
+ * When hovered, an icon appears. It jumps when the user clicks (thus getting the copy).
+ *
  * html:
  *   <span data-copy="Copy Me!">Click to "Copy Me"</span>
  */
