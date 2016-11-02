@@ -159,7 +159,7 @@ function makeHtmlSamples () {
   };
 }
 
-/***
+/**
  *  Toggle HTML Sample Grids
  *
  *  Toggles a `.show-grid` class on the `<html>` element inside all the

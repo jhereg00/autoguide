@@ -59,7 +59,7 @@
     }
   }
 
-  [id*="primary"] & {
+  [id*="primary"] &, [id*="brand"] & {
     @include h4;
     .color {
       width: 50%;

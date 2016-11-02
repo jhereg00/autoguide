@@ -1,5 +1,21 @@
 {% extends 'nunjucks/componentTemplates/_componentWrapper.njk' %}
 
-{% block preheader %}
-  <strong style="color: red;">JS</strong>
+
+{% import './_macros.njk' as macros %}
+
+
+{% block main %}
+  {# methods / params / props / whatever #}
+  {{ macros.attributes(element) }}
+
+  {# real code stuffs #}
+  {% if element.code %}
+    {{ macros.code (element.code, true) }}
+  {% endif %}
+
+  {% if element.js %}
+    {{ macros.code (element.js, true, 'javascript') }}
+  {% endif %}
+
+  {{ macros.autoHtmlSample(element) }}
 {% endblock %}

@@ -4,6 +4,8 @@
  *  Makes an element clickable, copying a string to the user's clipboard.  To see
  *  how it looks, check out [the html sample](#/atoms/copyable-element).
  *
+ *  Initializes automatically on elements with `[data-copy]` as an attribute.
+ *
  *  @param {DOMElement} element
  *  @param {string} string to copy
  *

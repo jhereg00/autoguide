@@ -22,6 +22,8 @@
  *       </html>'>
  *     </iframe>
  *   </div>
+ *
+ * wrap: .component
  */
 .html-sample {
   &__header--class-name {
@@ -35,5 +37,7 @@
   &__iframe {
     border: $vr / 4 solid $border-html;
     width: calc(100% - #{$vr / 2});
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
 }

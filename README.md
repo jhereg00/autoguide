@@ -79,6 +79,7 @@ These components will output to the styleguide when using the default template.
 * `wrap:` - element(s) to wrap the html content in. Written similar to [Emmet](http://emmet.io/), but significantly less robust. Really just handles tags, classes, and ids. Example: `wrap: div.outer>section.inner` would wrap the html content so that it outputs `<div class="outer"><section class="inner">{{ content }}</section></div>`.  This is useful for elements that inherit styles or when javascript only inits components within certain other elements.
 * `path:` - define a path for where to place this within the styleguide.  This overrides the default of placing a component based on it's file location.  Use `.` or `./` to make it top level.
 * `order:` - integer of order this component should appear compared to others in the same relative location. If order is defined, it will always be before components without it defined.
+* `fullWidth:` - true if you want this html sample to be full width to the iframe (instead of padded a bit).
 
 ## Attributes
 

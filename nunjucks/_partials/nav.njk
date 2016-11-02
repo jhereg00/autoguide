@@ -1,22 +1,12 @@
 {# builds the styleguide's navigation #}
-{# vars are special and built in to the template for now #}
-{% set foundColors = false %}
-{% set foundFonts = false %}
-{% for var in vars %}
-  {% if var.title == 'color' or var.title == 'colors' %}
-    {% set foundColors = true %}
-  {% elif var.title == 'font' or var.title == 'fonts' %}
-    {% set foundFonts = true %}
-  {% endif %}
-{% endfor %}
 
 {% macro elementLink (element, linkPrepend) %}
-  <li class="ag-nav-main__item">
-    <a href="{{ linkPrepend }}/{{ element.title|lower|replace(' ','-') }}" class="ag-nav-main__link ag-nav-main__link--{{ element.title | lower | replace(' ','-') }}">
+  <li class="nav-main__item">
+    <a href="{{ linkPrepend }}/{{ element.title|lower|replace(' ','-') }}" class="nav-main__link nav-main__link--{{ element.title | lower | replace(' ','-') }}">
       {{ element.title | title }}
     </a>
     {% if element.subElements and element.subElements | length %}
-      <ul class="ag-nav-main__subnav">
+      <ul class="nav-main__subnav">
         {% for subEl in element.subElements %}
           {{ elementLink (subEl, linkPrepend ~ '/' ~ element.title|lower|replace(' ','-')) }}
         {% endfor %}
@@ -25,17 +15,10 @@
   </li>
 {% endmacro %}
 
-<nav class="ag-nav-main ag-tray__tier">
-  <a class="ag-nav-main__opener ag-tray__tier-opener"><span class="visuallyhidden">Open Controls</span></a>
+<nav class="nav-main tray__tier">
+  <a class="nav-main__opener tray__tier-opener"><span class="visuallyhidden">Open Navigation</span></a>
 
-  <ul class="ag-nav-main__list">
-    {% if foundColors %}
-      <li class="ag-nav-main__item"><a class="ag-nav-main__link ag-nav-main__link--colors" href="#/colors">Colors</a></li>
-    {% endif %}
-    {% if foundFonts %}
-      <li class="ag-nav-main__item"><a class="ag-nav-main__link ag-nav-main__link--fonts" href="#/fonts">Fonts</a></li>
-    {% endif %}
-
+  <ul class="nav-main__list">
     {# elements #}
     {% for element in elements %}
       {{ elementLink (element, '#') }}

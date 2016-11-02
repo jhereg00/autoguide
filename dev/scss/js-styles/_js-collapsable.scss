@@ -1,0 +1,23 @@
+/**
+ * Helper styles for js-collapsable
+ */
+.js-collapsable {
+  &__toggle {
+    &::before {
+      content: '+';
+      float: right;
+      font-weight: bold;
+    }
+  }
+  &__content {
+    overflow-y: hidden;
+    height: 0;
+    transition: height $transition-time * 2 $ease-soft;
+  }
+
+  &.is-open {
+    .js-collapsable__toggle::before {
+      content: '-';
+    }
+  }
+}

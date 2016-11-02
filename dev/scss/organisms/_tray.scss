@@ -4,18 +4,18 @@
  *  A fold-away thingy with tiers that can open/close.
  *
  *  html:
- *    <div class="ag-tray">
- *      <div class="ag-tray__tier">
- *        <a class="ag-tray__tier-opener"></a>
+ *    <div class="tray">
+ *      <div class="tray__tier">
+ *        <a class="tray__tier-opener"></a>
  *        <h4>Tier 1</h4>
  *      </div>
- *      <div class="ag-tray__tier">
- *        <a class="ag-tray__tier-opener"></a>
+ *      <div class="tray__tier">
+ *        <a class="tray__tier-opener"></a>
  *        <h4>Tier 2</h4>
  *      </div>
  *    </div>
  */
-.ag-tray {
+.tray {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   pointer-events: none;
@@ -26,12 +26,12 @@
     background: rgba($accent-primary,.5);
     pointer-events: auto;
 
-    > .ag-tray__tiers-container {
+    > .tray__tiers-container {
       filter: drop-shadow(0 0 $wr / 2 rgba($accent-primary,.8));
     }
   }
 }
-.ag-tray__tier {
+.tray__tier {
   position: absolute;
   top: 0; right: 0; bottom: 0;
   width: 80vw;
@@ -58,7 +58,7 @@
     &:nth-child(#{$i}) {
       z-index: 10 - $i;
       background: darken($background-code,8% * ($i - 1));
-      .ag-tray__tier-opener {
+      .tray__tier-opener {
         top: $vr * 2 * ($i - 1);
       }
     }
@@ -79,7 +79,7 @@
     }
   }
 }
-.ag-tray__tier-opener {
+.tray__tier-opener {
   display: block;
   position: absolute;
   top: 0; right: 100%;
@@ -92,7 +92,7 @@
   text-align: center;
   @include h4;
 
-  &:hover, .ag-tray__tier.open & {
+  &:hover, .tray__tier.open & {
     color: $text-body;
   }
 }

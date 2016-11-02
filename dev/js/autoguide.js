@@ -6,7 +6,6 @@
  *  parts of the library we need.
  */
 require('app/HtmlSample').makeAll();
-// require('app/controls');
-// require('app/Tray');
 require('app/hashchange');
 require('app/Copyable');
+require('app/Collapsable');

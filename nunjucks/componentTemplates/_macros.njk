@@ -1,7 +1,7 @@
 {#########################################}
 {# a sample of html that gets iframified #}
 {#########################################}
-{% macro htmlSample (title, description, content, wrap) %}
+{% macro htmlSample (title, description, content, wrap, full) %}
   <div class="html-sample">
     {% if title or description %}
       {% if title %}
@@ -11,7 +11,7 @@
         <div class="html-sample__description">{{ description | markdown | safe }}</div>
       {% endif %}
     {% endif %}
-    <make-iframe class="html-sample__iframe">
+    <make-iframe class="html-sample__iframe{% if full %} fs{% endif %}">
       {% if wrap %}
         {{ content | wrap(wrap) | safe }}
       {% else %}
@@ -21,18 +21,35 @@
   </div>
 {% endmacro %}
 
+{% macro autoHtmlSample (element) %}
+  {% if element.html %}
+    {% if element.modifier | length %}
+      {% if element.default | length %}
+        {{ htmlSample (element.default[0].name, element.default[0].description, element.html, element.wrap, element.fullWidth) }}
+      {% else %}
+        {{ htmlSample ("Default", null, element.html, element.wrap, element.fullWidth) }}
+      {% endif %}
+      {% for mod in element.modifier %}
+        {{ htmlSample (mod.name, mod.description, element.html | addModifier(mod.name), element.wrap, element.fullWidth) }}
+      {% endfor %}
+    {% else %}
+      {{ htmlSample (null, null, element.html, element.wrap, element.fullWidth) }}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
 
 {###########################################}
 {# a block of code, optionally collapsable #}
 {###########################################}
 {% macro code (content, collapsable, language) %}
-  <div class="code-block {% if collapsible %}js-collapsable{% endif %}">
+  <div class="code-block{% if collapsable %} js-collapsable{% endif %}">
     {% if language or collapsable %}
-      <div class="code-block__header {% if collapsable %}collapsable__toggle js-collapsable-toggle{% endif %}">
+      <div class="code-block__header {% if collapsable %}collapsable__toggle js-collapsable__toggle{% endif %}">
         <h6>{{ language | default('Code') }}</h6>
       </div>
     {% endif %}
-    <pre class="code-block__pre {% if collapsable %}collapsable__content js-collapsable-content{% endif %}">{{ content | highlight(language) | safe }}</pre>
+    <pre class="code-block__pre {% if collapsable %}collapsable__content js-collapsable__content{% endif %}">{{ content | highlight(language) | safe }}</pre>
   </div>
 {% endmacro %}
 

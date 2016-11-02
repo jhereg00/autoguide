@@ -1,12 +1,14 @@
 /***
- *  Main Footer
+ * Main Footer
  *
- *  Just a quick signoff.
+ * Just a quick signoff.
  *
- *  html:
+ * html:
  *    <footer class="footer-main">
  *      <p>Created using <a href="https://github.com/jhereg00/autoguide" target="_blank">Autoguide</a>.</p>
  *    </footer>
+ *
+ * fullWidth: true
  */
 .footer-main {
   @include small;

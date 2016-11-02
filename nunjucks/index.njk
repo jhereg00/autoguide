@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ assetPath | replace('/\/$/','') }}/css/autoguide.css">
 </head>
 <body>
+  {% include './_partials/nav.njk' %}
   <div class="page-container">
     <header class="header-main">
       <div class="header-main__inner">
@@ -16,16 +17,23 @@
       </div>
     </header>
 
-    <main class="content-main">
-      {% for element in elements %}
-        {% set parentId = '' %}
-        {% if element.template %}
-          {% include './componentTemplates/' + element.template + '.njk' %}
-        {% else %}
-          {% include './componentTemplates/default.njk' %}
-        {% endif %}
-      {% endfor %}
-    </main>
+    <div class="container-main">
+
+      <main class="content-main">
+        {% for element in elements %}
+          {% set parentId = '' %}
+          {% if element.template %}
+            {% include './componentTemplates/' + element.template + '.njk' %}
+          {% else %}
+            {% include './componentTemplates/default.njk' %}
+          {% endif %}
+        {% endfor %}
+      </main>
+    </div>
+
+    <footer class="footer-main">
+      {{ footerMessage | markdown | safe }}
+    </footer>
   </div>
 
   <script>
