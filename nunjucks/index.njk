@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="{{ assetPath | replace('/\/$/','') }}/css/autoguide.css">
 </head>
 <body>
-  {% include './_partials/nav.njk' %}
   <div class="page-container">
     <header class="header-main">
       <div class="header-main__inner">
@@ -18,6 +17,12 @@
     </header>
 
     <div class="container-main">
+      <section class="tray">
+        <div class="tray__tier tray__tier--navigation">
+          <a class="tray__opener"><i class="icon-menu"></i><span class="visuallyhidden">Open Navigation</span></a>
+          {% include './_partials/nav.njk' %}
+        </div>
+      </section>
 
       <main class="content-main">
         {% for element in elements %}

@@ -39,11 +39,14 @@
  *   </dl>
  */
 .attribute-list {
+  padding: 0 $wr;
+  &__title {
+    @include small;
+  }
   &__description {
     margin-left: $wr * 2;
-
-    .attribute-list__title {
-      @include small;
+    .attribute-list {
+      padding: 0;
     }
   }
 }

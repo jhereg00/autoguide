@@ -13,7 +13,6 @@
 .footer-main {
   @include small;
   padding: $vr $wr;
-  margin-top: $vr * 8;
   background: $background-footer;
 
   @if (lightness($background-footer) < 55) {

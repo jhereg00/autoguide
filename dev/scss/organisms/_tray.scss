@@ -6,93 +6,100 @@
  *  html:
  *    <div class="tray">
  *      <div class="tray__tier">
- *        <a class="tray__tier-opener"></a>
+ *        <a class="tray__opener"></a>
  *        <h4>Tier 1</h4>
  *      </div>
  *      <div class="tray__tier">
- *        <a class="tray__tier-opener"></a>
+ *        <a class="tray__opener"></a>
  *        <h4>Tier 2</h4>
  *      </div>
  *    </div>
+ *
+ *  wrap: [style="height: 200px"]
  */
+$tray-width: multipleAbove(pxToRem(260), $wr);
 .tray {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  pointer-events: none;
+  top: 0; left: 0;
   z-index: 9999999;
-  transition: background .3s;
 
-  &.open {
-    background: rgba($accent-primary,.5);
-    pointer-events: auto;
+  & + * {
+    transition: margin-left $transition-time * 4 $ease-soft;
+  }
 
-    > .tray__tiers-container {
-      filter: drop-shadow(0 0 $wr / 2 rgba($accent-primary,.8));
-    }
+  &.is-open + * {
+    margin-left: $tray-width;
   }
 }
 .tray__tier {
   position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 80vw;
-  padding: $vr $wr;
+  top: 0; left: 0; bottom: 0;
+  width: $tray-width;
   box-sizing: border-box;
-  background: $background-code;
-  pointer-events: auto;
-  transform: translateX(100%);
-  transition: transform .3s, right .3s;
+  background: $background-tray;
+  border-right: 1px solid $border-tray;
+  transition: transform $transition-time * 3 $ease-soft;
   z-index: 10;
+  transform: translateX(-100%);
 
-  @include mq ($bp-medium) {
-    width: 33vw;
-  }
-  @include mq ($bp-large) {
-    width: 20vw;
-  }
-
-  &.open {
+  &.is-open {
     transform: none;
-  }
-
-  @for $i from 2 through 5 {
-    &:nth-child(#{$i}) {
-      z-index: 10 - $i;
-      background: darken($background-code,8% * ($i - 1));
-      .tray__tier-opener {
-        top: $vr * 2 * ($i - 1);
-      }
-    }
-
-    $nest-selector: '&.open +';
-    @if ($i > 2) {
-      @for $j from 3 through $i {
-        $nest-selector: $nest-selector '&.open +';
-      }
-    }
-    #{$nest-selector} & {
-      @include mq ($bp-medium) {
-        right: 33vw * ($i - 1);
-      }
-      @include mq ($bp-large) {
-        right: 20vw * ($i - 1);
+    > .tray__opener {
+    text-indent: $wr * -.25;
+      clip-path: polygon(#{$wr} 0, #{$wr * 3} 0, #{$wr * 3} #{$vr * 1.5}, #{$wr * 3} #{$vr * 3}, #{$wr} #{$vr * 3}, 0 #{$vr * 1.5});
+      &::after {
+        border-left-width: 0;
+        border-right-width: calc(#{$wr} + 1px);
       }
     }
   }
 }
-.tray__tier-opener {
+.tray__opener {
+  @include h4;
   display: block;
   position: absolute;
-  top: 0; right: 100%;
-  width: $wr * 2;
-  height: $vr * 2;
-  background: inherit;
+  top: $vr; left: 100%;
+  width: $wr * 4;
+  height: $vr * 3;
+  box-sizing: border-box;
+  margin-left: $wr * -1;
+  line-height: $vr * 3;
+  background: $background-tray;
   cursor: pointer;
+  border: 1px solid $border-tray;
+  border-width: 1px 0;
   color: $text-subtle;
-  transition: color .3s;
+  transition: color $transition-time;
   text-align: center;
-  @include h4;
+  text-indent: $wr * .25;
+  clip-path: polygon(#{$wr} 0, #{$wr * 3} 0, #{$wr * 4} #{$vr * 1.5}, #{$wr * 3} #{$vr * 3}, #{$wr} #{$vr * 3}, #{$wr} #{$vr * 1.5});
+  transition: clip-path $transition-time, text-indent $transition-time;
 
   &:hover, .tray__tier.open & {
     color: $text-body;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 1px;
+    border-width: calc(#{$vr * 1.5} - 1px);
+    border-right-width: calc(#{$wr} - 1px);
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: $border-tray;
+    border-right-color: transparent;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    border-width: calc(#{$vr * 1.5} - 1px);
+    border-left-width: calc(#{$wr} - 1px);
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: $border-tray;
+    border-left-color: transparent;
+    transition: border-width $transition-time;
   }
 }

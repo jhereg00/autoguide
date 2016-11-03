@@ -3,6 +3,7 @@
  */
 .js-collapsable {
   &__toggle {
+    cursor: pointer;
     &::before {
       content: '+';
       float: right;

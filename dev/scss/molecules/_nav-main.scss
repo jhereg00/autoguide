@@ -2,24 +2,23 @@
  *  Main Nav
  *
  *  html:
- *    <nav class="ag-nav-main ag-tray__tier open">
- *      <a class="ag-nav-main__opener ag-tray__tier-opener"><span class="visuallyhidden">Open Controls</span></a>
- *      <ul class="ag-nav-main__list">
- *        <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/colors">Colors</a></li>
- *        <li class="ag-nav-main__item"><a class="ag-nav-main__link" href="#/fonts">Fonts</a></li>
- *        <li class="ag-nav-main__item">
- *          <a href="#/quarks" class="ag-nav-main__link">Quarks</a>
- *          <ul class="ag-nav-main__subnav">
- *            <li class="ag-nav-main__item">
- *              <a href="#/quarks/blockquote" class="ag-nav-main__link">Blockquote</a>
+ *    <nav class="nav-main">
+ *      <ul class="nav-main__list">
+ *        <li class="nav-main__item"><a class="nav-main__link" href="#/colors">Colors</a></li>
+ *        <li class="nav-main__item"><a class="nav-main__link" href="#/fonts">Fonts</a></li>
+ *        <li class="nav-main__item">
+ *          <a href="#/quarks" class="nav-main__link">Quarks</a>
+ *          <ul class="nav-main__subnav">
+ *            <li class="nav-main__item">
+ *              <a href="#/quarks/blockquote" class="nav-main__link">Blockquote</a>
  *            </li>
- *            <li class="ag-nav-main__item">
- *              <a href="#/quarks/code" class="ag-nav-main__link">Code</a>
+ *            <li class="nav-main__item">
+ *              <a href="#/quarks/code" class="nav-main__link">Code</a>
  *            </li>
  *          </ul>
  *        </li>
- *        <li class="ag-nav-main__item">
- *          <a href="#/atoms" class="ag-nav-main__link">Atoms</a>
+ *        <li class="nav-main__item">
+ *          <a href="#/atoms" class="nav-main__link">Atoms</a>
  *        </li>
  *      </ul>
  *    </nav>
@@ -39,60 +38,58 @@ $icons:
   'desktop'
 ;
 
-.ag-nav-main.ag-tray__tier {
-  padding: 0 $wr;
-}
-.ag-nav-main__list {
-  margin: 0;
-  padding: $vr 0;
-  list-style-type: none;
+.nav-main {
   max-height: 100%;
+  padding: $vr * 2 $wr;
   overflow: auto;
   overflow: -moz-scrollbars-none;
   &::-webkit-scrollbar {
-    display: none;
+    width: $wr * .25;
   }
 
-  > .ag-nav-main__item > .ag-nav-main__link {
-    @each $i in $icons {
-      &--#{$i} {
-        @include icon($i);
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    // > .nav-main__item > .nav-main__link {
+    //   @each $i in $icons {
+    //     &--#{$i} {
+    //       @include icon($i);
+    //     }
+    //   }
+    // }
+  }
+  &__item {
+    margin: 0;
+  }
+  &__subnav {
+    @include small;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @for $i from 1 through 5 {
+    $nest-selector: '& ';
+      @if ($i > 1) {
+        @for $j from 2 through $i {
+          $nest-selector: $nest-selector '& ';
+        }
+      }
+      #{$nest-selector} .nav-main__link {
+          padding-left: $wr * ($i);
       }
     }
   }
-}
-.ag-nav-main__item {
-  margin: 0;
-}
-.ag-nav-main__subnav {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+  &__link {
+    display: block;
+    position: relative;
 
-  @for $i from 1 through 5 {
-  $nest-selector: '& ';
-    @if ($i > 1) {
-      @for $j from 2 through $i {
-        $nest-selector: $nest-selector '& ';
-      }
-    }
-    #{$nest-selector} .ag-nav-main__link {
-        padding-left: $wr * ($i + 2);
-    }
+    // &::before {
+    //   position: absolute;
+    //   left: 0;
+    //   margin-right: $wr / 2;
+    //   vertical-align: top;
+    // }
   }
-}
-.ag-nav-main__link {
-  display: block;
-  position: relative;
-  padding-left: $wr * 2;
-
-  &::before {
-    position: absolute;
-    left: 0;
-    margin-right: $wr / 2;
-    vertical-align: top;
-  }
-}
-.ag-nav-main__opener {
-  @include icon('menu');
 }

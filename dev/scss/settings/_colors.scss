@@ -51,9 +51,11 @@ $text-code: $text !default;
 $background-header: $accent-primary !default;
 $background-body: $background-primary !default;
 $background-code: $background-secondary !default;
+$background-tray: $background-primary !default;
 $background-footer: #66676a !default;
 $border-html: $background-secondary !default;
 $border-code: $background-secondary !default;
+$border-tray: $background-secondary !default;
 $overlay-columns: rgba($accent-primary, .1) !default;
 
 
