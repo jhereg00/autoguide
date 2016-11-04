@@ -4,7 +4,7 @@ Node module to automatically build a styleguide/developer guide/whatever from co
 
 By default, the template is built for an Atomic design workflow. [Mine](https://github.com/jhereg00/startup-library), specifically.
 
-If you find a bug or just unexpected behavior, please [submit an issue on GitHub](https://github.com/jhereg00/autoguide/issues).
+If you find a bug or just unexpected behavior, please [submit an issue on GitHub](https://github.com/jhereg00/autoguide/issues).  Pull requests are also welcome.
 
 ## Comment Format
 
