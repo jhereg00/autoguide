@@ -17,8 +17,8 @@
  *    @include body;
  *    @include small;
  */
-$base: pxToRem(20);
-$scale: 1.4;
+$base: pxToRem(20) !default;
+$scale: 1.4 !default;
 @mixin super () {
   @include h1;
   @include mq ($bp-medium) {
