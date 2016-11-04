@@ -28,17 +28,15 @@ Receive New Project &rarr; Design Predicted Components &rarr; Send Components to
 
 ---
 
-# Needs to Achieve Goal
+# Eventual Updates
 * ~~path override~~
 * component status
 * ~~arbitrary variable documentation (color palettes, sizing, etc.)~~
-* styleguide branding overrides
-  * colors, fonts, sizing
-* **arbitrary templating**
-  * **if not defined, system should guess**
+* ~~styleguide branding overrides~~
+* arbitrary templating
+  * ~~if not defined, system should guess~~
 * documentation variable, meant for dev-focused information
-* arbitrary iframe resizing
-* ~~note making/sending?~~: out of scope for now
+* ~~arbitrary iframe resizing~~
 * search
 * ~~nesting as modifier~~
   `@modifier .emmet.style &`

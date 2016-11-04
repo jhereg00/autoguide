@@ -4,7 +4,7 @@ Node module to automatically build a styleguide/developer guide/whatever from co
 
 By default, the template is built for an Atomic design workflow. [Mine](https://github.com/jhereg00/startup-library), specifically.
 
-Biggest TODO: Template customization through variables.
+If you find a bug or just unexpected behavior, please [submit an issue on GitHub](https://github.com/jhereg00/autoguide/issues).
 
 ## Comment Format
 
@@ -39,12 +39,13 @@ Once included in your file, you can simply call it as a function. You may pass i
   * `templateVars` - an object of extra variables to pass to the template
     * `showDev` - boolean for if sections with only code components should show by default. Default: `true`.
     * `footerMessage` - string to put in the footer, parsed with markdown. I appreciate attribution...
+    * `title` - Contents of `<title>` tag and header.
   * `order` - array with the order to sort elements into. Default works for my [startup-library](https://github.com/jhereg00/startup-library)
   * `assetPath` - server path to autoguide specific assets, with the path relative to the value of `dest`. Default: `assets`
   * `assetDest` - file path to autoguide specific assets (will contain `css`, `js`, and `images` folders). Default: assetPath from dest
   * `styles` - array of path(s) to css file(s) for the elements. These are the stylesheets that will be included _within_ the iframes that the html samples are placed in.  The paths need to be what you'd put in the `href` attibute of your `link` tag. Default: ['assets/css/autoguide.css'].
   * `scripts` - array of path(s) to javascript file(s) for the elements. These are the scripts that will be included _within_ the iframes that the html samples are placed in.  The paths need to be what you'd put in the `src` attibute of your `script` tag. Default: ['assets/js/autoguide.js'].
-  * `sassPrepend` - string or array of file(s) to import into the **guide's** css.  Useful for variable overrides or custom component templating.
+  * `sassPrepend` - string or array of file(s) to import into the **guide's** css.  Useful for variable overrides or custom component templating.  To see the variables available, cd into the module's directory (usually `node_modules/autoguide`) and run `npm run sample`, then open `sample/index.html`.
 * `callback` - callback function. Passed `error` and `success` as a boolean
 
 #### Example Usage:
@@ -76,6 +77,7 @@ These components will output to the styleguide when using the default template.
 
 * `html:` - code to use in creating a sample iframe.
 * `code:` - code to output in a code block. Good for examples of scripts or mixin usage.
+* `scss:`, `js:`, `css:` - code to output in a code block, but also tells language for syntax highlighting.
 * `wrap:` - element(s) to wrap the html content in. Written similar to [Emmet](http://emmet.io/), but significantly less robust. Really just handles tags, classes, and ids. Example: `wrap: div.outer>section.inner` would wrap the html content so that it outputs `<div class="outer"><section class="inner">{{ content }}</section></div>`.  This is useful for elements that inherit styles or when javascript only inits components within certain other elements.
 * `path:` - define a path for where to place this within the styleguide.  This overrides the default of placing a component based on it's file location.  Use `.` or `./` to make it top level.
 * `order:` - integer of order this component should appear compared to others in the same relative location. If order is defined, it will always be before components without it defined.
@@ -87,6 +89,8 @@ These components will output to the styleguide when using the default template.
   Additionally, can write a sass style nest. For example: `@modifier .parent &`.
 * `@default name - description` - description is optional. If modifiers are present, changes the title 'Default' to name and adds the description before the first, unmodified sample.
 * `@param {type} name - description` - type and description are optional. Used to describe parameters/arguments for functions or mixins.
+* `@method {return type} name - description` - type and description are optional. Used to describe methods of an object.
+* `@prop {type} name - description` - type and description are optional. Used to describe properties of an object.
 * `@returns {type} name - description` - all components optional, but should probably have at least one.
 
 # Change Log
@@ -94,8 +98,9 @@ These components will output to the styleguide when using the default template.
 ### 0.3.0
 New template, which is much more thorough and exposes many more options.  New features include:
 * path override
-* arbitrary variable documentation (color palettes, sizing, etc.)
+* some variable documentation (color palettes and fonts, more to come)
 * nested modifiers
+* sass prepend include, to override colors and styles
 
 **This also includes some breaking changes:**
 * `vars` is no longer an option. Instead, comment the areas with your sass variables as you would a component. For example:
@@ -104,11 +109,13 @@ New template, which is much more thorough and exposes many more options.  New fe
    * Colors
    *
    * Stick only to these approved colors.
+   *
+   * template: color
    */
   $red: #e01033;
   $blue: #00129a;
   ```
-* ..
+* New template. Hopefully still handles existing comments well, but the entire nunjucks code was rewritten.
 
 ---
 
@@ -151,3 +158,21 @@ Added icons to predicted atomic nav items.  Added buttons to automatically copy 
 
 #### 0.1.1
 First public release.
+
+---
+
+# Eventual Updates
+
+* ~~path override~~
+* component status
+* ~~arbitrary variable documentation (color palettes, sizing, etc.)~~
+* ~~styleguide branding overrides~~
+* arbitrary templating
+  * additional component templates via including
+  * ~~if not defined, system should guess~~
+* documentation variable, meant for dev-focused information
+* ~~arbitrary iframe resizing~~
+* search
+* ~~nesting as modifier~~
+  `@modifier .emmet.style &`
+* ~~arbitrary ordering of components~~

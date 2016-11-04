@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "mocha tests",
-    "dev": "nodemon --exec 'gulp autoguide' -e js,scss,njk --ignore sample/ --ignore dist/ --ignore dev/fonts/ --ignore dev/scss/utilities/_icons.scss -V"
+    "dev": "nodemon --exec 'gulp autoguide' -e js,scss,njk --ignore sample/ --ignore dist/ --ignore dev/fonts/ --ignore dev/scss/utilities/_icons.scss -V",
+    "sample": "node index.js"
   },
   "keywords": [
     "sass",
