@@ -43,6 +43,7 @@
     "marked": "^0.3.6",
     "mkpath": "^1.0.0",
     "node-sass": "^3.11.1",
-    "nunjucks": "^2.4.2"
+    "nunjucks": "^2.4.2",
+    "postcss": "^5.2.5"
   }
 }
