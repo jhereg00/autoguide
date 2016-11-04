@@ -8,6 +8,10 @@
  *
  * Gleefully stolen from Patrick Clancey's article: http://alistapart.com/article/using-css-mod-queries-with-range-selectors
  *
+ * @param $divisibleBy
+ * @param $remainder
+ * @param $selector - string passed that represents selector for siblings
+ *
  * scss:
  *   @include selectRange(5,9) {
  *     // things you want only items 5 - 9 to do

@@ -195,6 +195,14 @@ var setWidths = function (w) {
   });
 }
 
+// listen for input change
+var sizeInput = document.getElementsByName('htmlSampleSize')[0];
+if (sizeInput) {
+  sizeInput.addEventListener('change', function (e) {
+    setWidths(this.value);
+  });
+}
+
 module.exports = HtmlSample;
 module.exports.makeAll = makeHtmlSamples;
 module.exports.toggleGrids = toggleGrids;

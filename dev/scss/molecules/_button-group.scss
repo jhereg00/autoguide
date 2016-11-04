@@ -1,0 +1,105 @@
+/***
+ * Button Group
+ *
+ * Group of buttons with similar functions.
+ *
+ * Uses sexy-ass [mod queries](#/utilities/mixins/mod-query) to size buttons based
+ * on whether the number is divisible by 2 or 3.
+ *
+ * html:
+ *   <div class="button-group">
+ *     <button class="button button-group__button">Button 1</button>
+ *     <button class="button button-group__button">Button 2</button>
+ *     <button class="button button-group__button">Button 3</button>
+ *     <button class="button button-group__button">Button 4</button>
+ *   </div>
+ *
+ *   <div class="button-group">
+ *     <button class="button button-group__button">Button 1</button>
+ *     <button class="button button-group__button">Button 2</button>
+ *     <button class="button button-group__button">Button 3</button>
+ *     <button class="button button-group__button">Button 4</button>
+ *     <button class="button button-group__button">Button 5</button>
+ *     <button class="button button-group__button">Button 6</button>
+ *   </div>
+ *
+ *   <div class="button-group">
+ *     <button class="button button-group__button">Button 1</button>
+ *     <button class="button button-group__button">Button 2</button>
+ *     <button class="button button-group__button">Button 3</button>
+ *     <button class="button button-group__button">Button 4</button>
+ *     <button class="button button-group__button">Button 5</button>
+ *   </div>
+ */
+.button-group {
+  @include clearFix;
+  margin: $vr 0;
+  display: flex;
+  flex-wrap: wrap;
+  &__button {
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0;
+    border-top-width: 0;
+    flex-shrink: 0;
+
+    &:first-child {
+      border-top-left-radius: $vr / 4;
+      border-top-right-radius: $vr / 4;
+      border-top-width: 1px;
+    }
+    &:last-child {
+      border-bottom-left-radius: $vr / 4;
+      border-bottom-right-radius: $vr / 4;
+    }
+
+    @include modQuery(2,0,'.button-group__button') {
+      width: 50%;
+      &:first-child {
+        border-top-right-radius: 0;
+      }
+      &:nth-child(2) {
+        border-top-right-radius: $vr / 4;
+        border-top-width: 1px;
+      }
+      &:nth-child(2n) {
+        border-left-width: 0;
+      }
+      &:nth-last-child(2) {
+        border-bottom-left-radius: $vr / 4;
+      }
+      &:last-child {
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    @include modQuery(3,0,'.button-group__button') {
+      width: 33.33333%;
+      &:first-child {
+        border-top-right-radius: 0;
+      }
+      &:nth-child(2) {
+        border-top-width: 1px;
+      }
+      &:nth-child(3) {
+        border-top-right-radius: $vr / 4;
+        border-top-width: 1px;
+      }
+      // in case divisible by both 2 and 3
+      &:nth-child(2n) {
+        border-left-width: 1px;
+      }
+      &:nth-child(3n), &:nth-child(3n-1) {
+        border-left-width: 0;
+      }
+      &:nth-last-child(3) {
+        border-bottom-left-radius: $vr / 4;
+      }
+      &:last-child {
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}

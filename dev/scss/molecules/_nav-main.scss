@@ -23,21 +23,6 @@
  *      </ul>
  *    </nav>
  */
-$icons:
-  'colors',
-  'fonts',
-  'quarks',
-  'atoms',
-  'molecules',
-  'organisms',
-  'settings',
-  'utilities',
-  'menu',
-  'phone',
-  'table',
-  'desktop'
-;
-
 .nav-main {
   max-height: 100%;
   padding: $vr * 2 $wr;

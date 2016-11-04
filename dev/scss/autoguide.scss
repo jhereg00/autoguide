@@ -1,5 +1,24 @@
 // guide styles
 @charset 'UTF-8';
+// icon list, used to generate some classes
+$icons:
+  //'colors',
+  //'fonts',
+  //'quarks',
+  //'atoms',
+  //'molecules',
+  //'organisms',
+  'settings',
+  //'utilities',
+  'menu',
+  'phone',
+  'tablet',
+  'desktop',
+  //'code',
+  'right-arrow',
+  'copy',
+  //'html'
+;
 
 /***
  * Utilities
@@ -73,7 +92,8 @@
   'quarks/list',
   'quarks/blockquote',
   'quarks/table',
-  'quarks/code'
+  'quarks/code',
+  'quarks/input'
   ;
 
 /***
@@ -102,8 +122,8 @@
  * >\- http://www.smashingmagazine.com/2013/08/other-interface-atomic-design-sass/
  */
 @import
-  'molecules/param',
   'molecules/nav-main',
+  'molecules/button-group',
   'molecules/color',
   'molecules/code-block',
   'molecules/attribute-list'
@@ -121,6 +141,7 @@
   'organisms/section',
   'organisms/header-main',
   'organisms/footer-main',
+  'organisms/controls',
   'organisms/tray',
   'organisms/component',
   'organisms/palette',

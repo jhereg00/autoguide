@@ -30,6 +30,9 @@ $tray-width: multipleAbove(pxToRem(260), $wr);
   &.is-open + * {
     margin-left: $tray-width;
   }
+  &.is-open .tray__tier:not(.is-open) .tray__opener {
+    left: $tray-width * 2;
+  }
 }
 .tray__tier {
   position: absolute;
@@ -45,11 +48,19 @@ $tray-width: multipleAbove(pxToRem(260), $wr);
   &.is-open {
     transform: none;
     > .tray__opener {
-    text-indent: $wr * -.25;
+      text-indent: $wr * -.25;
       clip-path: polygon(#{$wr} 0, #{$wr * 3} 0, #{$wr * 3} #{$vr * 1.5}, #{$wr * 3} #{$vr * 3}, #{$wr} #{$vr * 3}, 0 #{$vr * 1.5});
       &::after {
         border-left-width: 0;
         border-right-width: calc(#{$wr} + 1px);
+      }
+    }
+  }
+
+  @for $i from 2 through 5 {
+    &:nth-child(#{$i}) {
+      .tray__opener {
+        top: $vr + $vr * 4 * ($i - 1);
       }
     }
   }
@@ -73,9 +84,9 @@ $tray-width: multipleAbove(pxToRem(260), $wr);
   text-align: center;
   text-indent: $wr * .25;
   clip-path: polygon(#{$wr} 0, #{$wr * 3} 0, #{$wr * 4} #{$vr * 1.5}, #{$wr * 3} #{$vr * 3}, #{$wr} #{$vr * 3}, #{$wr} #{$vr * 1.5});
-  transition: clip-path $transition-time, text-indent $transition-time;
+  transition: clip-path $transition-time * 3, text-indent $transition-time * 3, left $transition-time * 3;
 
-  &:hover, .tray__tier.open & {
+  &:hover, .tray__tier.is-open & {
     color: $text-body;
   }
 

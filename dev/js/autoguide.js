@@ -10,3 +10,4 @@ require('app/hashchange');
 require('app/Copyable');
 require('app/Collapsable');
 require('app/Tray');
+require('app/UpdateInput');

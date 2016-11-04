@@ -1,0 +1,38 @@
+/***
+ *  Controls
+ *
+ *  Buttons that handle certain guide-level features.
+ *
+ *  html:
+ *    <div class="controls">
+ *      <div class="controls__group controls__group--sample-size">
+ *        <h5 class="controls__group-header">Sample Size</h5>
+ *        <div class="input-text">
+ *          <input type="number" name="sampleSize" id="sampleSize">
+ *        </div>
+ *        <div class="button-group">
+ *          <button class="button button--small button--ison-phone button-group__button js-update-input" value="320">
+ *            <span class="button__text">320px</span>
+ *          </button>
+ *          <button class="button button--small button--ison-tablet button-group__button js-update-input" value="768">
+ *            <span class="button__text">768px</span>
+ *          </button>
+ *          <button class="button button--small button--ison-desktop button-group__button js-update-input" value="1200">
+ *            <span class="button__text">1200px</span>
+ *          </button>
+ *          <button class="button button--small button-group__button js-update-input" value="">
+ *            <span class="button__text">Default</span>
+ *          </button>
+ *        </div>
+ *      </div>
+ *    </div>
+ */
+.controls {
+  padding: $vr $wr;
+  &__group {
+    & + & {
+      margin-top: $vr;
+      border-top: 1px solid $border-html;
+    }
+  }
+}

@@ -1,31 +1,22 @@
-<div class="ag-controls ag-tray__tier">
-  <a class="ag-controls__opener ag-tray__tier-opener"><span class="visuallyhidden">Open Controls</span></a>
-
-  <div class="ag-controls__group ag-controls__group--sample-size">
-    <h4 class="ag-controls__group-header">Sample Size</h4>
-    <div class="toggle">
-      <input type="radio" name="sampleSize" id="sampleSizeMobile" value="320" class="toggle__checkbox">
-      <label title="320" for="sampleSizeMobile" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--phone"><span class="visuallyhidden">Mobile</span></a>
+<div class="controls">
+  <div class="controls__group controls__group--sample-size">
+    <h5 class="controls__group-header">Sample Size</h5>
+    <div class="input-text">
+      <input type="number" name="htmlSampleSize" id="htmlSampleSize">
     </div>
-    <div class="toggle">
-      <input type="radio" name="sampleSize" id="sampleSizeTablet" value="800" class="toggle__checkbox">
-      <label title="800" for="sampleSizeTablet" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--tablet"><span class="visuallyhidden">Tablet (Nexus 10)</span></a>
-    </div>
-    <div class="toggle">
-      <input type="radio" name="sampleSize" id="sampleSizeDesktop" value="" class="toggle__checkbox" checked>
-      <label title="default" for="sampleSizeDesktop" class="toggle__button button--small ag-controls__button ag-controls__button--sample-size ag-controls__button--desktop"><span class="visuallyhidden">Desktop</span></a>
-    </div>
-  </div>
-
-  <div class="ag-controls__group">
-    <h4 class="ag-controls__group-header">Features</h4>
-    <div class="toggle">
-      <input type="checkbox" id="showGrids" class="toggle__checkbox">
-      <label for="showGrids" class="toggle__button button--small ag-controls__button">Show Grid</label>
-    </div>
-    <div class="toggle">
-      <input type="checkbox" id="showDev" class="toggle__checkbox" {% if showDev %}checked{% endif %}>
-      <label for="showDev" class="toggle__button button--small ag-controls__button">Show Code Sections</label>
+    <div class="button-group">
+      <button class="button button--small button--icon-phone button-group__button js-update-input" data-update="htmlSampleSize" value="320">
+        <span class="button__text">320px</span>
+      </button>
+      <button class="button button--small button--icon-tablet button-group__button js-update-input" data-update="htmlSampleSize" value="768">
+        <span class="button__text">768px</span>
+      </button>
+      <button class="button button--small button--icon-desktop button-group__button js-update-input" data-update="htmlSampleSize" value="1200">
+        <span class="button__text">1200px</span>
+      </button>
+      <button class="button button--small button-group__button js-update-input" data-update="htmlSampleSize" value="">
+        <span class="button__text">Default</span>
+      </button>
     </div>
   </div>
 </div>

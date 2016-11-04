@@ -1,0 +1,22 @@
+/***
+ * Input
+ *
+ * Standard input element.
+ *
+ * html:
+ *   <input type="text">
+ */
+input {
+  display: block;
+  width: 100%;
+  padding: 0 $wr / 2;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid $border-input;
+  @include body;
+  @include font-mono;
+
+  &:focus {
+    border-color: $accent-primary;
+  }
+}

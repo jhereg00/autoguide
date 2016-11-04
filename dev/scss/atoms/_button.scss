@@ -4,6 +4,7 @@
  *  Basic button, and its variations.
  *
  *  @modifier .button--small
+ *  @modifier .button--icon-phone
  *
  *  html:
  *    <a class="button">Click Here, Dummy</a>
@@ -27,9 +28,25 @@
     box-shadow: inset 0 0 $vr rgba($accent-primary, .25);
     color: $accent-primary-light;
   }
+
+  @each $iconName in $icons {
+    &--icon-#{$iconName} {
+      @include icon($iconName);
+      padding-left: calc(1.5em + #{$wr});
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: $wr;
+        transform: translateY(-50%);
+      }
+    }
+  }
 }
 
 .button--small {
   @include small;
   padding: $vr / 4 $wr / 2;
+  &::before {
+    left: $wr / 2;
+  }
 }
