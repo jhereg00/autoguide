@@ -14,8 +14,8 @@
  */
 
 // vertical rhythm
-$vr: pxToRem(16);
-$wr: $vr;
+$vr: pxToRem(16) !default;
+$wr: $vr !default;
 
 // base grid width
 $max-width: pxToRem(1020);
