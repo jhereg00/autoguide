@@ -47,6 +47,12 @@
 
 html {
   min-width: 100vw;
+  overflow-x: hidden;
+
+  // hiding scrollbar prevents possible height jitter as text re-wraps
+  &.not-scrollable::-webkit-scrollbar {
+    display: none;
+  }
 }
 html.not-fs body {
   padding: $vr $wr;
@@ -72,7 +78,4 @@ body {
       );
     background-size: #{1 / 12 * 100%} auto;
   }
-}
-::-webkit-scrollbar {
-  display: none;
 }

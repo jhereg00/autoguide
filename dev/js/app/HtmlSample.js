@@ -77,6 +77,9 @@ var HtmlSample = function (sourceElement) {
   this.sourceElement = sourceElement;
   this.element = document.createElement('iframe');
   this.element.setAttribute('class', this.sourceElement.getAttribute('class'));
+  if (sourceElement.dataset && sourceElement.dataset.heightLimit) {
+    this.element.style.maxHeight = sourceElement.dataset.heightLimit;
+  }
 
   this.buildContent();
   this.sourceElement.parentNode.replaceChild(this.element, this.sourceElement);
@@ -95,7 +98,7 @@ HtmlSample.prototype = {
    */
   buildContent: function () {
     var content = '<!doctype html>';
-    content += '<html class="show-dev ' + (this.sourceElement.classList.contains('fs') ? 'fs' : 'not-fs') + '"><head>';
+    content += '<html class="show-dev ' + (this.sourceElement.classList.contains('fs') ? 'fs' : 'not-fs') + (this.sourceElement.dataset && this.sourceElement.dataset.heightLimit ? ' scrollable' : ' not-scrollable') + '"><head>';
     forEach(metas,function (meta) {
       content += meta.outerHTML;
     });

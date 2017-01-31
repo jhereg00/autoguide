@@ -1,7 +1,7 @@
 {#########################################}
 {# a sample of html that gets iframified #}
 {#########################################}
-{% macro htmlSample (title, description, content, wrap, full) %}
+{% macro htmlSample (title, description, content, wrap, full, heightLimit) %}
   <div class="html-sample">
     {% if title or description %}
       {% if title %}
@@ -11,7 +11,7 @@
         <div class="html-sample__description">{{ description | markdown | safe }}</div>
       {% endif %}
     {% endif %}
-    <make-iframe class="html-sample__iframe{% if full %} fs{% endif %}">
+    <make-iframe class="html-sample__iframe{% if full %} fs{% endif %}"{% if heightLimit %} data-height-limit="{{ heightLimit }}"{% endif %}>
       {% if wrap %}
         {{ content | wrap(wrap) | safe }}
       {% else %}
@@ -33,7 +33,7 @@
         {{ htmlSample (mod.name, mod.description, element.html | addModifier(mod.name), element.wrap, element.fullWidth) }}
       {% endfor %}
     {% else %}
-      {{ htmlSample (null, null, element.html, element.wrap, element.fullWidth) }}
+      {{ htmlSample (null, null, element.html, element.wrap, element.fullWidth, element.limitHeight) }}
     {% endif %}
   {% endif %}
 {% endmacro %}
