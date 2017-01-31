@@ -88,11 +88,11 @@
  *   @include qqAtLeast ($n) {
  *     @content;
  *   }
- *  
+ *
  *   @include qqAtMost ($n) {
  *     @content;
  *   }
- *  
+ *
  *   @include qqExactly ($n) {
  *     @content;
  *   }
@@ -226,7 +226,7 @@ body::after {
  * path: ./molecules/code block
  */
 html {
-	min-width: 100vw;
+	/*min-width: 100vw;*/
 	overflow-x: hidden; }
 	html.not-scrollable::-webkit-scrollbar {
 		display: none; }
